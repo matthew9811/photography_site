@@ -9,6 +9,12 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+use think\Route;
+
+//默认页面为登录选择页面
+Route::rule("/", "loginSelect");
+
+
 return [
     '__pattern__' => [
         'name' => '\w+',
@@ -19,3 +25,5 @@ return [
     ],
 
 ];
+
+

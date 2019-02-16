@@ -5,6 +5,12 @@ class Index
 {
     public function index()
     {
-        return view();
+        $User = User::select();
+        return view('', $User);
+    }
+
+
+    public function loginSelect(){
+        return view("index");
     }
 }
