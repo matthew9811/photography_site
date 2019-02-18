@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="/static/jquery.js"></script>
+    <script src="{$Think.config.__static__}jquery.js"></script>
 </head>
 <body>
 <form class="form-group" action="/index/reg/action" method="post">
@@ -22,5 +22,11 @@
     </div>
     <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
 </form>
+<script>
+    $(function () {
+        var i = 0;
+        alert("+++++");
+    })
+</script>
 </body>
 </html>
