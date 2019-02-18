@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/Code/public/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="../common/css/personal.css" rel="stylesheet" />
+    <link href="../common/css/article.css" rel="stylesheet" />
+    <link href="../common/css/style.css" rel="stylesheet" />
+    <script src="/Code/public/static/jquery.js" type="text/javascript"></script>
+</head>
+<body class="bg">
+<!-- background_images -->
+<div id="home" class="bg-img">
+    <!-- nav -->
+    <div class="headerpage"></div>
+    <!-- //nav -->
+    <div class="box"></div>
+    <div class="come_up">
+        <div class="container">
+            <div class="image_div">
+                <img class="img-circle image" src="../common/image/account.jpg" alt="头像"/>
+            </div>
+            <div class="div_right">
+                <br>
+                <p>暮凉同学</p>
+                <div class="div_fans">
+                    <span>Focus </span>30
+                    <span> | </span>
+                    <span>Fans </span>20
+                </div>
+                <div class="div_signature">
+                    <p>狂欢是一群人的孤单，孤单是一个人的狂欢
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </p>
+
+                </div>
+                <div class="my_tab">
+                    <div class="tab_menu">
+                        <ul id="test">
+                            <li class="selected">Photo</li>
+                            <li>Blog</li>
+                            <li>Chat</li>
+                            <li>Need</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //background_images -->
+<div class="blank"></div>
+
+<div class="alter_div">
+    <iframe src="photo.html" scrolling="no" frameborder="0" id="external-frame" onload="setIframeHeight(this)"></iframe>
+</div>
+
+
+<!-- footer -->
+<div class="footerpage"></div>
+<!-- //footer -->
+
+<script type="text/javascript">
+    $(function () {
+        //引入导航栏bar.html
+        $(".headerpage").load("../common/html/bar.html");
+        //引入脚部的固定部分
+        $(".footerpage").load("../common/html/footer.html");
+        //页面卡片
+        var $div_li =$("div.tab_menu ul li");
+        $div_li.click(function(){
+            $(this).addClass("selected")            //当前<li>元素高亮
+                .siblings().removeClass("selected");  //去掉其它同辈<li>元素的高亮
+            var index =  $div_li.index(this);  // 获取当前点击的<li>元素 在 全部li元素中的索引。
+            $("div.tab_box > div")     //选取子节点。不选取子节点的话，会引起错误。如果里面还有div
+                .eq(index).removeClass("hide")
+                .show()   //显示 <li>元素对应的<div>元素
+                .siblings().hide(); //隐藏其它几个同辈的<div>元素
+        });
+
+        //获取点击后的li的内容
+        var obj_lis = document.getElementById("test").getElementsByTagName("li");
+        for(i=0;i<obj_lis.length;i++){
+            obj_lis[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+
+        //根据iframe加载的页面高度，设置iframe的高度
+        function setIframeHeight(iframe) {
+            if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                }
+            }
+        };
+        window.onload = function () {
+            setIframeHeight(document.getElementById('external-frame'));
+        };
+
+    })
+</script>
+</body>
+
+</html>

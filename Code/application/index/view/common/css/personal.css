@@ -1,0 +1,128 @@
+.bg{
+    background-color: #F4F7F9;
+}
+.bg-img{
+    background: url(../image/personal_bg.jpg)no-repeat 0px 0px;
+    background-size: cover;
+    position: relative;
+}
+.box{
+    height: 250px;
+    width: 100%;
+}
+.come_up{
+    position: relative;
+    bottom: -4em;
+    left: 0em;
+}
+.image_div{
+    width: 200px;
+    height: 200px;
+    float: left
+}
+.image{
+    width: 200px;
+    height: 200px;
+}
+.div_right{
+    width: 920px;
+    height: 200px;
+    font-weight:500;
+    /*background-color: #761c19;*/
+    color: white;
+    font-family: '微软雅黑';
+    float: right
+}
+.div_right p{
+    font-size: 25px;
+    font-family: '微软雅黑'
+}
+.div_fans{
+    width: 925px;
+    height: 30px;
+    font-size: 15px
+}
+.div_signature{
+    width: 920px;
+    height: 48px;
+    /*background-color: #2e6da4;*/
+}
+.div_signature p{
+    font-size: 18px;
+    /*background-color: aliceblue;*/
+}
+.div_signature span{
+    font-size: 15px
+}
+.my_tab{
+    /*background-color: white;*/
+    width: 100%;
+    height: 50px
+}
+.tab_menu {
+    clear: both;
+}
+.tab_menu li {
+    width: 200px;
+    height: 100%;
+    font-size: 30px;
+    color: #0f0f0f;
+    float:left;
+    text-align:center;
+    cursor: pointer;
+    align-content: center;
+    list-style:none;
+    border-bottom:none;
+}
+.tab_menu li.selected {
+    color:#FFCC33;
+}
+.tab_box {
+    clear:both;
+    width: 100%
+}
+.hide{
+    display:none
+}
+.photo_div{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 210px;
+}
+.icon_div{
+    width: 240px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0c0c0;
+}
+.add_icon{
+    text-align: center;
+    font-size: 50px;
+    color: #999999;
+}
+.img_div{
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+.blank{
+    width: 100%;
+    height: 60px;
+    background-color: white
+}
+.alter_div{
+    width:100%;
+    height:100%;
+    max-height:100%;
+    background-color: #F4F7F9;
+}
+.alter_div iframe{
+    width: 100%
+}
+

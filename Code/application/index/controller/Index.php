@@ -5,8 +5,9 @@ class Index
 {
     public function index()
     {
-        $User = User::select();
-        return view('', $User);
+//        $User = User::select();
+//        return view('', $User);
+        return view();
     }
 
 

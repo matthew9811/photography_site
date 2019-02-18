@@ -1,0 +1,75 @@
+/*页面顶部*/
+.bar_bg{
+    background-color: #F4F7F9
+}
+.bar_blank{
+    height: 15px;
+    width: 100%
+}
+.bar_a{
+    font-size: 30px;
+    color: black;
+}
+.bar_title{
+    font-size: 50px;
+    color: #FFCC33;
+    font-style: italic;
+    font-family: STLiti
+}
+.bar_ul{
+    font-size: 20px;
+}
+.bar_nav{
+    color: black;
+}
+.bar_search{
+    float:right;
+    padding-top:10px;
+    width: 300px;
+}
+/*页面顶部*/
+
+
+/*页面底部*/
+.footer_end{
+    text-align: center;
+    font-size: 25px;
+    color: #9d9d9d;
+    font-family: 'Arial Rounded MT Bold';
+}
+.footer_size{
+    background-color: white;
+    width: 100%;
+    height: 150px
+}
+.footer_container{
+    text-align: center;
+}
+.footer_ps{
+    font-size: 33px
+}
+.footer_left{
+    float:  left
+}
+.footer_icon{
+    color: #FFCC33;
+    font-size: 30px
+}
+.footer_p{
+    text-align: center;
+    font-size: 15px
+}
+/*页面底部*/
+
+
+/*富文本编辑*/
+.editor_toolbar {
+    border: 1px solid #ccc;/*设置下拉棒*/
+}
+.w-e-text-container{
+    height: 500px !important;/*!important是重点，因为原div是行内样式设置的高度300px*/
+}
+.w-e-toolbar{
+    flex-wrap:wrap;
+}
+/*富文本编辑*/
