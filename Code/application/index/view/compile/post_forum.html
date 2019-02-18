@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoHome</title>
+    <link href="/Code/public/static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../common/css/post_forum.css" rel="stylesheet" />
+    <link href="../common/css/style.css" rel="stylesheet" />
+    <script src="/Code/public/static/jquery.js"></script>
+    <script src="/Code/public/static/wangEditor/release/wangEditor.min.js"></script>
+    <script src="../common/js/util.js"></script>
+    <script src="../common/js/wangEditor.js"></script>
+</head>
+<body class="bg">
+<!-- header -->
+<div class="headerpage"></div>
+<!-- //header -->
+<br>
+<div class="container">
+    <div class="post_left">
+
+    </div>
+
+    <div class="post_editor">
+        <div class="post_input_title">
+            <div class="post_title">Post Title</div>
+            <div class="post_input">
+                <input type="text" class="form-control" placeholder="输入标题">
+            </div>
+
+        </div>
+        <div id="div1" class="post_wangEditor editor_toolbar"></div>
+        <div class="post_replenish">
+            <div class="post_button">
+                <input type="button" value="publish">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+<div class="footerpage"></div>
+<!-- //footer -->
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        interposition();
+        make_editor("#div1");
+
+    })
+</script>
+</html>

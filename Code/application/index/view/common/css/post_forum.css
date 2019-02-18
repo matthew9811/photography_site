@@ -1,0 +1,69 @@
+.bg{
+    background-color: #F4F7F9;
+}
+.post_left{
+    width: 300px;
+    height: 400px;
+    background-color: #FFCC33;
+    float: left;
+}
+.post_editor{
+    width: 800px;
+    height: 587px;
+    /*background-color: white;*/
+    float: right;
+    border: 2px solid white;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+.post_input_title{
+    width: 100%;
+    height: 60px;
+    /*background-color: white;*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+}
+.post_title{
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-indent: 3em;
+    float: left;
+    /*background-color: #880000;*/
+}
+.post_input{
+    float: right;
+    width: 500px;
+    height: 30px;
+}
+.post_wangEditor{
+    width: 100%;
+    height: 433px;
+    background-color: white;
+}
+.post_replenish{
+    width: 100%;
+    height: 90px;
+    /*background-color: #5bc0de;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post_button{
+    border: 2px solid #FFCC33;
+    border-radius:5px;
+    width: 90px;
+    height: 40px;
+}
+.post_button input{
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    border:0;
+    color: #FFCC33;
+    font-size: 20px;
+}

@@ -67,7 +67,7 @@
     border: 1px solid #ccc;/*设置下拉棒*/
 }
 .w-e-text-container{
-    height: 500px !important;/*!important是重点，因为原div是行内样式设置的高度300px*/
+    height: 400px !important;/*!important是重点，因为原div是行内样式设置的高度300px*/
 }
 .w-e-toolbar{
     flex-wrap:wrap;
