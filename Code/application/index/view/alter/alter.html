@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>PhotoHome</title>
-    <link href="../common/css/alter.css" rel="stylesheet" />
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="__ROOT__/common/css/alter.css" rel="stylesheet" />
 </head>
 <body style="background-color: #F4F7F9">
-<!-- bar -->
-<div class="headerpage" style="background-color: white"></div>
-<!-- //bar -->
+
 <br>
 <div class="container" >
     <!-- nav-justified类可以设置导航项等宽显示--->
@@ -112,17 +111,8 @@
         </div>
     </div>
 </div>
-
-<!-- footer -->
-<div class="footerpage"></div>
-<!-- //footer -->
 <script type="text/javascript">
     $(document).ready(function(){  //一定要有这个
-        //引入导航栏
-        $(".headerpage").load("../common/html/bar.html");
-        //引入页面底部
-        $(".footerpage").load("../common/html/footer.html");
-
         //获取上传的头像并预览
         $("#portrait").change(function(){
             var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
@@ -155,4 +145,5 @@
     });
 </script>
 </body>
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>
