@@ -19,7 +19,7 @@ class Index
         return view('index/register/register');
     }
 
-    public function toLogin{
+    public function toLogin(){
         return view('index/register/login');
     }
 
