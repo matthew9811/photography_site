@@ -16,6 +16,42 @@ class Blog extends Model
     protected $labelid = 'labelid';
     protected $status = 'status';
     protected $deleteFlag = 'delete_flag';
+    protected $like = 'like';
+    protected $count = 'count';
+
+    /**
+     * @return string
+     */
+    public function getLike()
+    {
+        return $this->like;
+    }
+
+    /**
+     * @param string $like
+     */
+    public function setLike($like)
+    {
+        $this->like = $like;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * @param string $count
+     */
+    public function setCount($count)
+    {
+        $this->count = $count;
+    }
+
+
 
     /**
      * @return string
