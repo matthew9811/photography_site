@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>PhotoHome</title>
-    <!--<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
-    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <!--<script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
-    <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <link href="../common/css/index.css" rel="stylesheet">
-    <!--<link href="/Code/public/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
     <link href="../common/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/Code//jquery.js"></script>
-    <script type="text/javascript" src="/Code/public/bootstrap/js/bootstrap.js"></script>
+    <link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="__STATIC__/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="__STATIC__/flexisel/jquery.flexisel.js"></script>
     <script type="text/javascript" src="../common/js/util.js"></script>
 </head>
 <body class="bgc">
@@ -26,12 +23,12 @@
         <h2 class="join-text">Do you want to join us?</h2>
         <br>
         <p class="join">
-            <a data-toggle="modal" data-target="#register" href="">
+            <div id="reg">
                 Join
-            </a>/
-            <a data-toggle="modal" data-target="#login" href="">
+            </div>/
+            <div id="log">
                 Login
-            </a>
+            </div>
         </p>
     </div>
 
@@ -74,69 +71,12 @@
     </div>
 </div>
 <!-- //gallery -->
-<!-- 注册窗口 -->
-<div id="register" class="modal fade" tabindex="-1">
-    <div class="modal-dialog" style="width: 450px">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
-            </div>
-            <div class="modal-title">
-                <h1 class="text-center">注册</h1>
-            </div>
-            <div class="modal-body">
-                <form class="form-group" action="">
-                    <div class="form-group">
-                        <input class="form-control" type="text" placeholder="手机号/邮箱">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="密码">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="再次输入密码">
-                    </div>
-                    <div class="text-right">
-                        <button class="btn btn-primary" type="submit">提交</button>
-                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                    </div>
-                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-                </form>
-            </div>
-        </div>
+<div class="modal fade" id="ajax" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
     </div>
 </div>
-<!-- 登录窗口 -->
-<div id="login" class="modal fade">
-    <div class="modal-dialog" style="width: 450px">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
-            </div>
-            <div class="modal-title">
-                <h1 class="text-center">登录</h1>
-            </div>
-            <div class="modal-body">
-                <form class="form-group" action="">
-                    <div class="form-group">
-                        <input class="form-control" type="text" placeholder="手机号/邮箱">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="密码">
-                    </div>
-                    <div class="text-right">
-                        <button class="btn btn-primary" type="submit">登录</button>
-                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                    </div>
-                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="container">
     <!-- camera work -->
     <div class="index_v2">
@@ -308,6 +248,7 @@
         //引入脚部的固定部分
         $(".footerpage").load("../common/html/footer.html");
 
+
         //gallery的滑动效果
         $("#flexiselDemo1").flexisel({
             visibleItems:4,
@@ -331,8 +272,23 @@
                 }
             }
         });
+
+        function modalOut(url) {
+            $("#ajax").modal({
+                remote: url
+            });
+        }
+
+        $("#reg").on("click",function () {
+            modalOut('reg.html')
+        });
+
+        $("#log").on("click",function () {
+            modalOut('log.html')
+        });
+
+
     });
 </script>
-<script type="text/javascript" src="/Code/public/static/flexisel/jquery.flexisel.js"></script>
 </body>
 </html>

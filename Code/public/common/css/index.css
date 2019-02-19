@@ -23,7 +23,8 @@
     color: white;
     font-size: 30px
 }
-.join a{
+.join div{
+    font-size: 30px;
     color: white
 }
 #flexiselDemo1 {
