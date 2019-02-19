@@ -8,4 +8,9 @@
 namespace app\controller\util\Constant;
 
 
+use think\process\Utils;
+
+class Constant extends Utils
+{
     const INSERT_MARK = 0;
+}
