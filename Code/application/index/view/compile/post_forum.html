@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>PhotoHome</title>
-    <!--<link href="/Code/public/static/bootstrap/css/bootstrap.css" rel="stylesheet" />-->
-    <link href="../common/css/post_forum.css" rel="stylesheet" />
-    <script src="/Code/public/static/wangEditor/release/wangEditor.min.js"></script>
-    <script src="../common/js/wangEditor.js"></script>
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="/common/css/post_forum.css" rel="stylesheet" />
+    <script src="/static/wangEditor/release/wangEditor.min.js"></script>
+    <script src="/common/js/wangEditor.js"></script>
 </head>
 <body class="bg">
-<!-- header -->
-<div class="headerpage"></div>
-<!-- //header -->
-<br>
 <div class="container">
     <div class="post_left">
 
@@ -35,17 +31,11 @@
     </div>
 </div>
 
-
-<!-- footer -->
-<div class="footerpage"></div>
-<!-- //footer -->
-
 </body>
 <script type="text/javascript">
     $(function () {
-        interposition();
         make_editor("#div1");
-
     })
 </script>
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

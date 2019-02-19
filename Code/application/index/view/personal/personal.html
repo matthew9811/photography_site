@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<link href="/Code/public/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
-    <link href="../common/css/personal.css" rel="stylesheet" />
-    <link href="../common/css/article.css" rel="stylesheet" />
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="/common/css/personal.css" rel="stylesheet" />
+    <link href="/common/css/article.css" rel="stylesheet" />
 </head>
 <body class="bg">
 <!-- background_images -->
 <div id="home" class="bg-img">
-    <!-- nav -->
-    <div class="headerpage"></div>
-    <!-- //nav -->
     <div class="box"></div>
     <div class="come_up">
         <div class="container">
@@ -54,16 +51,8 @@
 </div>
 
 
-<!-- footer -->
-<div class="footerpage"></div>
-<!-- //footer -->
-
 <script type="text/javascript">
     $(function () {
-        //引入导航栏bar.html
-        $(".headerpage").load("../common/html/bar.html");
-        //引入脚部的固定部分
-        $(".footerpage").load("../common/html/footer.html");
         //页面卡片
         var $div_li =$("div.tab_menu ul li");
         $div_li.click(function(){
@@ -100,5 +89,5 @@
     })
 </script>
 </body>
-
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

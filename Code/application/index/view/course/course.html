@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Course</title>
-    <link href="../common/css/course.css" rel="stylesheet" />
-
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="/common/css/course.css" rel="stylesheet" />
 </head>
 <body class="course_bg">
-<!-- header -->
-<div class="headerpage"></div>
-<!-- //header -->
 
 <div class="container">
 
@@ -157,13 +154,9 @@
     <!-- //right -->
 
 </div>
-<!-- footer -->
-<div class="footerpage"></div>
-<!-- //footer -->
 </body>
 <script type="text/javascript">
     $(function () {
-        interposition();
         //页面卡片
         var $div_li =$("div.course_tab ul li");
         $div_li.click(function(){
@@ -184,4 +177,5 @@
         });
     })
 </script>
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>
