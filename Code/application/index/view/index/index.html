@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>PhotoHome</title>
-    <link href="../common/css/index.css" rel="stylesheet">
-    <!--<link href="../common/css/style.css" rel="stylesheet" type="text/css" />-->
-    <!--<link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
-    <!--<script src="__STATIC__/jquery.js"></script>-->
-    <!--<script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.js"></script>-->
-    <!--<script type="text/javascript" src="__STATIC__/flexisel/jquery.flexisel.js"></script>-->
-    <!--<script type="text/javascript" src="../common/js/util.js"></script>-->
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="__ROOT__/common/css/index.css" rel="stylesheet">
 </head>
 <body class="bgc">
 <!-- banner -->
@@ -290,5 +285,7 @@
 
     });
 </script>
+<!--尾部页面引用-->
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </body>
 </html>
