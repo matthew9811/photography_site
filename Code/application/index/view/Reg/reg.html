@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="__STATIC__/jquery.js"></script>
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+
 </head>
 <body>
 <form class="form-group" action="/index/reg/action" method="post">
@@ -28,5 +29,8 @@
         alert("+++++");
     })
 </script>
+<!--尾部页面引用-->
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </body>
+
 </html>
