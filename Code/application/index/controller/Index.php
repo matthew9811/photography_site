@@ -16,11 +16,11 @@ class Index
     }
 
     public function toReg(){
-        return view('index/register/register');
+        return view('register/register');
     }
 
     public function toLogin(){
-        return view('index/register/login');
+        return view('register/login');
     }
 
 }
