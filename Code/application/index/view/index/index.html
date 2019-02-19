@@ -63,12 +63,6 @@
     </div>
 </div>
 <!-- //gallery -->
-<div class="modal fade" id="ajax" role="basic" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content"></div>
-    </div>
-</div>
-
 <div class="container">
     <!-- camera work -->
     <div class="index_v2">
@@ -258,18 +252,14 @@
             }
         });
 
-        function modalOut(url) {
-            $("#ajax").modal({
-                remote: url
-            });
-        }
+
 
         $("#reg").on("click",function () {
-            modalOut('reg.html')
+            open("/index/index/toReg",reg);
         });
 
         $("#log").on("click",function () {
-            modalOut('log.html')
+            open("/index/index/toLogin");
         });
 
 
