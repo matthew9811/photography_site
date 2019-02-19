@@ -21,9 +21,9 @@
 }
 .join{
     color: white;
-    font-size: 30px
+    font-size: 30px;
 }
-.join div{
+.join span{
     font-size: 30px;
     color: white
 }
