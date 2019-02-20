@@ -1,11 +1,11 @@
 <?php
 
-namespace app\common\controller;
+namespace app\index\controller;
 
-//use app\index\controller\common\Base;
+use app\index\controller\common\Base;
 use think\Request;
 
-class Forum
+class Forum extends Base
 {
     public function toEditor()
     {

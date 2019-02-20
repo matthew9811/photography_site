@@ -6,7 +6,7 @@
  * Time: 20:25
  */
 
-namespace app\index\controller;
+namespace app\index\controller\common;
 
 use think\Controller;
 use think\session;
