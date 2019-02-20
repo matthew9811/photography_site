@@ -2,10 +2,11 @@
 
 namespace app\common\controller;
 
+use app\index\controller\Base;
 use think\Controller;
 use think\Request;
 
-class Blog extends Controller
+class Blog extends Base
 {
     /**
      * 显示资源列表

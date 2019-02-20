@@ -2,23 +2,24 @@
 
 namespace app\Index\controller;
 
-use think\Controller;
 use think\Request;
 use think\Validate;
 use app\common\model\User;
 
 //注册功能页面
-class Reg extends Controller
+class Reg extends Base
 {
 
     /**
      * 加载注册模版方法
      */
-    public function index(){
+    public function index()
+    {
         return view('reg');
     }
 
-    public function action(Request $request){
+    public function action(Request $request)
+    {
         $User = new User();
         //利用依赖注入的方式进行数据获取
         $req = $request->post();
@@ -35,7 +36,7 @@ class Reg extends Controller
          * 利用定义好的规则进行验证
          */
         $status = $validate->check($req);
-        if ($status){
+        if ($status) {
             //验证通过
 //            $result = DB::table('user')->insert([
 //               'nick_name' => "admin",
@@ -51,9 +52,9 @@ class Reg extends Controller
                 $User->setRealName("海绸")
             ]);
 
-            if ($result > 0){
-                halt("chenggong");
-            }else{
+            if ($result > 0) {
+//                halt("chenggong");
+            } else {
                 return view('Error/not_login');
             }
         } else {

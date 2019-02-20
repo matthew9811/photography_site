@@ -2,10 +2,11 @@
 
 namespace app\common\controller;
 
+use app\admin\controller\commonn\Base;
 use think\Controller;
 use think\Request;
 
-class Forum extends Controller
+class Forum extends Base
 {
     /**
      * 显示资源列表
