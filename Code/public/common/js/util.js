@@ -3,7 +3,8 @@ open = function (url, title) {
         type: 2,
         title: title,
         maxmin: true,
-        area: ['800px', '500px'],
+        shadeClose: true, //点击遮罩关闭层
+        area: ['550px', '450px'],
         content: [url]
     });
 }
