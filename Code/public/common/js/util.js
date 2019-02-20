@@ -1,5 +1,11 @@
 open = function (url, title) {
-
+    layer.open({
+        type: 1,
+        title: title,
+        maxmin: true,
+        area: ['800px', '500px'],
+        content: [url]
+    });
 }
 openBtn = function (url, title) {
     layer.open({
