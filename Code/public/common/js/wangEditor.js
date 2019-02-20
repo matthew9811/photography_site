@@ -1,7 +1,3 @@
-document.write("<script language=javascript src='wangEditor-3.1.1/release/wangEditor.min.js'></script>");
-
-// <script type="text/javascript" src="wangEditor-3.1.1/release/wangEditor.min.js"></script>
-
 function make_editor(id) {
     var E = window.wangEditor;
     var editor = new E(id);

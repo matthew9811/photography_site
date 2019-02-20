@@ -32,7 +32,7 @@ class Index extends Controller
 
     public function toBlogs()
     {
-        return view('blog/blogs');
+        return view('compile/post_forum');
     }
 
     public function toForum()
