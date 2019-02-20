@@ -8,23 +8,23 @@
 <body>
 <div class="container reg_container">
     <div class="login_form">
-        <form>
+        <form action="" method="post">
             <br>
             <div class="reg_mobile">
                 <label>ID</label>
                 <div class="reg_right">
-                    <input type="text" placeholder="手机/邮箱" class="form-control reg_input"/>
+                    <input name="ID" type="text" placeholder="手机/邮箱" class="form-control reg_input"/>
                 </div>
             </div>
             <div class="reg_mobile">
                 <label>Password</label>
                 <div class="reg_right">
-                    <input type="password" placeholder="请输入密码" class="form-control reg_input"/>
+                    <input name="password" type="password" placeholder="请输入密码" class="form-control reg_input"/>
                 </div>
             </div>
             <div class="reg_button">
                 <button type="submit" class="btn btn-default" style="margin-right: 20px">Submit</button>
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button class="btn btn-default">Cancel</button>
             </div>
         </form>
     </div>

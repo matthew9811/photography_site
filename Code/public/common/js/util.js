@@ -7,7 +7,7 @@ open = function (url, title) {
         area: ['550px', '450px'],
         content: [url]
     });
-}
+};
 openBtn = function (url, title) {
     layer.open({
         type: 1,
@@ -20,4 +20,4 @@ openBtn = function (url, title) {
             layer.close(index); //如果设定了yes回调，需进行手工关闭
         }
     });
-}
+};

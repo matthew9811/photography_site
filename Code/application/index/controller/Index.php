@@ -30,6 +30,36 @@ class Index extends Controller
         return view('register/login');
     }
 
+    public function toBlogs()
+    {
+        return view('blog/blogs');
+    }
+
+    public function toForum()
+    {
+        return view('forum/forum');
+    }
+
+    public function toCourse()
+    {
+        return view('course/course');
+    }
+
+    public function toAbout()
+    {
+        return view('index/index');
+    }
+
+    public function toPersonal()
+    {
+        return view('personal/personal');
+    }
+
+    public function toBlog()
+    {
+        return view('blog/blog');
+    }
+
 
     public function login(Request $request)
     {

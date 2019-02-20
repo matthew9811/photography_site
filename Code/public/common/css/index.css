@@ -84,11 +84,17 @@
     background-color: white;
     float: left;
 }
+.index_work1 a{
+    color: #000;
+}
 .index_work2{
     height: 100%;
     width: 560px;
     background-color: white;
     float: right;
+}
+.index_work2 a{
+    color: #000;
 }
 .index_line{
     height: 19px;
