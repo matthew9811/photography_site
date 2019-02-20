@@ -5,7 +5,6 @@ namespace app\index\controller;
 use app\common\model\User;
 use think\Controller;
 use think\Request;
-use app\common\Base;
 use think\Session;
 
 class Index extends Controller

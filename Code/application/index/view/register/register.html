@@ -2,12 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <?php include("__ROOT__/common/html/import.html"); ?>
+    <link href="__ROOT__/common/css/register.css" rel="stylesheet">
 </head>
 <body>
-<!-- 模态框（Modal） -->
-<div class="register_form">
-
+<div class="container reg_container">
+    <div class="reg_form">
+        <form>
+            <br>
+            <div class="reg_mobile">
+                <label>ID</label>
+                <div class="reg_right">
+                    <input type="text" placeholder="手机/邮箱" class="form-control reg_input"/>
+                </div>
+            </div>
+            <div class="reg_mobile">
+                <label>Password</label>
+                <div class="reg_right">
+                    <input type="password" placeholder="请输入密码" class="form-control reg_input"/>
+                </div>
+            </div>
+            <div class="reg_mobile">
+                <label>Affirm</label>
+                <div class="reg_right">
+                    <input type="password" placeholder="再次输入密码" class="form-control reg_input"/>
+                </div>
+            </div>
+            <div class="reg_button">
+                <button type="submit" class="btn btn-default" style="margin-right: 20px">Submit</button>
+                <button type="submit" class="btn btn-default">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>
 <script>
 
