@@ -1,6 +1,6 @@
 open = function (url, title) {
     layer.open({
-        type: 2,
+        type: 1,
         title: title,
         maxmin: true,
         area: ['800px', '500px'],
