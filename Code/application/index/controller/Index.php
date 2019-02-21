@@ -14,7 +14,6 @@ class Index extends Controller
         return view("first/index");
     }
 
-
     public function loginSelect()
     {
         return view("index");
@@ -30,29 +29,9 @@ class Index extends Controller
         return view('register/login');
     }
 
-    public function toBlogs()
-    {
-        return view('compile/post_blog');
-    }
-
-    public function toForum()
-    {
-        return view('forum/forum');
-    }
-
-    public function toCourse()
-    {
-        return view('course/course');
-    }
-
     public function toAbout()
     {
-        return view('index/index');
-    }
-
-    public function toPersonal()
-    {
-        return view('personal/personal');
+        return view('first/index');
     }
 
     public function toBlog()

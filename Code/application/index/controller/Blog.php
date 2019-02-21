@@ -1,13 +1,23 @@
 <?php
 
-namespace app\common\controller;
+namespace app\index\controller;
 
-use app\index\controller\Base;
-use think\Controller;
+use app\index\controller\common\Base;
+
 use think\Request;
 
 class Blog extends Base
 {
+    public function toBlogs()
+    {
+        return view('blog/blogs');
+    }
+
+    public function toBlog()
+    {
+        return view('blog/blog');
+    }
+
     /**
      * 显示资源列表
      *

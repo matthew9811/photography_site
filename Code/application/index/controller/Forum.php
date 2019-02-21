@@ -7,6 +7,11 @@ use think\Request;
 
 class Forum extends Base
 {
+    public function toForum()
+    {
+        return view('forum/forum');
+    }
+
     public function toEditor()
     {
         return view('compile/post_forum');
