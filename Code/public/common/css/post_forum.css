@@ -1,10 +1,10 @@
-.bg{
+.post_bg{
     background-color: #F4F7F9;
 }
 .post_left{
     width: 300px;
-    height: 587px;
-    /*background-color: #FFCC33;*/
+    height: 336px;
+    background-color: #FFCC33;
     float: left;
 }
 .post_editor{
@@ -26,12 +26,11 @@
     /*justify-content: center;*/
 }
 .post_title{
-    width: 150px;
+    width: 100px;
     height: 60px;
     font-size: 20px;
     display: flex;
     align-items: center;
-    text-indent: 3em;
     float: left;
     /*background-color: #880000;*/
 }
@@ -52,6 +51,91 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.post_button{
+    border: 2px solid #FFCC33;
+    border-radius:5px;
+    width: 90px;
+    height: 40px;
+}
+.post_button input{
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    border:0;
+    color: #FFCC33;
+    font-size: 20px;
+}
+.post_up{
+    background-color: #843534;
+    width: 100%;
+    height: 163px;
+}
+.post_line{
+    width: 100%;
+    height: 10px;
+    background-color: #F4F7F9;
+}
+.post_name{
+    /*float: right;*/
+    width: 100%;
+    height: 43px;
+    background-color: #FFCC33;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+}
+.post_forum{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    font-size: 17px;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+}
+.blog_editor{
+    width: 800px;
+    height: 497px;
+    /*background-color: white;*/
+    float: right;
+    border: 2px solid white;
+}
+.post_blog{
+    width: 800px;
+    height: 130px;
+    float: right;
+    background-color: white;
+}
+.post_label{
+    height: 50px;
+    width: 100%;
+    /*background-color: #9d9d9d;*/
+    display: flex;
+    align-items: center;
+}
+.label{
+    font-size: 18px;
+    color: black;
+    /*background-color: #843534;*/
+}
+.label_sign{
+    font-size: 20px;
+    color: #FFCC33;
+}
+.label_ico{
+    width: 100px;
+    /*background-color: #2aabd2;*/
+    font-size: 18px;
+}
+.blog_input{
+    width: 300px;
+    height: 60px;
+    /*background-color: #843534;*/
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .post_button{
     border: 2px solid #FFCC33;

@@ -7,13 +7,4 @@ function make_editor(id) {
 //editor.customConfig.uploadImgServer = '/upload';  // 上传图片到服务器
 
     editor.create();
-    document.getElementById('btn1').addEventListener('click', function () {
-        // 读取 html
-        console.log(editor.txt.html())
-    }, false);
-
-    document.getElementById('btn2').addEventListener('click', function () {
-        // 读取 text
-        alert(editor.txt.text())
-    }, false)
 }

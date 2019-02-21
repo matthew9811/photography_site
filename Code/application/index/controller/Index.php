@@ -11,7 +11,7 @@ class Index extends Controller
 {
     public function index()
     {
-        return view();
+        return view("first/index");
     }
 
 
@@ -32,7 +32,7 @@ class Index extends Controller
 
     public function toBlogs()
     {
-        return view('compile/post_forum');
+        return view('compile/post_blog');
     }
 
     public function toForum()
