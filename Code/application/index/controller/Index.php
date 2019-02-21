@@ -11,7 +11,7 @@ class Index extends Controller
 {
     public function index()
     {
-        return view("first/index");
+        return view("index/content");
     }
 
     public function loginSelect()
@@ -31,7 +31,7 @@ class Index extends Controller
 
     public function toAbout()
     {
-        return view('first/index');
+        return view('index/content');
     }
 
     public function toBlog()
