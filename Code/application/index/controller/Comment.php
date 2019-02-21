@@ -3,7 +3,6 @@
 namespace app\common\controller;
 
 use app\index\controller\Base;
-use think\Controller;
 use think\Request;
 
 class Comment extends Base
