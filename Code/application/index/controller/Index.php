@@ -59,6 +59,7 @@ class Index extends Controller
     public function reg(Request $request)
     {
         $req = $request->post();
+        halt($req);
         $user = new User([
             'nickName' => $req['nickName'],
             'mobile' => $req['mobile'],

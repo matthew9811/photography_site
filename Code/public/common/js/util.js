@@ -7,7 +7,6 @@ open = function (option) {
         area: ['550px', '450px'],
         content: [option.url],
         btn: 'Submit',
-        shadeClose: true,
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
             var data = body.find("form").serializeArray();
@@ -53,7 +52,7 @@ openBtn = function (url, title) {
                 ,
                 moveType: 1 //拖拽模式，0或者1
                 ,
-                content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;text-align:center;font-size:20px;">确定关闭吗~!</div>'
+                content: '<div style="padding: 50px;line-height: 22px;background-color: #393D49; color: #fff; font-weight: 300;text-align:center;font-size:20px;">确定关闭吗~!</div>'
 
             });
 
@@ -68,7 +67,7 @@ openBtn = function (url, title) {
 
 function ajax(data, url, type, index) {
     $.ajax({
-        url: {U: url(url)},
+        url: url,
         type: type,
         data: data,
         dataType: 'json',
@@ -90,7 +89,9 @@ function ajax(data, url, type, index) {
             }
         },
         error: function (data) {
+            alert("1234");
             console.log(data);
+
         }
     })
 }
