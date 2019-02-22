@@ -70,9 +70,11 @@ function ajax(data, url, type, index) {
         url: url,
         type: type,
         data: data,
+        contentType: 'json',
         dataType: 'json',
         success: function (data) {
 
+            alert("成功");
             if (data.value == 1) {
                 layer.msg(data.msg, {
                     icon: 1,
@@ -89,7 +91,6 @@ function ajax(data, url, type, index) {
             }
         },
         error: function (data) {
-            alert("1234");
             console.log(data);
 
         }
