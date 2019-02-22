@@ -65,9 +65,9 @@ openBtn = function (url, title) {
     });
 };
 
-function ajax(data, url, type, index) {
+function ajax(data, rsqUrl, type, index) {
     $.ajax({
-        url: url,
+        url: rsqUrl,
         type: type,
         data: data,
         contentType: 'json',
