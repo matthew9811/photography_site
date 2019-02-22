@@ -7,7 +7,7 @@ use think\Validate;
 use app\common\model\User;
 
 //注册功能页面
-class Reg extends Base
+class Reg
 {
 
     /**
@@ -60,5 +60,11 @@ class Reg extends Base
         } else {
             return view('Error/not_login');
         }
+    }
+
+    public function register(Request $request)
+    {
+        $post = $request->post();
+        echo $post['mobile'];
     }
 }

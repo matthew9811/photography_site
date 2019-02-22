@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <?php include("__ROOT__/common/html/bar.html"); ?>
-    <!--<script src="__static__/jquery.js"></script>-->
+    <?php include("__ROOT__/common/html/import.html"); ?>
+    <link href="__ROOT__/common/css/register.css" rel="stylesheet">
 </head>
 <body>
-<form class="form-group" action="/index/reg/action" method="post">
-    <div class="form-group">
-        <input name="phoneNum" class="form-control" type="text" placeholder="手机号">
+<div class="container reg_container">
+    <div class="reg_form">
+        < id="register_form" action="/index/index/reg" method="post">
+        <br>
+        <div class="reg_mobile">
+            <label for="nickName">nickName</label>
+            <div class="reg_right">
+                <input id="nickName" name="nickName" type="text" placeholder="昵称" class="form-control reg_input"/>
+            </div>
+        </div>
+        <div class="reg_mobile">
+            <label for="mobile">mobile</label>
+            <div class="reg_right">
+                <input id="mobile" name="mobile" type="text" placeholder="手机" class="form-control reg_input"/>
+            </div>
+        </div>
+        <div class="reg_mobile">
+            <label for="password">Password</label>
+            <div class="reg_right">
+                <input id="password" name="password" type="password" placeholder="请输入密码"
+                       class="form-control reg_input"/>
+            </div>
+        </div>
+        <div class="reg_mobile">
+            <label for="confirm">Affirm</label>
+            <div class="reg_right">
+                <input id="confirm" name="confirm" type="password" placeholder="再次输入密码"
+                       class="form-control reg_input"/>
+            </div>
+        </div>
+        <button type="button" id="button" class="btn btn-danger">tiajio</button>
+        </form>
     </div>
-    <div class="form-group">
-        <input name="password" class="form-control" type="password" placeholder="密码">
-    </div>
-    <div class="form-group">
-        <input name="passwordagin" class="form-control" type="password" placeholder="再次输入密码">
-    </div>
-    <div class="text-right">
-        <button class="btn btn-primary" type="submit">提交</button>
-        <button class="btn btn-danger" data-dismiss="modal">取消</button>
-    </div>
-    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-</form>
-<script>
-
-</script>
-<!--尾部页面引用-->
-test tset
-<?php include("__ROOT__/common/html/footer.html"); ?>
+</div>
+<!--<?php include("__ROOT__/common/html/footer.html"); ?>-->
 </body>
-
+<script>
+    $("button").on("click", function () {
+        var $data = $("#register_form").serializeArray();
+        $.ajax({
+            url: "/index/reg/register",
+            data: $data,
+            type: 'post',
+            success: function (data) {
+                alert("-------");
+                alert(data);
+            },
+            error: function (da) {
+                console.log(da);
+            }
+        })
+    })
+</script>
 </html>

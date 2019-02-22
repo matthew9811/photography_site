@@ -69,9 +69,9 @@ class Index extends Controller
 
         $result = $user->save();
         if ($result > 0) {
-            return json("1", "1");
+            return json("1");
         }
-        return json("0", "0");
+        return json("0");
     }
 
 }
