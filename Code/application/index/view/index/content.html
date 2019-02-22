@@ -17,7 +17,8 @@
         <div class="join">
             <sapn id="reg" style="cursor:pointer">
                 Join
-            </sapn>/
+            </sapn>
+            /
             <span id="log" style="cursor:pointer">
                 Login
             </span>
@@ -30,32 +31,32 @@
             <ul id="flexiselDemo1">
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p2.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p2.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p3.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p3.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p4.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p4.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p2.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p2.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p3.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p3.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
                 <li>
                     <div class="wthree_testimonials_grid_main">
-                        <img src="__ROOT__/common/image/p4.jpg" alt=" " class="img-responsive" />
+                        <img src="__ROOT__/common/image/p4.jpg" alt=" " class="img-responsive"/>
                     </div>
                 </li>
             </ul>
@@ -244,7 +245,7 @@
 
         //gallery的滑动效果
         $("#flexiselDemo1").flexisel({
-            visibleItems:4,
+            visibleItems: 4,
             animationSpeed: 1000,
             autoPlay: true,
             autoPlaySpeed: 3000,
@@ -252,39 +253,46 @@
             enableResponsiveBreakpoints: true,
             responsiveBreakpoints: {
                 portrait: {
-                    changePoint:480,
+                    changePoint: 480,
                     visibleItems: 1
                 },
                 landscape: {
-                    changePoint:640,
-                    visibleItems:2
+                    changePoint: 640,
+                    visibleItems: 2
                 },
                 tablet: {
-                    changePoint:768,
+                    changePoint: 768,
                     visibleItems: 3
                 }
             }
         });
 
 
-
-        $("#reg").on("click",function () {
-            open("/index/index/toReg", "Reg");
-            //open("../register/register.html","Reg");
+        $("#reg").on("click", function () {
+            var option = {
+                'url': '/index/index/toReg',
+                'title': "login",
+                'actionUrl': '/index/index/reg'
+            };
+            open(option);
         });
 
-        $("#log").on("click",function () {
-            open("/index/index/toLogin","Login");
+        $("#login").on("click", function () {
+            var option = {
+                'url': '/index/index/toLogin',
+                'title': "login",
+                'actionUrl': '/index/index/login'
+            };
+            open(option);
         });
 
-        $("#work_one").on("click",function () {
+        $("#work_one").on("click", function () {
 
         });
 
-        $("#new_one").on("click",function () {
+        $("#new_one").on("click", function () {
 
         })
-
 
 
     });

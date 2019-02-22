@@ -56,4 +56,21 @@ class Index extends Controller
         }
     }
 
+    public function reg(Request $request)
+    {
+        $req = $request->post();
+        $user = new User([
+            'nickName' => $req['nickName'],
+            'mobile' => $req['mobile'],
+            'password' => $req['password'],
+            'deleteFlag' => '0'
+        ]);
+
+        $result = $user->save();
+        if ($result > 0) {
+            return json("1", "1");
+        }
+        return json("0", "0");
+    }
+
 }
