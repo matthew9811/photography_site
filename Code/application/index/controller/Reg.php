@@ -2,12 +2,13 @@
 
 namespace app\Index\controller;
 
+use think\Controller;
 use think\Request;
 use think\Validate;
 use app\common\model\User;
 
 //注册功能页面
-class Reg
+class Reg extends Controller
 {
 
     /**
@@ -53,7 +54,6 @@ class Reg
             ]);
 
             if ($result > 0) {
-//                halt("chenggong");
             } else {
                 return view('Error/not_login');
             }
@@ -65,6 +65,8 @@ class Reg
     public function register(Request $request)
     {
         $post = $request->post();
-        echo $post['mobile'];
+//        $data = input('$_POST.mobile');//获取值
+//        return json(1);
+        halt($post["mobile"]);
     }
 }

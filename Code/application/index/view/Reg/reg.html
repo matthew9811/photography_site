@@ -9,7 +9,7 @@
 <body>
 <div class="container reg_container">
     <div class="reg_form">
-        < id="register_form" action="/index/index/reg" method="post">
+        <form id="register_form" action="/index/index/reg" method="post">
         <br>
         <div class="reg_mobile">
             <label for="nickName">nickName</label>
@@ -45,13 +45,13 @@
 </body>
 <script>
     $("button").on("click", function () {
-        var $data = $("#register_form").serializeArray();
+        var data = $("#register_form").serializeArray();
+        alert(data);
         $.ajax({
             url: "/index/reg/register",
-            data: $data,
+            data: data,
             type: 'post',
             success: function (data) {
-                alert("-------");
                 alert(data);
             },
             error: function (da) {

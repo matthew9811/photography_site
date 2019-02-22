@@ -9,7 +9,8 @@ open = function (option) {
         btn: 'Submit',
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
-            var data = body.find("form").serializeArray();
+            //var data = body.find("form").serializeArray();
+            var data = body.find(id).serializeArray();
             var url = option.actionUrl;
             var type = 'post';
             ajax(data, url, type, index);
