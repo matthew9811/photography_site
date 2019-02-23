@@ -65,19 +65,12 @@ class Index extends Controller
         $user->mobile = $req["mobile"];
         $user->password = $req["password"];
         $user->delete_flag = '0';
-//        halt($user['nickName']);
-        $user->save();
-//        $result = Db::table("user")->insert([
-//            'nick_Name' => $req["nickName"],
-//            'mobile' => $req["mobile"],
-//            'password' => md5($req["password"]),
-//            'delete_flag' => '0',
-//        ]);
-//        if ($result) {
+        $result = $user->save();
+        if ($result) {
             return $this->success("注册成功", '/');
-//        } else {
-//            return $this->error("注册失败");
-//        }
+        } else {
+            return $this->error("注册失败");
+        }
 
     }
 

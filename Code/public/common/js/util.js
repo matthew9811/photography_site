@@ -73,10 +73,7 @@ function ajax(data, rsqUrl, type, index) {
         url: rsqUrl,
         type: 'post',
         data: data,
-        // contentType: 'json',
-        dataType: 'json',
         success: function (data) {
-
             alert("成功");
             $.operate.successCallback(data);
             if (data.value == 1) {
@@ -95,7 +92,6 @@ function ajax(data, rsqUrl, type, index) {
             }
         },
         error: function (data) {
-            alert("失败了");
             console.log(data);
         }
     })
