@@ -9,6 +9,6 @@ function make_editor(id,id2) {
     var content;
     $(id2).click(function () {
         content = editor.txt.html();
-        alert(content);
+        ajax({'content': content}, "/index/Blog/saveBlog");
     })
 }

@@ -9,9 +9,9 @@ open = function (option) {
         btn: 'Submit',
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
-            //var data = body.find("form").serializeArray();
+            var data = body.find("form").serializeArray();
             // var data = body.find(id).serializeArray();
-            var data = layer.find('iframe')[0];
+            // var data = layer.find('iframe')[0];
             data.contentWindow.submitHandler();
             var url = option.actionUrl;
             var type = 'post';
@@ -75,7 +75,6 @@ function ajax(data, rsqUrl, type, index) {
         data: data,
         success: function (data) {
             alert("成功");
-            $.operate.successCallback(data);
             if (data.value == 1) {
                 layer.msg(data.msg, {
                     icon: 1,
@@ -96,3 +95,19 @@ function ajax(data, rsqUrl, type, index) {
         }
     })
 }
+
+function ajax(data, rsqUrl) {
+    $.ajax({
+        url: rsqUrl,
+        type: 'post',
+        data: data,
+        success: function (data) {
+            console.log(data.status);
+            alert("成功");
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    })
+}
+
