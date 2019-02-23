@@ -69,7 +69,7 @@ class Index extends Controller
         $result = Db::table("user")->insert([
             'nick_Name' => $req["nickName"],
             'mobile' => $req["mobile"],
-            'password' => $req["password"],
+            'password' => md5($req["password"]),
             'delete_flag' => '0',
         ]);
         if ($result) {
