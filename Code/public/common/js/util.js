@@ -10,7 +10,9 @@ open = function (option) {
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
             //var data = body.find("form").serializeArray();
-            var data = body.find(id).serializeArray();
+            // var data = body.find(id).serializeArray();
+            var data = layer.find('iframe')[0];
+            data.contentWindow.submitHandler();
             var url = option.actionUrl;
             var type = 'post';
             ajax(data, url, type, index);
@@ -69,13 +71,14 @@ openBtn = function (url, title) {
 function ajax(data, rsqUrl, type, index) {
     $.ajax({
         url: rsqUrl,
-        type: type,
+        type: 'post',
         data: data,
-        contentType: 'json',
+        // contentType: 'json',
         dataType: 'json',
         success: function (data) {
 
             alert("成功");
+            $.operate.successCallback(data);
             if (data.value == 1) {
                 layer.msg(data.msg, {
                     icon: 1,
@@ -92,8 +95,8 @@ function ajax(data, rsqUrl, type, index) {
             }
         },
         error: function (data) {
+            alert("失败了");
             console.log(data);
-
         }
     })
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <?php include("__ROOT__/common/html/import.html"); ?>
+    <!--<?php include("__ROOT__/common/html/import.html"); ?>-->
+    <script src="/static/jquery.js"></script>
     <link href="__ROOT__/common/css/register.css" rel="stylesheet">
 </head>
 <body>
@@ -46,17 +47,21 @@
 <script>
     $("button").on("click", function () {
         var data = $("#register_form").serializeArray();
+        console.log(data);
         $.ajax({
             url: "/index/index/reg",
-            data: data,
             type: 'post',
+            dataType: 'json',
+            data: data,
             success: function (data) {
                 alert(data);
             },
-            error: function (da) {
-                console.log(da);
+            error: function (data) {
+                alert("失败了");
+                console.log(data);
             }
-        })
+        });
+        return false;
     })
 </script>
 </html>

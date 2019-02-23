@@ -59,7 +59,15 @@ class Index extends Controller
 
     public function reg(Request $request)
     {
+        print_r($_GET);
+        print_r($request->param());
         $req = $request->post();
+//        $a = json_decode($request, true);
+//        echo gettype($req);
+//        print_r($req);
+//        print_r($request);
+//        $aa['id'] = $request->post['id'];
+//        print_r($aa);
 //        $user = new User();
 //        $user->nickName = $req["nickName"];
 //        $user->mobile = $req["mobile"];
