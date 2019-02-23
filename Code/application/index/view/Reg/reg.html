@@ -46,9 +46,8 @@
 <script>
     $("button").on("click", function () {
         var data = $("#register_form").serializeArray();
-        alert(data);
         $.ajax({
-            url: "/index/reg/register",
+            url: "/index/index/reg",
             data: data,
             type: 'post',
             success: function (data) {

@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use app\common\model\User;
 use think\Controller;
+use think\Db;
 use think\Request;
 use think\Session;
 
@@ -59,18 +60,23 @@ class Index extends Controller
     public function reg(Request $request)
     {
         $req = $request->post();
-        $user = new User([
-            'nickName' => $req["nickName"],
+//        $user = new User();
+//        $user->nickName = $req["nickName"];
+//        $user->mobile = $req["mobile"];
+//        $user->password = $req["password"];
+//        $user->deleteFlag = '0';
+//        $user->save();
+        $result = Db::table("user")->insert([
+            'nick_Name' => $req["nickName"],
             'mobile' => $req["mobile"],
             'password' => $req["password"],
-            'deleteFlag' => '0'
+            'delete_flag' => '0',
         ]);
-
-        $result = $user->save();
-        if ($result > 0) {
-            return json("1");
+        if ($result) {
+            return $this->success("注册成功", '/');
+        } else {
+            return $this->error("注册失败");
         }
-        return json("0");
     }
 
 }
