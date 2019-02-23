@@ -12,16 +12,28 @@
     <div class="post_left">
         <div class="post_up">
             <div class="post_name container">The New</div>
-            <div class="post_forum container">The forum title</div>
-            <div class="post_forum container">The forum title</div>
-            <div class="post_forum container">The forum title</div>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
         </div>
         <div class="post_line"></div>
         <div class="post_up">
-            <div class="post_name container">The hot topic</div>
-            <div class="post_forum container">The forum title</div>
-            <div class="post_forum container">The forum title</div>
-            <div class="post_forum container">The forum title</div>
+            <div class="post_name container">The hot article</div>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
+            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">The blog title</div>
+            </a>
         </div>
     </div>
 
@@ -47,7 +59,7 @@
         </div>
         <div class="blog_input">
             <div class="post_button">
-                <input type="button" value="publish">
+                <input type="button" value="publish" id="btn">
             </div>
         </div>
     </div>
@@ -56,7 +68,7 @@
 </body>
 <script type="text/javascript">
     $(function () {
-        make_editor("#div1");
+        make_editor("#div1","#btn");
     })
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>

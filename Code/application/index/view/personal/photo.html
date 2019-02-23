@@ -1,7 +1,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="../common/css/personal.css" rel="stylesheet" />
+    <?php include("__ROOT__/common/html/personal.html"); ?>
+    <link href="__ROOT__/common/css/personal.css" rel="stylesheet" />
 </head>
 <body style="background-color: #F4F7F9">
 <div class="container">
@@ -14,14 +15,12 @@
         <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
         </div>
         <div class='photo_div'>
-            <img src='../common/image/personal_bg.jpg' class='img_div'>
+            <img src='__ROOT__/common/image/d7.jpg' class='img_div'>
         </div>
         <div class='photo_div'>
-            <img src='../common/image/personal_bg.jpg' class='img_div'>
+            <img src='__ROOT__/common/image/d8.jpg' class='img_div'>
         </div>
-        <div class='photo_div'>
-            <img src='../common/image/personal_bg.jpg' class='img_div'>
-        </div>
+
     </div>
 </div>
 
@@ -31,12 +30,11 @@
         //获取上传的文件并预览
         $("#name").change(function(){
             var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
-            //console.log("objUrl = "+objUrl);
+            console.log("objUrl = "+objUrl);
             if (objUrl) {
                 $("#photos").append("<div class='photo_div'>" +
                     "            <img src='" + objUrl + "' class='img_div'>" +
                     "        </div>");
-                IFrameResize();//每次新增照片时获取当前页面的高度
             }
         }) ;
         function getObjectURL(file) {
@@ -51,14 +49,11 @@
             return url ;
         }
 
-        //获取当前页面的高度，再调整父页面中iframe的高度
-        function IFrameResize(){
-            //alert(this.document.body.scrollHeight); //弹出当前页面的高度
-            var obj = parent.document.getElementById("external-frame");  //取得父页面IFrame对象
-            //alert(obj.height); //弹出父页面中IFrame中设置的高度
-            obj.height = this.document.body.scrollHeight;  //调整父页面中IFrame的高度为此页面的高度
-        }
+        $("div.tab_menu ul li").eq(0).css({"color":"#FFCC33"});
+        $("div.tab_menu ul li").eq(1).css({"color":"#000"});
+        $("div.tab_menu ul li").eq(2).css({"color":"#000"});
 
     })
 </script>
+<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

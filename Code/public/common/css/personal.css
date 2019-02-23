@@ -63,7 +63,7 @@
     clear: both;
 }
 .tab_menu li {
-    width: 200px;
+    width: 280px;
     height: 100%;
     font-size: 30px;
     color: #0f0f0f;
@@ -123,6 +123,7 @@
     background-color: #F4F7F9;
 }
 .alter_div iframe{
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 

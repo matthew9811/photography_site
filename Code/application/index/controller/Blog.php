@@ -6,7 +6,7 @@ use app\index\controller\common\Base;
 
 use think\Request;
 
-class Blog extends Base
+class Blog
 {
     public function toBlogs()
     {

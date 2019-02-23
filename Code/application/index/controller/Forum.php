@@ -5,7 +5,7 @@ namespace app\index\controller;
 use app\index\controller\common\Base;
 use think\Request;
 
-class Forum extends Base
+class Forum
 {
     public function toForum()
     {
@@ -17,4 +17,8 @@ class Forum extends Base
         return view('compile/post_forum');
     }
 
+    public function toInvitation()
+    {
+        return view('forum/invitation');
+    }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <?php include("/common/html/bar.html"); ?>
     <link href="/common/css/personal.css" rel="stylesheet" />
     <link href="/common/css/article.css" rel="stylesheet" />
 </head>
@@ -13,7 +13,7 @@
     <div class="come_up">
         <div class="container">
             <div class="image_div">
-                <img class="img-circle image" src="__ROOT__/common/image/account.jpg" alt="头像"/>
+                <img class="img-circle image" src="/common/image/account.jpg" alt="头像"/>
             </div>
             <div class="div_right">
                 <br>
@@ -25,17 +25,18 @@
                 </div>
                 <div class="div_signature">
                     <p>狂欢是一群人的孤单，孤单是一个人的狂欢
-                        <span class="glyphicon glyphicon-pencil"></span>
+                        <a href="/index/Personal/toAlter" style="color: white">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
                     </p>
 
                 </div>
                 <div class="my_tab">
                     <div class="tab_menu">
                         <ul id="test">
-                            <li class="selected">Photo</li>
+                            <li>Photo</li>
                             <li>Blog</li>
                             <li>Chat</li>
-                            <li>Need</li>
                         </ul>
                     </div>
                 </div>
@@ -45,11 +46,6 @@
 </div>
 <!-- //background_images -->
 <div class="blank"></div>
-
-<div class="alter_div">
-    <iframe src="" scrolling="no" frameborder="0" id="external-frame" onload="setIframeHeight(this)"></iframe>
-</div>
-
 
 <script type="text/javascript">
     $(function () {
@@ -67,27 +63,20 @@
 
         //获取点击后的li的内容
         var obj_lis = document.getElementById("test").getElementsByTagName("li");
-        for(i=0;i<obj_lis.length;i++){
+        for(var i = 0; i < obj_lis.length; i++){
             obj_lis[i].onclick = function(){
-                alert(this.innerHTML);
-            }
-        }
-
-        //根据iframe加载的页面高度，设置iframe的高度
-        function setIframeHeight(iframe) {
-            if (iframe) {
-                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-                if (iframeWin.document.body) {
-                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                if(this.innerHTML == "Photo")
+                {
+                    window.location.href = "/index/personal/toPersonal";
+                }
+                else if(this.innerHTML == "Blog")
+                {
+                    window.location.href = "/index/personal/toArticle";
                 }
             }
-        };
-        window.onload = function () {
-            setIframeHeight(document.getElementById('external-frame'));
-        };
+        }
 
     })
 </script>
 </body>
-<?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

@@ -10,4 +10,9 @@ class course extends Base
     {
         return view('course/course');
     }
+
+    public function toObject()
+    {
+        return view('blog/blog');
+    }
 }
