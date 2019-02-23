@@ -9,61 +9,11 @@ open = function (option) {
         btn: 'Submit',
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
-            var data = body.find("form").serializeArray();
-            // var data = body.find(id).serializeArray();
-            // var data = layer.find('iframe')[0];
-            data.contentWindow.submitHandler();
+            // var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+            var data = body.find('form').serialize();
             var url = option.actionUrl;
             var type = 'post';
             ajax(data, url, type, index);
-        }
-    });
-};
-openBtn = function (url, title) {
-    layer.open({
-        type: 1,
-        title: title,
-        maxmin: true,
-        area: ['800px', '500px'],
-        content: [url],
-        closeBtn: 1,
-        yes: function (index, layero) {
-            //do something
-            layer.close(index); //如果设定了yes回调，需进行手工关闭
-        },
-        cancel: function () {
-            layer.open({
-                type: 1
-                ,
-                title: false //不显示标题栏
-                ,
-                closeBtn: false
-                ,
-                area: '300px;'
-                ,
-                shade: 0.8
-                ,
-                id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                ,
-                btn: ['是的关闭它', '我再考虑一下']
-                ,
-                yes: function () {
-                    layer.closeAll();
-                }
-                ,
-                btnAlign: 'c'
-                ,
-                moveType: 1 //拖拽模式，0或者1
-                ,
-                content: '<div style="padding: 50px;line-height: 22px;background-color: #393D49; color: #fff; font-weight: 300;text-align:center;font-size:20px;">确定关闭吗~!</div>'
-
-            });
-
-            return false;
-        },
-        end: function () {
-            layer.closeAll();
-            location.reload();
         }
     });
 };
