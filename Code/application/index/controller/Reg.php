@@ -68,5 +68,6 @@ class Reg extends Controller
 //        $data = input('$_POST.mobile');//获取值
 //        return json(1);
         halt($post["mobile"]);
+        return json("success");
     }
 }

@@ -47,21 +47,18 @@
 <script>
     $("button").on("click", function () {
         var data = $("#register_form").serializeArray();
-        console.log(data);
         $.ajax({
             url: "/index/index/reg",
             type: 'post',
-            dataType: 'json',
             data: data,
             success: function (data) {
-                alert(data);
+                alert(data.msg);
             },
             error: function (data) {
-                alert("失败了");
+                alert(data.status);
                 console.log(data);
             }
         });
-        return false;
     })
 </script>
 </html>
