@@ -51,10 +51,15 @@ class Index extends Controller
          * 将用户的nickname存进session
          * 为校验数据进行
          */
-        $result = $user->where('nick_Name', $user->getNickName())->find();
+        $result = $user->where('nick_Name', $post['nickName'])->find();
         if (!$result . is_null()) {
-            Session::set("nickName", $result->getNickName());
+            if ($result->password == md5($post['nickName'])) {
+                Session::set("nickName", $result->getNickName());
+                return 1;
+            }
+
         }
+        return 0;
     }
 
     public function reg(Request $request)
@@ -67,11 +72,10 @@ class Index extends Controller
         $user->delete_flag = '0';
         $result = $user->save();
         if ($result) {
-            return $this->success("注册成功", '/');
+            return 1;
         } else {
-            return $this->error("注册失败");
+            return 0;
         }
 
     }
-
 }
