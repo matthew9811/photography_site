@@ -62,14 +62,14 @@ class Index extends Controller
          * 为校验数据进行
          */
         $result = $user->where('nick_Name', $post['nickName'])->select();
-        if ($result) {
-            if ($result->nick_name == md5($post['nickName'])) {
-                Session::set("nickName", $result->getNickName());
+        if ($result[0]) {
+            if ($result[0]['password'] == $post['password']) {
+                Session::set("nickName", $result[0]['nick_name']);
                 session('loginTime', time());
-                return $this->success("success");
+                return json("success");
             }
         }
-        return $this->error("error");
+        return json(error);
     }
 
     public function reg(Request $request)

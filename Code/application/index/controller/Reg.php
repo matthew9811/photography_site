@@ -75,6 +75,7 @@ class Reg extends Controller
     public function testFind()
     {
         $user = new User();
-        halt($user->select());
+        $result = $user->where("nick_name", "admin")->select();
+        halt($result[0]['nick_name']);
     }
 }
