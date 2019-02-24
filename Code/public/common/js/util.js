@@ -44,4 +44,18 @@ function ajax(data, rsqUrl, type, index) {
     })
 }
 
+function ajaxOfPost(data, rsqUrl) {
+    $.ajax({
+        url: rsqUrl,
+        type: 'post',
+        data: data,
+        success: function (data) {
+            console.log(data.status);
+            alert("成功");
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    })
+}
 
