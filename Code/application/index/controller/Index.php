@@ -6,6 +6,7 @@ use app\common\model\User;
 use think\Controller;
 use think\Db;
 use think\Request;
+use think\response\Json;
 use think\Session;
 
 class Index extends Controller
@@ -62,11 +63,11 @@ class Index extends Controller
             if ($result->password == md5($post['nickName'])) {
                 Session::set("nickName", $result->getNickName());
                 session('logintime',time());
-                return 1;
+                return json(1);
             }
 
         }
-        return 0;
+        return json(0);
     }
 
     public function reg(Request $request)
@@ -79,10 +80,11 @@ class Index extends Controller
         $user->delete_flag = '0';
         $result = $user->save();
         if ($result) {
-            return 1;
+            return json(1);
         } else {
-            return 0;
+            return json(0);
         }
 
     }
+
 }
