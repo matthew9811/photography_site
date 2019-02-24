@@ -25,7 +25,7 @@ function ajax(data, rsqUrl, type, index) {
         data: data,
         success: function (result) {
             alert("成功");
-            if (result == 1) {
+            if (result == "success") {
                 layer.close(layer.index);
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
@@ -34,7 +34,7 @@ function ajax(data, rsqUrl, type, index) {
                 else {
                     window.location.href = "/index/index/Content";
                 }
-            } else if (result == 0) {
+            } else if (result == "error") {
                 alert("操作失败");
             }
         },

@@ -68,10 +68,10 @@ class Index extends Controller
             if ($result->password == md5($post['nickName'])) {
                 Session::set("nickName", $result->getNickName());
                 session('loginTime', time());
-                return $this->success("注册成功");
+                return $this->success("success");
             }
         }
-        return $this->error("注册失败");
+        return $this->error("error");
     }
 
     public function reg(Request $request)
@@ -84,9 +84,9 @@ class Index extends Controller
         $user->delete_flag = '0';
         $result = $user->save();
         if ($result) {
-            return $this->success("注册成功");
+            return $this->success("success");
         } else {
-            return $this->error("注册失败");
+            return $this->error("error");
         }
 
     }
