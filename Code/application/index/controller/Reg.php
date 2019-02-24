@@ -70,4 +70,11 @@ class Reg extends Controller
         halt($post["mobile"]);
         return json("success");
     }
+
+
+    public function testFind()
+    {
+        $user = new User();
+        halt($user->select());
+    }
 }

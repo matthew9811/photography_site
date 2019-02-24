@@ -4,9 +4,7 @@ namespace app\index\controller;
 
 use app\common\model\User;
 use think\Controller;
-use think\Db;
 use think\Request;
-use think\response\Json;
 use think\Session;
 
 class Index extends Controller
@@ -63,9 +61,9 @@ class Index extends Controller
          * 将用户的nickname存进session
          * 为校验数据进行
          */
-        $result = $user->where('nick_Name', $post['nickName'])->find();
-        if (!$result . is_null()) {
-            if ($result->password == md5($post['nickName'])) {
+        $result = $user->where('nick_Name', $post['nickName'])->select();
+        if ($result) {
+            if ($result->nick_name == md5($post['nickName'])) {
                 Session::set("nickName", $result->getNickName());
                 session('loginTime', time());
                 return $this->success("success");
