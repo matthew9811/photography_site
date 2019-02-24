@@ -65,7 +65,6 @@ class Index extends Controller
                 session('loginTime', time());
                 return $this->success("注册成功");
             }
-            s
         }
         return $this->error("注册失败");
     }
