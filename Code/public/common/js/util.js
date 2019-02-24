@@ -21,20 +21,20 @@ open = function (option) {
 function ajax(data, rsqUrl, type, index) {
     $.ajax({
         url: rsqUrl,
-        type: type,
+        type: 'post',
         data: data,
-        success: function (data) {
+        success: function (result) {
             alert("成功");
-            console.log(data);
-            if (data == "success") {
-                layer.close(index);
+            if (result == "success") {
+                layer.closeAll(index);
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
-                    return;
                 }
+                else {
                     window.location.href = "/index/index/Content";
-            } else if (data == "error") {
+                }
+            } else if (result == "error") {
                 alert("操作失败");
             }
         },
@@ -44,7 +44,7 @@ function ajax(data, rsqUrl, type, index) {
     })
 }
 
-function ajaxOfPost(data, rsqUrl) {
+function ajax(data, rsqUrl) {
     $.ajax({
         url: rsqUrl,
         type: 'post',
