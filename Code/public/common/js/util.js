@@ -9,7 +9,7 @@ open = function (option) {
         btn: 'Submit',
         yes: function (index, layero) {
             var body = layer.getChildFrame('body', index);
-            // var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+// var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
             var data = body.find('form').serialize();
             var url = option.actionUrl;
             var type = 'post';
@@ -29,7 +29,7 @@ function ajax(data, rsqUrl, type, index) {
             if (data == "success") {
                 layer.close(index);
                 var nickName = "{:session('nickName')}";
-                if (nickName) {
+                if(nickName) {
                     window.location.href = "/index/index/toHome";
                     return;
                 }
@@ -58,4 +58,5 @@ function ajaxOfPost(data, rsqUrl) {
         }
     })
 }
+
 
