@@ -30,10 +30,9 @@ function ajax(data, rsqUrl, type, index) {
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
+                    return;
                 }
-                else {
                     window.location.href = "/index/index/Content";
-                }
             } else if (result == "error") {
                 alert("操作失败");
             }
