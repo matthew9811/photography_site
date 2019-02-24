@@ -63,13 +63,13 @@ class Index extends Controller
          */
         $result = $user->where('nick_Name', $post['nickName'])->select();
         if ($result[0]) {
-            if ($result[0]['password'] == $post['password']) {
+            if ($result[0]['password'] == md5($post['password'])) {
                 Session::set("nickName", $result[0]['nick_name']);
                 session('loginTime', time());
                 return json("success");
             }
         }
-        return json(error);
+        return json("error");
     }
 
     public function reg(Request $request)
