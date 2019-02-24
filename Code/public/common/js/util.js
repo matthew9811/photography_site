@@ -29,7 +29,7 @@ function ajax(data, rsqUrl, type, index) {
                 layer.close(layer.index);
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
-                    window.location.href = "/index/index/index";
+                    window.location.href = "/index/index/toHome";
                 }
                 else {
                     window.location.href = "/index/index/Content";

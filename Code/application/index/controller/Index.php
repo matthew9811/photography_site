@@ -13,7 +13,7 @@ class Index extends Controller
 {
     public function index()
     {
-        return view("index/home");
+        return view("index/content");
     }
 
     public function loginSelect()
@@ -47,6 +47,11 @@ class Index extends Controller
         return view('index/login_content');
     }
 
+    public function toHome()
+    {
+        return view('index/home');
+    }
+
 
     public function login(Request $request)
     {
@@ -75,7 +80,7 @@ class Index extends Controller
         $user = new User();
         $user->nick_name = $req["nickName"];
         $user->mobile = $req["mobile"];
-        $user->password = $req["password"];
+        $user->password = md5($req["password"]);
         $user->delete_flag = '0';
         $result = $user->save();
         if ($result) {
