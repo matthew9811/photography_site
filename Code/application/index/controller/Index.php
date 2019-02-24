@@ -12,7 +12,7 @@ class Index extends Controller
 {
     public function index()
     {
-        return view("index/content");
+        return view("index/home");
     }
 
     public function loginSelect()
@@ -41,6 +41,12 @@ class Index extends Controller
     }
 
 
+    public function Content()
+    {
+        return view('index/login_content');
+    }
+
+
     public function login(Request $request)
     {
 
@@ -55,6 +61,7 @@ class Index extends Controller
         if (!$result . is_null()) {
             if ($result->password == md5($post['nickName'])) {
                 Session::set("nickName", $result->getNickName());
+                session('logintime',time());
                 return 1;
             }
 

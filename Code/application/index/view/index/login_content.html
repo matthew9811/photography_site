@@ -15,10 +15,6 @@
         <h2 class="join-text">Do you want to join us?</h2>
         <br>
         <div class="join">
-            <sapn id="reg" style="cursor:pointer">
-                Join
-            </sapn>
-            /
             <span id="log" style="cursor:pointer">
                 Login
             </span>
@@ -268,25 +264,15 @@
         });
 
 
-        $("#reg").on("click", function () {
-            var option = {
-                'url': '/index/index/toReg',
-                'title': "reg",
-                'actionUrl': '/index/index/reg',
-                'id': '#register_form'
-            };
-            open(option);
-        });
-
         $("#login").on("click", function () {
             var option = {
                 'url': '/index/index/toLogin',
                 'title': "login",
-                'actionUrl': '/index/index/login',
-                'id': '#login_form'
+                'actionUrl': '/index/index/login'
             };
             open(option);
         });
+
 
 
     });

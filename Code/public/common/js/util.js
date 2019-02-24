@@ -23,21 +23,19 @@ function ajax(data, rsqUrl, type, index) {
         url: rsqUrl,
         type: 'post',
         data: data,
-        success: function (data) {
+        success: function (result) {
             alert("成功");
-            if (data.value == 1) {
-                layer.msg(data.msg, {
-                    icon: 1,
-                    time: 1000
-                }, function () {
-                    parent.layer.close(index);
-                })
-            } else if (data.code == 500) {
-                layer.msg(data.msg, {
-                    icon: 2,
-                    time: 1000
-                }, function () {
-                });
+            if (result == 1) {
+                layer.close(layer.index);
+                var nickName = "{:session('nickName')}";
+                if(nickName) {
+                    window.location.href = "/index/index/index";
+                }
+                else {
+                    window.location.href = "/index/index/Content";
+                }
+            } else if (result == 0) {
+                alert("操作失败");
             }
         },
         error: function (data) {
