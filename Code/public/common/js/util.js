@@ -24,16 +24,19 @@ function ajax(data, rsqUrl, type, index) {
         type: type,
         data: data,
         success: function (data) {
-            alert("成功");
-            console.log(data);
+            alert("操作成功");
+            layer.closeAll(index);
             if (data == "success") {
-                layer.close(index);
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
                     return;
                 }
-                window.location.href = "/index/index/Content";
+                else{
+                    alert("1111");
+                    window.location.href = "/index/index/Content";
+                    return;
+                }
             } else if (data == "error") {
                 alert("操作失败");
             }

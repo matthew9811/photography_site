@@ -82,9 +82,9 @@ class Index extends Controller
         $user->delete_flag = '0';
         $result = $user->save();
         if ($result) {
-            return $this->success("success");
+            return json("success");
         } else {
-            return $this->error("error");
+            return json("error");
         }
 
     }
