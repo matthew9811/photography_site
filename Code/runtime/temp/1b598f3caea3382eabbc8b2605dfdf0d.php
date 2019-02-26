@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551112080;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551156525;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <?php include("/common/html/bar.html"); ?>
-    <link href="/common/css/personal.css" rel="stylesheet" />
-    <link href="/common/css/article.css" rel="stylesheet" />
+    <link href="/common/css/personal.css" rel="stylesheet"/>
+    <link href="/common/css/article.css" rel="stylesheet"/>
 </head>
 <body class="bg">
 <!-- background_images -->
@@ -25,7 +25,7 @@
                     <span>Fans </span><?php echo $user->fans; ?>
                 </div>
                 <div class="div_signature">
-                    <p>狂欢是一群人的孤单，孤单是一个人的狂欢
+                    <p><font color="aqua"><?php echo $user->signature; ?></font>
                         <a href="/index/Personal/toAlter" style="color: white">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -51,17 +51,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <!--<?php include("/common/html/personal.html"); ?>-->
     <link href="/common/css/personal.css" rel="stylesheet" />
 </head>
 <body style="background-color: #F4F7F9">
 <div class="container">
     <div id="photos">
         <div class="photo_div">
-        <div class="icon_div">
-            <span class="glyphicon glyphicon-plus add_icon"></span>
-        </div>
-        <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            <div class="icon_div">
+                <span class="glyphicon glyphicon-plus add_icon"></span>
+            </div>
+            <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
         </div>
         <div class='photo_div'>
             <img src='/common/image/d7.jpg' class='img_div'>
@@ -86,6 +85,7 @@
                     "        </div>");
             }
         }) ;
+
         function getObjectURL(file) {
             var url = null;
             if (window.createObjectURL!=undefined) {
