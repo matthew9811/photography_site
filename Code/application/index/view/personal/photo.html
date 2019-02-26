@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <?php include("/common/html/bar.html"); ?>
-    <link href="/common/css/personal.css" rel="stylesheet"/>
-    <link href="/common/css/article.css" rel="stylesheet"/>
+    <link href="__ROOT__/common/css/personal.css" rel="stylesheet"/>
+    <link href="__ROOT__/common/css/article.css" rel="stylesheet"/>
 </head>
 <body class="bg">
 <!-- background_images -->
@@ -24,7 +24,7 @@
                     <span>Fans </span>{$user->fans}
                 </div>
                 <div class="div_signature">
-                    <p><font color="aqua">{$user->signature}</font>
+                    <p>{$user->signature}
                         <a href="/index/Personal/toAlter" style="color: white">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -46,13 +46,6 @@
 </div>
 <!-- //background_images -->
 <div class="blank"></div>
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link href="__ROOT__/common/css/personal.css" rel="stylesheet" />
-</head>
-<body style="background-color: #F4F7F9">
 <div class="container">
     <div id="photos">
         <div class="photo_div">
@@ -67,10 +60,8 @@
         <div class='photo_div'>
             <img src='__ROOT__/common/image/d8.jpg' class='img_div'>
         </div>
-
     </div>
 </div>
-
 </body>
 <script type="text/javascript">
     $(function () {
