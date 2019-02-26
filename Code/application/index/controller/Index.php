@@ -65,6 +65,7 @@ class Index extends Controller
         if ($result[0]) {
             if ($result[0]['password'] == md5($post['password'])) {
                 Session::set("nickName", $result[0]['nick_name']);
+                Session::set("id", $result[0]['id']);
                 session('loginTime', time());
                 return json("success");
             }

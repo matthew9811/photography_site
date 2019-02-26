@@ -1,18 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <?php include("/common/html/bar.html"); ?>
+    <link href="/common/css/personal.css" rel="stylesheet"/>
+    <link href="/common/css/article.css" rel="stylesheet"/>
+</head>
+<body class="bg">
+<!-- background_images -->
+<div id="home" class="bg-img">
+    <div class="box"></div>
+    <div class="come_up">
+        <div class="container">
+            <div class="image_div">
+                <img class="img-circle image" src="/common/image/account.jpg" alt="头像"/>
+            </div>
+            <div class="div_right">
+                <br>
+                <p>{$user->nick_name}</p>
+                <div class="div_fans">
+                    <span>Focus </span>{$user->focus}
+                    <span> | </span>
+                    <span>Fans </span>{$user->fans}
+                </div>
+                <div class="div_signature">
+                    <p>狂欢是一群人的孤单，孤单是一个人的狂欢
+                        <a href="/index/Personal/toAlter" style="color: white">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </p>
+
+                </div>
+                <div class="my_tab">
+                    <div class="tab_menu">
+                        <ul id="test">
+                            <li>Photo</li>
+                            <li>Blog</li>
+                            <li>Chat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //background_images -->
+<div class="blank"></div>
+
 <html>
 <head>
     <meta charset="UTF-8">
-    <?php include("__ROOT__/common/html/personal.html"); ?>
+    <!--<?php include("__ROOT__/common/html/personal.html"); ?>-->
     <link href="__ROOT__/common/css/personal.css" rel="stylesheet" />
 </head>
 <body style="background-color: #F4F7F9">
 <div class="container">
     <div id="photos">
         <div class="photo_div">
-        <div class="icon_div">
-            <span class="glyphicon glyphicon-plus add_icon"></span>
-            <!--<input type="file" name="file" id="name" class="icon_div">-->
-        </div>
-        <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            <div class="icon_div">
+                <span class="glyphicon glyphicon-plus add_icon"></span>
+            </div>
+            <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
         </div>
         <div class='photo_div'>
             <img src='__ROOT__/common/image/d7.jpg' class='img_div'>
@@ -37,6 +85,7 @@
                     "        </div>");
             }
         }) ;
+
         function getObjectURL(file) {
             var url = null;
             if (window.createObjectURL!=undefined) {

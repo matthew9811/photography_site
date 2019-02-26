@@ -24,9 +24,9 @@ function ajax(data, rsqUrl, type, index) {
         type: type,
         data: data,
         success: function (data) {
-            alert("操作成功");
             layer.closeAll(index);
             if (data == "success") {
+                alert("操作成功");
                 var nickName = "{:session('nickName')}";
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
@@ -60,6 +60,14 @@ function ajaxOfPost(data, rsqUrl) {
             console.log(data);
         }
     })
+}
+
+function login(data) {
+
+}
+
+function register() {
+
 }
 
 
