@@ -13,6 +13,10 @@ ol, ul{
     padding-left:20px;
     overflow:hidden;
 }
+.about4_ul{
+    width: 750px;
+    float: left;
+}
 .line{
     width:1px;
     height:100%;
@@ -55,12 +59,12 @@ ol, ul{
 }
 .li_title{
     width: 100%;
-    height: 30px;
+    height: 33px;
     /*background-color: #2aabd2;*/
     font-size: 20px;
 }
 .li_contend{
-    width: 600px;
+    width: 570px;
     height: 65px;
     background-color: white;
     font-size: 15px;
@@ -98,4 +102,26 @@ ol, ul{
     text-align: center;
     font-size: 50px;
     color: #9d9d9d;
+}
+.like_course{
+    width: 340px;
+    height: auto;
+    background-color: white;
+    float: right;
+}
+.course{
+    height: 70px;
+    width: 300px;
+    font-size: 25px;
+    /*background-color: white;*/
+    display: flex;
+    align-items: center;
+}
+.my_course{
+    height: 40px;
+    width: 300px;
+    font-size: 17px;
+    /*background-color: #f9f9f9;*/
+    display: flex;
+    align-items: center;
 }

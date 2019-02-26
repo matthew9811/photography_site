@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <?php include("/common/html/bar.html"); ?>
+    <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="__ROOT__/common/css/personal.css" rel="stylesheet"/>
     <link href="__ROOT__/common/css/article.css" rel="stylesheet"/>
 </head>
@@ -13,7 +13,7 @@
     <div class="come_up">
         <div class="container">
             <div class="image_div">
-                <img class="img-circle image" src="/common/image/account.jpg" alt="头像"/>
+                <img class="img-circle image" src="__ROOT__/common/image/account.jpg" alt="头像"/>
             </div>
             <div class="div_right">
                 <br>
@@ -46,6 +46,7 @@
 </div>
 <!-- //background_images -->
 <div class="blank"></div>
+<br>
 <div class="container">
     <div id="photos">
         <div class="photo_div">
@@ -55,43 +56,53 @@
             <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
         </div>
         <div class='photo_div'>
-            <img src='__ROOT__/common/image/d7.jpg' class='img_div'>
-        </div>
-        <div class='photo_div'>
-            <img src='__ROOT__/common/image/d8.jpg' class='img_div'>
+            <img id="photo" src='__ROOT__/common/image/account.jpg' class='img_div'>
         </div>
     </div>
 </div>
 </body>
 <script type="text/javascript">
     $(function () {
-        //获取上传的文件并预览
-        $("#name").change(function(){
-            var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
-            console.log("objUrl = "+objUrl);
-            if (objUrl) {
-                $("#photos").append("<div class='photo_div'>" +
-                    "            <img src='" + objUrl + "' class='img_div'>" +
-                    "        </div>");
-            }
-        }) ;
-
-        function getObjectURL(file) {
-            var url = null;
-            if (window.createObjectURL!=undefined) {
-                url = window.createObjectURL(file) ;
-            } else if (window.URL!=undefined) { // mozilla(firefox)
-                url = window.URL.createObjectURL(file) ;
-            } else if (window.webkitURL!=undefined) { // webkit or chrome
-                url = window.webkitURL.createObjectURL(file) ;
-            }
-            return url ;
-        }
-
+        //页面卡片
         $("div.tab_menu ul li").eq(0).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(1).css({"color":"#000"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});
 
+        //获取点击后的li的内容
+        var obj_lis = document.getElementById("test").getElementsByTagName("li");
+        for(var i = 0; i < obj_lis.length; i++) {
+            obj_lis[i].onclick = function () {
+                if (this.innerHTML == "Photo") {
+                    window.location.href = "/index/personal/toPersonal";
+                } else if (this.innerHTML == "Blog") {
+                    window.location.href = "/index/personal/toArticle";
+                }
+            };
+        }
+
+            //获取上传的文件并预览
+            $("#name").change(function () {
+                var objUrl = getObjectURL(this.files[0]);//获取文件信息
+                // console.log("objUrl = " + objUrl);
+                if (objUrl) {
+                    $("#photos").append("<div class='photo_div'>" +
+                        "            <img src='" + objUrl + "' class='img_div'>" +
+                        "        </div>");
+                }
+            });
+
+            function getObjectURL(file) {
+                var url = null;
+                if (window.createObjectURL != undefined) {
+                    url = window.createObjectURL(file);
+                } else if (window.URL != undefined) { // mozilla(firefox)
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL != undefined) { // webkit or chrome
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                // console.log(url);
+                return url;
+            }
     })
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>

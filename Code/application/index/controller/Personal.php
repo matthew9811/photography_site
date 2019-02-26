@@ -37,7 +37,7 @@ class personal extends Base
 
     public function toPost()
     {
-        return view('compile/post_blog');
+        return view('compile/post_course');
     }
 
     public function toBlog()

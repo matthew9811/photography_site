@@ -34,6 +34,14 @@
     float: left;
     /*background-color: #880000;*/
 }
+.course_topic{
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    float: left;
+}
 .post_input{
     float: right;
     width: 500px;
