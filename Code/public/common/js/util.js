@@ -57,7 +57,7 @@ function ajaxOfPost(data, rsqUrl) {
             alert("成功");
         },
         error: function (data) {
-            console.log(data);
+            console.log(data.status);
         }
     })
 }

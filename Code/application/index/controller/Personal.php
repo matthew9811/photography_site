@@ -58,4 +58,16 @@ class personal extends Base
 
         return $user;
     }
+
+    /**
+     * 保存图片
+     * @param Request $request
+     *
+     */
+    public function savePhoto(Request $request)
+    {
+        halt("------");
+//       $file = $request->file('photo');
+//       halt($file);
+    }
 }

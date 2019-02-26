@@ -53,7 +53,9 @@
             <div class="icon_div">
                 <span class="glyphicon glyphicon-plus add_icon"></span>
             </div>
-            <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            <form id="upload" enctype="multipart/form-data" style="position:absolute;opacity:0;">
+                <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            </form>
         </div>
         <div class='photo_div'>
             <img id="photo" src='__ROOT__/common/image/account.jpg' class='img_div'>
@@ -83,6 +85,25 @@
             //获取上传的文件并预览
             $("#name").change(function () {
                 var objUrl = getObjectURL(this.files[0]);//获取文件信息
+                var formData = new FormData();
+                formData.append('photo', $(this).get(0).files[0]);
+                console.log(formData);
+                $.ajax({
+                    url: '/index/Personal/savePhoto',
+                    type: 'post',
+                    data: formData,
+                    contentType: false,//后面修复
+                    processData: false,
+                    contentType: 'multipart/form-data',
+                    cache: false,
+                    success: function (data) {
+                        alert(data.status);
+                    },
+                    error: function (data) {
+                        alert("--------");
+                        alert(data.status);
+                    }
+                })
                 // console.log("objUrl = " + objUrl);
                 if (objUrl) {
                     $("#photos").append("<div class='photo_div'>" +

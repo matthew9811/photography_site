@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use think\Validate;
 use app\common\model\User;
+use think\View;
 
 //注册功能页面
 class Reg extends Controller
@@ -77,5 +78,19 @@ class Reg extends Controller
         $user = new User();
         $result = $user->where("nick_name", "admin")->select();
         halt($result[0]['nick_name']);
+    }
+
+
+    public function upload()
+    {
+        return View();
+    }
+
+    public function saveUpload()
+    {
+        $file = request()->file('pic');
+        $file->setSaveName("test.jpg")->move("__ROOT__\images");
+
+        return $this->success("success");
     }
 }

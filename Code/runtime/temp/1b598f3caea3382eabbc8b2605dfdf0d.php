@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551156525;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551197562;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
                     <span>Fans </span><?php echo $user->fans; ?>
                 </div>
                 <div class="div_signature">
-                    <p><font color="aqua"><?php echo $user->signature; ?></font>
+                    <p><?php echo $user->signature; ?>
                         <a href="/index/Personal/toAlter" style="color: white">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -47,61 +47,84 @@
 </div>
 <!-- //background_images -->
 <div class="blank"></div>
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link href="/common/css/personal.css" rel="stylesheet" />
-</head>
-<body style="background-color: #F4F7F9">
+<br>
 <div class="container">
     <div id="photos">
         <div class="photo_div">
             <div class="icon_div">
                 <span class="glyphicon glyphicon-plus add_icon"></span>
             </div>
-            <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            <form id="upload" enctype="multipart/form-data" style="position:absolute;opacity:0;">
+                <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+            </form>
         </div>
         <div class='photo_div'>
-            <img src='/common/image/d7.jpg' class='img_div'>
+            <img id="photo" src='/common/image/account.jpg' class='img_div'>
         </div>
-        <div class='photo_div'>
-            <img src='/common/image/d8.jpg' class='img_div'>
-        </div>
-
     </div>
 </div>
-
 </body>
 <script type="text/javascript">
     $(function () {
+        //页面卡片
+        $("div.tab_menu ul li").eq(0).css({"color": "#FFCC33"});
+        $("div.tab_menu ul li").eq(1).css({"color": "#000"});
+        $("div.tab_menu ul li").eq(2).css({"color": "#000"});
+
+        //获取点击后的li的内容
+        var obj_lis = document.getElementById("test").getElementsByTagName("li");
+        for (var i = 0; i < obj_lis.length; i++) {
+            obj_lis[i].onclick = function () {
+                if (this.innerHTML == "Photo") {
+                    window.location.href = "/index/personal/toPersonal";
+                } else if (this.innerHTML == "Blog") {
+                    window.location.href = "/index/personal/toArticle";
+                }
+            };
+        }
+
         //获取上传的文件并预览
-        $("#name").change(function(){
-            var objUrl = getObjectURL(this.files[0]) ;//获取文件信息
-            console.log("objUrl = "+objUrl);
+        $("#name").change(function () {
+            var objUrl = getObjectURL(this.files[0]);//获取文件信息
+            var formData = new FormData();
+            formData.append('photo', $(this).get(0).files[0]);
+            console.log(formData);
+            $.ajax({
+                url: '/index/Personal/savePhoto',
+                type: 'post',
+                data: formData,
+                contentType: false,//后面修复
+                processData: false,
+                contentType: 'multipart/form-data',
+                cache: false,
+                success: function (data) {
+                    alert(data.status);
+                },
+                error: function (data) {
+                    alert("--------");
+                    alert(data.status);
+                }
+            })
+            // console.log("objUrl = " + objUrl);
             if (objUrl) {
                 $("#photos").append("<div class='photo_div'>" +
                     "            <img src='" + objUrl + "' class='img_div'>" +
                     "        </div>");
             }
-        }) ;
+        });
 
         function getObjectURL(file) {
             var url = null;
-            if (window.createObjectURL!=undefined) {
-                url = window.createObjectURL(file) ;
-            } else if (window.URL!=undefined) { // mozilla(firefox)
-                url = window.URL.createObjectURL(file) ;
-            } else if (window.webkitURL!=undefined) { // webkit or chrome
-                url = window.webkitURL.createObjectURL(file) ;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
             }
-            return url ;
+            // console.log(url);
+            return url;
         }
-
-        $("div.tab_menu ul li").eq(0).css({"color":"#FFCC33"});
-        $("div.tab_menu ul li").eq(1).css({"color":"#000"});
-        $("div.tab_menu ul li").eq(2).css({"color":"#000"});
-
     })
 </script>
 <?php include("/common/html/footer.html"); ?>
