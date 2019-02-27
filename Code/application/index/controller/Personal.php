@@ -64,10 +64,11 @@ class personal extends Base
      * @param Request $request
      *
      */
-    public function savePhoto(Request $request)
+    public function savePhoto()
     {
-        halt("------");
-//       $file = $request->file('photo');
-//       halt($file);
+        $file = request()->file('name');
+        $file->setSaveName("update.jpg")->move("root\images", "update.jpg");
+        return $this->success("success");
+
     }
 }
