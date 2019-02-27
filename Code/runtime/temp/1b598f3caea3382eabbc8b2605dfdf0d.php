@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551235325;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551245387;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,8 @@
     <div class="come_up">
         <div class="container">
             <div class="image_div">
-                <img class="img-circle image" src="/common/image/account.jpg" alt="头像"/>
+                <img class="img-circle image" src=<?php echo $user->img; ?> alt="头像"/>
+
             </div>
             <div class="div_right">
                 <br>
@@ -55,7 +56,8 @@
                 <span class="glyphicon glyphicon-plus add_icon"></span>
             </div>
             <form id="upload" enctype="multipart/form-data" style="position:absolute;opacity:0;">
-                <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"/>
+                <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;"
+                       accept="image/gif,image/jpeg,image/x-png"/>
             </form>
         </div>
         <div class='photo_div'>
