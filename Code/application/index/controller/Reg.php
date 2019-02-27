@@ -89,8 +89,7 @@ class Reg extends Controller
     public function saveUpload()
     {
         $file = request()->file('pic');
-        $file->setSaveName("test.jpg")->move("__ROOT__\images");
-
+        $file->setSaveName("test.jpg")->move("root\images", "test.jpg");
         return $this->success("success");
     }
 }
