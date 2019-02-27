@@ -11,6 +11,7 @@ open = function (option) {
             var body = layer.getChildFrame('body', index);
 // var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
             var data = body.find('form').serialize();
+            // console.log(data);
             var url = option.actionUrl;
             var type = 'post';
             ajax(data, url, type, index);
@@ -28,6 +29,7 @@ function ajax(data, rsqUrl, type, index) {
             if (data == "success") {
                 alert("操作成功");
                 var nickName = "{:session('nickName')}";
+                console.log(nickName);
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
                     return;
@@ -69,5 +71,3 @@ function login(data) {
 function register() {
 
 }
-
-
