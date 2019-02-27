@@ -90,6 +90,6 @@ class Reg extends Controller
     {
         $file = request()->file('pic');
         $file->setSaveName("test.jpg")->move("root\images", "test.jpg");
-        return $this->success("success");
+        return $this->success($file->getSaveName());
     }
 }

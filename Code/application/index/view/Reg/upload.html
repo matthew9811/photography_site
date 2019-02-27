@@ -20,7 +20,7 @@
     $('#doc-form-file').on('change', function () {
         var formData = new FormData();
         formData.append("pic", $(this).get(0).files[0]);
-        console.log(formData);
+        // console.log(formData);
         if (formData) {
             $.ajax({
                 type: "POST",

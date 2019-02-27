@@ -66,7 +66,7 @@ class personal extends Base
      */
     public function savePhoto()
     {
-        $file = request()->file('name');
+        $file = request()->file('photo');
         $file->setSaveName("update.jpg")->move("root\images", "update.jpg");
         return $this->success("success");
 

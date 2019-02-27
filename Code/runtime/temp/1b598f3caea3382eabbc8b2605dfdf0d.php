@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551197562;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551235325;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,9 +93,9 @@
                 url: '/index/Personal/savePhoto',
                 type: 'post',
                 data: formData,
+                dataType: 'json',
                 contentType: false,//后面修复
                 processData: false,
-                contentType: 'multipart/form-data',
                 cache: false,
                 success: function (data) {
                     alert(data.status);
