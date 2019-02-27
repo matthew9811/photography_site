@@ -92,9 +92,9 @@
                     url: '/index/Personal/savePhoto',
                     type: 'post',
                     data: formData,
+                    dataType: 'json',
                     contentType: false,//后面修复
                     processData: false,
-                    contentType: 'multipart/form-data',
                     cache: false,
                     success: function (data) {
                         alert(data.status);
