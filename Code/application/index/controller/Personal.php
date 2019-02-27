@@ -3,6 +3,7 @@
 namespace app\index\controller;
 
 use app\index\controller\common\Base;
+use think\Db;
 use think\Request;
 use think\Session;
 
@@ -47,6 +48,14 @@ class personal extends Base
 
     public function toAlter()
     {
+        $id = Session::get("id");
+        $user = $this->getUser($id);
+        $user = $user[0];
+        $photo = model("common/Photo")->where("user_id", $id)->select();
+        if ($photo) {
+            $photo = $photo[0];
+        }
+        $this->assign("user", $user);
         return view('alter/alter');
     }
 
@@ -69,7 +78,21 @@ class personal extends Base
         $file = request()->file('photo');
         $suffix = explode(".", $file->getInfo()["name"])[1];
         $file->setSaveName("update." + $suffix)->move("root\images", "update." + $suffix);
-        return $this->success("success");
 
+        return $this->success("success");
+    }
+
+    /**
+     * 上传个人背景图
+     */
+    public function saveBg()
+    {
+        $file = request()->file('photo');
+        $name = \session("nickName");
+//        $suffix = explode(".", $file->getInfo()["name"])[1];
+        $file->setSaveName( $name )->move("root\images", $name);
+        $url = "/root/images";
+        Db::name('user')->where('nick_name',$name)->update(['templete_img'=>$url]);
+        return $this->success("success");
     }
 }
