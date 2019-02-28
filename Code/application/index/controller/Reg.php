@@ -2,7 +2,9 @@
 
 namespace app\Index\controller;
 
+use app\common\util\Constant;
 use think\Controller;
+use think\Db;
 use think\Request;
 use think\Validate;
 use app\common\model\User;
@@ -88,9 +90,17 @@ class Reg extends Controller
 
     public function saveUpload()
     {
+
+        $url = "root\images\common";
+        $nickName = session("nickName");
         $file = request()->file('pic');
         $suffix = explode(".", $file->getInfo()['name'])[1];
-        $file->setSaveName("test." + $suffix)->move("root\images", "test." + $suffix);
-        return $this->success($file->getSaveName());
+        $file->setSaveName($nickName)->move($url, $nickName);
+        $result = Db::table("user")->where("id", session("id"))
+            ->update(['img' => Constant::PREFIX  . $url . DS . $file->getSaveName() .   "."  . $suffix]);
+        if ($result > Constant::INSERT_MARK) {
+            return $this->success("success");
+        }
+        return $this->error("error");
     }
 }
