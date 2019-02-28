@@ -71,6 +71,22 @@ function register() {
 
 }
 
+/**
+ * 获取上传的文件，获取预览的路径即url
+ * @param file
+ * @returns {*}
+ */
+function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) {
+        url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+}
 
 /**
  * 上传图片到photo表
@@ -97,22 +113,6 @@ function updataPhoto(option) {
 }
 
 
-/**
- * 获取上传的文件，获取预览的路径即url
- * @param file
- * @returns {*}
- */
-function getObjectURL(file) {
-    var url = null;
-    if (window.createObjectURL != undefined) {
-        url = window.createObjectURL(file);
-    } else if (window.URL != undefined) { // mozilla(firefox)
-        url = window.URL.createObjectURL(file);
-    } else if (window.webkitURL != undefined) { // webkit or chrome
-        url = window.webkitURL.createObjectURL(file);
-    }
-    return url;
-}
 
 /**
  * 修改个人信息——头像和背景图
@@ -127,14 +127,12 @@ function updataPicture(option) {
         contentType: false,
         processData: false,
         cache: false,
-        success: function (data) {
+        success: function () {
             alert("success");
-            // alert(data.status);
             window.location.reload();
         },
-        error: function (data) {
+        error: function () {
             alert("error");
-            alert(data.status);
         }
     })
 }

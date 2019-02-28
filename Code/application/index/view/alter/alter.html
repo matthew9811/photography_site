@@ -25,7 +25,7 @@
                     <div class="form">
                         <br>
                         <div class="head_portrait">
-                            <img id="myPhoto" src={$user->img} class="img-circle image">
+                            <img id="myPhoto" class="img-circle image" src={$user->img}>
                             <div style="width: 100%;height: 10px;"></div>
                             <div class="file_button">
                                 <label class="btn btn-default" style="width: 100px;height: 30px">修改头像
@@ -36,12 +36,12 @@
                         <form action="/index/Personal/update">
                             <div class="nickName">
                                 <div class="text">Nickname</div>
-                                <input name="nickName" type="text" class="form-control" value=""/>
+                                <input name="nickName" type="text" class="form-control" value={$user->nick_name}>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">Signature</div>
-                                <input name="signature" type="text" class="form-control" value=""/>
+                                <input name="signature" type="text" class="form-control" value="{$user->signature}">
                             </div>
                             <div class="sex_radio">
                                 <div class="text">Sex</div>
@@ -58,7 +58,7 @@
                             </div>
                         </form>
                         <div class="sex_radio">
-                            <img id="bg" src={$user->templete_img} class="bg_photo">
+                            <img id="bg" class="bg_photo" src={$user->templete_img}>
                             <div class="btn_photo">
                                 <label class="btn btn-default" style="width: 100px;height: 30px;">修改背景
                                     <input type="file" name="bg_file" id="bg_file" class="icon_div"  style="position:absolute;opacity:0;"/>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <br>
-                        <button id="personal" type="button" class="btn btn-warning">提交</button>
+                        <button id="personal" type="submit" class="btn btn-warning">提交</button>
                     </div>
                 </div>
             </a>
@@ -78,26 +78,26 @@
                         <form action="">
                             <br>
                             <div class="nickName">
-                                <div class="text">Photo</div>
-                                <input type="text" class="form-control" value=""/>
+                                <div class="text">Name</div>
+                                <input type="text" class="form-control" value={$user->real_name}>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">E-mail</div>
-                                <input type="email" class="form-control" value=""/>
+                                <input type="email" class="form-control" value={$user->email}>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">ID Card</div>
-                                <input type="text" class="form-control" value=""/>
+                                <input type="text" class="form-control" value={$user->id_number}>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">Password</div>
-                                <input type="password" class="form-control" value=""/>
+                                <input type="password" class="form-control" value={$user->password}>
                             </div>
                             <br>
-                            <button id="privacy" type="button" class="btn btn-warning">提交</button>
+                            <button id="privacy" type="submit" class="btn btn-warning">提交</button>
                         </form>
                     </div>
                 </div>
@@ -107,19 +107,21 @@
 </div>
 <script type="text/javascript">
     $(function(){  //一定要有这个
-        //获取上传的头像并预览
-        $("#portrait").change(function(){
+        //获取上传的头像
+        $("#portrait").on("change",function(){
             var formData = new FormData();
-            formData.append('photo', $(this).get(0).files[0]);
+            formData.append('head', $(this).get(0).files[0]);
             console.log(formData);
             var option = {
                 'data' : formData,
-                'url' : '/index/Personal/savePhoto'
+                'url' : '/index/Personal/saveHead'
             };
-            updataPicture(option);
+            if(formData){
+                updataPicture(option);
+            }
         }) ;
 
-        //获取上传的背景图，并预览
+        //获取上传的背景图
         $("#bg_file").change(function(){
             var formData = new FormData();
             formData.append('photo', $(this).get(0).files[0]);
@@ -128,8 +130,13 @@
                 'data' : formData,
                 'url' : '/index/Personal/saveBg'
             };
-            updataPicture(option);
-        }) ;
+            if(formData){
+                updataPicture(option);
+            }
+        });
+
+        //上传个人数据
+
     });
 </script>
 </body>

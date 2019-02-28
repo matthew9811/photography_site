@@ -12,18 +12,18 @@
     <div class="come_up">
         <div class="container">
             <div class="image_div">
-                <img class="img-circle image" src="__ROOT__/common/image/account.jpg" alt="头像"/>
+                <img class="img-circle image" src={$user->img} alt="头像"/>
             </div>
             <div class="div_right">
                 <br>
-                <p>name</p>
+                <p>{$user->nick_name}</p>
                 <div class="div_fans">
-                    <span>Focus </span>0
+                    <span>Focus </span>{$user->focus}
                     <span> | </span>
-                    <span>Fans </span>0
+                    <span>Fans </span>{$user->fans}
                 </div>
                 <div class="div_signature">
-                    <p>0
+                    <p>{$user->signature}
                         <a href="/index/Personal/toAlter" style="color: white">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -113,7 +113,7 @@
 </div>
 <script type="text/javascript">
     $(function() {
-        $(".bg-img").css("background","url(__ROOT__/common/image/content.jpg)");
+
         $("div.tab_menu ul li").eq(0).css({"color":"#000"});
         $("div.tab_menu ul li").eq(1).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});
