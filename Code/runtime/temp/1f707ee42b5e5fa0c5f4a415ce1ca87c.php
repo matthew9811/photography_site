@@ -1,0 +1,47 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/index\view\reg\upload.html";i:1551356648;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <?php include("/common/html/import.html");?>
+</head>
+<body>
+<div id="row">
+    <div class="am-form-group am-form-file">
+        <i class="am-icon-cloud-upload"> </i>
+        <label class="labt2">选择要上传的文件</label>
+        <input id="doc-form-file" type="file" accept="image/gif,image/jpeg,image/x-png"/>
+        <div id="file-list"></div>
+    </div>
+</div>
+</body>
+<script>
+    //上传文件
+    $('#doc-form-file').on('change', function () {
+        var formData = new FormData();
+        formData.append("pic", $(this).get(0).files[0]);
+        // console.log(formData);
+        if (formData) {
+            $.ajax({
+                type: "POST",
+                url: '/index/Reg/saveUpload',
+                data: formData,
+                dataType: "json",
+                cache: false,//上传文件无需缓存
+                processData: false,//用于对data参数进行序列化处理 这里必须false
+                contentType: false, //必须
+                success: function (data) {
+                    console.log(data);
+                    alert("11111");
+                },
+                error: function (data) {
+                    console.log(data.status);
+                }
+            })
+        }
+
+
+    });
+</script>
+</html>
