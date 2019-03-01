@@ -6,7 +6,7 @@
  * Time: 20:48
  */
 
-namespace app\base\controller;
+namespace app\common\util;
 
 class AES
 {

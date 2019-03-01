@@ -6,6 +6,7 @@ use app\common\model\User;
 use think\Controller;
 use think\Request;
 use think\Session;
+use app\common\util\AES;
 
 class Index extends Controller
 {
@@ -56,14 +57,14 @@ class Index extends Controller
 
         $user = new User();
         $post = $request->post();
-
+        $aes = new AES();
         /**当登录成功
          * 将用户的nickname存进session
          * 为校验数据进行
          */
         $result = $user->where('nick_Name', $post['nickName'])->select();
         if ($result[0]) {
-            if ($result[0]['password'] == md5($post['password'])) {
+            if ($result[0]['password'] == $aes->encode($post['password'])) {
                 Session::set("nickName", $result[0]['nick_name']);
                 Session::set("id", $result[0]['id']);
                 session('loginTime', time());
@@ -75,12 +76,16 @@ class Index extends Controller
 
     public function reg(Request $request)
     {
+        $aes = new AES();
         $req = $request->post();
         $user = new User();
         $user->nick_name = $req["nickName"];
         $user->mobile = $req["mobile"];
-        $user->password = md5($req["password"]);
+        $user->password = $aes->encode($req["password"]);
         $user->delete_flag = '0';
+        $user->img = '/root/images/head.jpg';
+        $user->signature = 'noting';
+        $user->templete_img = '/root/images/bg.jpg';
         $result = $user->save();
         if ($result) {
             return json("success");

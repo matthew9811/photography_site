@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"F:\photography_site\Code\public/../application/index\view\alter\alter.html";i:1551420091;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"F:\photography_site\Code\public/../application/index\view\alter\alter.html";i:1551420441;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,23 +136,6 @@
             }
         });
 
-        //上传个人数据
-        // $("#personal").on("click", function () {
-        //     var data = $("#personals").serializeArray();
-        //     alert(data);
-        //     $.ajax({
-        //         url: "/index/Personal/update",
-        //         type: 'post',
-        //         data: data,
-        //         success: function (data) {
-        //             alert(data.msg);
-        //         },
-        //         error: function (data) {
-        //             alert(data.status);
-        //             console.log(data);
-        //         }
-        //     });
-        // })
     });
 </script>
 </body>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"F:\photography_site\Code\public/../application/index\view\personal\article.html";i:1551358974;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"F:\photography_site\Code\public/../application/index\view\personal\article.html";i:1551359015;}*/ ?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -114,7 +114,7 @@
 </div>
 <script type="text/javascript">
     $(function() {
-        
+
         $("div.tab_menu ul li").eq(0).css({"color":"#000"});
         $("div.tab_menu ul li").eq(1).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});

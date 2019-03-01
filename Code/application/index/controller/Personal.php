@@ -7,6 +7,7 @@ use app\index\controller\common\Base;
 use think\Db;
 use think\Request;
 use think\Session;
+use app\common\util\AES;
 use app\common\model\User;
 
 class personal extends Base
@@ -49,7 +50,7 @@ class personal extends Base
 
     public function toPost()
     {
-        return view('compile/post_course');
+        return view('compile/post_blog');
     }
 
     public function toBlog()
@@ -59,15 +60,12 @@ class personal extends Base
 
     public function toAlter()
     {
+        $aes = new AES();
         $id = Session::get("id");
         $user = $this->getUser($id);
         $user = $user[0];
-        $photo = model("common/Photo")->where("user_id", $id)->select();
-        if ($photo) {
-            $photo = $photo[0];
-        }
+        $user->password = $aes->decode($user->password);
         $this->assign("user", $user);
-        $this->assign("photo", $photo);
         return view('alter/alter');
     }
 
@@ -101,9 +99,9 @@ class personal extends Base
     {
         $file = request()->file('photo');
         $name = session("nickName");
-        $url = "root\images";
+        $url = "root\images\background";
         $suffix = explode(".", $file->getInfo()["name"])[1];
-        $file->setSaveName( $name )->move("root\images", $name);
+        $file->setSaveName( $name )->move($url, $name);
         $result = Db::table("user")->where("id", session("id"))
             ->update(['templete_img' => Constant::PREFIX  . $url . DS . $file->getSaveName() .   "."  . $suffix]);
         if ($result > Constant::INSERT_MARK) {
@@ -147,14 +145,17 @@ class personal extends Base
         }
     }
 
+    /**
+     * 修改个人私密信息后上传
+     */
     public function Privacy(Request $request)
     {
+        $aes = new AES();
         $req = $request->post();
-//        halt($req);
         $real_name = $req["real"];
         $email = $req["email"];
         $number = $req["number"];
-        $password = $req["password"];
+        $password = $aes->encode($req["password"]);
         $result = Db::table("user")->where("id",session("id"))
             ->setField(["real_name"=>$real_name,"email"=>$email,"id_number"=>$number,"password"=>$password]);
         if ($result){

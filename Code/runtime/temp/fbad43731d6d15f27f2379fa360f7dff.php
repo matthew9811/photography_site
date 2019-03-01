@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/index\view\compile\post_blog.html";i:1550999186;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/index\view\compile\post_blog.html";i:1551424231;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +70,7 @@
 <script type="text/javascript">
     var content;
     $(function () {
-        content = make_editor("#div1", "#btn");
+        content = make_editor("#div1", "#btn","/index/Blog/saveBlog");
     })
 </script>
 <?php include("/common/html/footer.html"); ?>

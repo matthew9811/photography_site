@@ -22,11 +22,11 @@ class Blog
 
     public function saveBlog(Request $request)
     {
-        $post = $request->param();
-        $view = new View();
-
+//        $post = $request->param();
+//        $view = new View();
+        $post = $request->post();
         $content = $post['content'];
-        $view->content = $content;
-        return $view->fetch('blog/blog');
+        $this->assign("content", $content);
+        return $this->fetch('blog/blog');
     }
 }
