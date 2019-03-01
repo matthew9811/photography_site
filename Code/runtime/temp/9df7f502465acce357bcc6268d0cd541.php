@@ -1,9 +1,10 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"F:\photography_site\Code\public/../application/index\view\personal\article.html";i:1551358974;}*/ ?>
 <html>
 <head>
     <meta charset="UTF-8">
-    <?php include("__ROOT__/common/html/bar.html"); ?>
-    <link href="__ROOT__/common/css/personal.css" rel="stylesheet"/>
-    <link href="__ROOT__/common/css/article.css" rel="stylesheet"/>
+    <?php include("/common/html/bar.html"); ?>
+    <link href="/common/css/personal.css" rel="stylesheet"/>
+    <link href="/common/css/article.css" rel="stylesheet"/>
 </head>
 <body class="bg">
 <!-- background_images -->
@@ -12,18 +13,18 @@
     <div class="come_up">
         <div class="container">
             <div class="image_div">
-                <img class="img-circle image" src={$user->img} alt="头像"/>
+                <img class="img-circle image" src=<?php echo $user->img; ?> alt="头像"/>
             </div>
             <div class="div_right">
                 <br>
-                <p>{$user->nick_name}</p>
+                <p><?php echo $user->nick_name; ?></p>
                 <div class="div_fans">
-                    <span>Focus </span>{$user->focus}
+                    <span>Focus </span><?php echo $user->focus; ?>
                     <span> | </span>
-                    <span>Fans </span>{$user->fans}
+                    <span>Fans </span><?php echo $user->fans; ?>
                 </div>
                 <div class="div_signature">
-                    <p>{$user->signature}
+                    <p><?php echo $user->signature; ?>
                         <a href="/index/Personal/toAlter" style="color: white">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -113,7 +114,7 @@
 </div>
 <script type="text/javascript">
     $(function() {
-
+        
         $("div.tab_menu ul li").eq(0).css({"color":"#000"});
         $("div.tab_menu ul li").eq(1).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});
@@ -144,5 +145,5 @@
     });
 </script>
 </body>
-<?php include("__ROOT__/common/html/footer.html"); ?>
+<?php include("/common/html/footer.html"); ?>
 </html>

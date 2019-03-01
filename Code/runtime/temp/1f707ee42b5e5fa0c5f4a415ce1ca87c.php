@@ -1,9 +1,10 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/index\view\reg\upload.html";i:1551356648;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>文件上传</title>
-    <?php include("__ROOT__/common/html/import.html");?>
+    <?php include("/common/html/import.html");?>
 </head>
 <body>
 <div id="row">
