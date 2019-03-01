@@ -12,6 +12,10 @@ class Index extends Controller
 {
     public function index()
     {
+        $nickName = Session::get("niakName");
+        if ($nickName) {
+            return view("index/home");
+        }
         return view("index/content");
     }
 

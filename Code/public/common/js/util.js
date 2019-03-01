@@ -28,13 +28,11 @@ function ajax(data, rsqUrl, type, index) {
             if (data == "success") {
                 alert("success");
                 var nickName = "{:session('nickName')}";
-                console.log(nickName);
                 if(nickName) {
                     window.location.href = "/index/index/toHome";
                     return;
                 }
                 else{
-                    alert("1111");
                     window.location.href = "/index/index/Content";
                     return;
                 }
