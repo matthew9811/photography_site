@@ -69,6 +69,11 @@
     height: 100px;
     /*background-color: #761c19;*/
 }
+.sub_bg{
+    width: 200px;
+    height: 100px;
+    float: right;
+}
 .head_portrait{
     float: right;
     /*background-color: #761c19;*/

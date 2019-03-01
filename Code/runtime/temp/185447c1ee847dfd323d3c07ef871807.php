@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"F:\photography_site\Code\public/../application/index\view\alter\alter.html";i:1551359015;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"F:\photography_site\Code\public/../application/index\view\alter\alter.html";i:1551420091;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,7 @@
                                 </label>
                             </div>
                         </div>
-                        <form action="/index/Personal/update">
+                        <form action="/index/Personal/update" method="post">
                             <div class="nickName">
                                 <div class="text">Nickname</div>
                                 <input name="nickName" type="text" class="form-control" value=<?php echo $user->nick_name; ?>>
@@ -48,17 +48,18 @@
                                 <div class="text">Sex</div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>boy
+                                        <input type="radio" name="optionsRadios" value="0" <?php if($user->sex == 0): ?>checked="checked"<?php endif; ?>>boy
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">gril
+                                        <input type="radio" name="optionsRadios" value="1" <?php if($user->sex == 1): ?>checked="checked"<?php endif; ?>>girl
                                     </label>
                                 </div>
                             </div>
+                            <input type="submit" class="btn btn-warning"/>
                         </form>
-                        <div class="sex_radio">
+                        <div class="sub_bg">
                             <img id="bg" class="bg_photo" src=<?php echo $user->templete_img; ?>>
                             <div class="btn_photo">
                                 <label class="btn btn-default" style="width: 100px;height: 30px;">修改背景
@@ -67,7 +68,6 @@
                             </div>
                         </div>
                         <br>
-                        <button id="personal" type="submit" class="btn btn-warning">提交</button>
                     </div>
                 </div>
             </a>
@@ -76,29 +76,29 @@
                 <div class="account">
                     <div class="title">Account Of Privacy</div>
                     <div class="form">
-                        <form action="">
+                        <form action="/index/Personal/Privacy" method="post">
                             <br>
                             <div class="nickName">
-                                <div class="text">Name</div>
-                                <input type="text" class="form-control" value=<?php echo $user->real_name; ?>>
+                                <div class="text">Your Name</div>
+                                <input name="real" type="text" class="form-control" value=<?php echo $user->real_name; ?>>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">E-mail</div>
-                                <input type="email" class="form-control" value=<?php echo $user->email; ?>>
+                                <input name="email" type="email" class="form-control" value=<?php echo $user->email; ?>>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">ID Card</div>
-                                <input type="text" class="form-control" value=<?php echo $user->id_number; ?>>
+                                <input name="number" type="text" class="form-control" value=<?php echo $user->id_number; ?>>
                             </div>
 
                             <div class="nickName">
                                 <div class="text">Password</div>
-                                <input type="password" class="form-control" value=<?php echo $user->password; ?>>
+                                <input name="password" type="password" class="form-control" value=<?php echo $user->password; ?>>
                             </div>
                             <br>
-                            <button id="privacy" type="submit" class="btn btn-warning">提交</button>
+                            <input type="submit" class="btn btn-warning"/>
                         </form>
                     </div>
                 </div>
@@ -137,7 +137,22 @@
         });
 
         //上传个人数据
-        $("#personal")
+        // $("#personal").on("click", function () {
+        //     var data = $("#personals").serializeArray();
+        //     alert(data);
+        //     $.ajax({
+        //         url: "/index/Personal/update",
+        //         type: 'post',
+        //         data: data,
+        //         success: function (data) {
+        //             alert(data.msg);
+        //         },
+        //         error: function (data) {
+        //             alert(data.status);
+        //             console.log(data);
+        //         }
+        //     });
+        // })
     });
 </script>
 </body>
