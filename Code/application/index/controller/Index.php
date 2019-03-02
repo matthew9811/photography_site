@@ -56,6 +56,7 @@ class Index extends Controller
     }
 
 
+    //用户登录
     public function login(Request $request)
     {
 
@@ -78,6 +79,7 @@ class Index extends Controller
         return json("error");
     }
 
+    //用户注册
     public function reg(Request $request)
     {
         $aes = new AES();
@@ -98,5 +100,27 @@ class Index extends Controller
         }
 
     }
+
+    //管理员登录
+    public function login_admin(Request $request)
+    {
+
+        $user = new User();
+        $post = $request->post();
+        $aes = new AES();
+        /**当登录成功
+         * 将用户的nickname存进session
+         * 为校验数据进行
+         */
+        $result = $user->where('nick_Name', $post['nickName'])->select();
+        if ($result[0]) {
+            if ($result[0]['password'] == $aes->encode($post['password'])
+                && ($result[0]["nickName"] == $result[0]['nick_name'])
+                && ($result[0]["id"] == $result[0]['id']) )
+                return json("success");
+        }
+        return json("error");
+    }
+
 
 }
