@@ -12,7 +12,7 @@ class Index extends Controller
 {
     public function index()
     {
-        $nickName = Session::get("niakName");
+        $nickName = Session::get("nickName");
         if ($nickName) {
             return view("index/home");
         }

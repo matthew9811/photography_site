@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551245387;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\shengxi\hc\Code\public/../application/index\view\personal\photo.html";i:1551420382;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,6 @@
         <div class="container">
             <div class="image_div">
                 <img class="img-circle image" src=<?php echo $user->img; ?> alt="头像"/>
-
             </div>
             <div class="div_right">
                 <br>
@@ -61,7 +60,7 @@
             </form>
         </div>
         <div class='photo_div'>
-            <img id="photo" src='/common/image/account.jpg' class='img_div'>
+            <img id="photo" src=<?php echo $user->img; ?> class='img_div'>
         </div>
     </div>
 </div>
@@ -91,23 +90,11 @@
             var formData = new FormData();
             formData.append('photo', $(this).get(0).files[0]);
             console.log(formData);
-            $.ajax({
-                url: '/index/Personal/savePhoto',
-                type: 'post',
-                data: formData,
-                dataType: 'json',
-                contentType: false,//后面修复
-                processData: false,
-                cache: false,
-                success: function (data) {
-                    alert(data.status);
-                },
-                error: function (data) {
-                    alert("--------");
-                    alert(data.status);
-                }
-            })
-            // console.log("objUrl = " + objUrl);
+            var option = {
+                'data': formData,
+                'url': '/index/Personal/savePhoto'
+            };
+            updataPhoto(option);
             if (objUrl) {
                 $("#photos").append("<div class='photo_div'>" +
                     "            <img src='" + objUrl + "' class='img_div'>" +
@@ -115,18 +102,7 @@
             }
         });
 
-        function getObjectURL(file) {
-            var url = null;
-            if (window.createObjectURL != undefined) {
-                url = window.createObjectURL(file);
-            } else if (window.URL != undefined) { // mozilla(firefox)
-                url = window.URL.createObjectURL(file);
-            } else if (window.webkitURL != undefined) { // webkit or chrome
-                url = window.webkitURL.createObjectURL(file);
-            }
-            // console.log(url);
-            return url;
-        }
+
     })
 </script>
 <?php include("/common/html/footer.html"); ?>

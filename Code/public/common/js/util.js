@@ -28,11 +28,11 @@ function ajax(data, rsqUrl, type, index) {
             if (data == "success") {
                 alert("success");
                 var nickName = "{:session('nickName')}";
-                if(nickName) {
+                if (nickName) {
                     window.location.href = "/index/index/toHome";
                     return;
                 }
-                else{
+                else {
                     window.location.href = "/index/index/Content";
                     return;
                 }
@@ -52,21 +52,15 @@ function ajaxOfPost(data, rsqUrl) {
         type: 'post',
         data: data,
         success: function (data) {
-            console.log(data.status);
-            alert("success");
+            alert(data);
+            window.location.href = data;
+            return;
+
         },
         error: function (data) {
             console.log(data.status);
         }
     })
-}
-
-function login(data) {
-
-}
-
-function register() {
-
 }
 
 /**
@@ -109,7 +103,6 @@ function updataPhoto(option) {
         }
     })
 }
-
 
 
 /**

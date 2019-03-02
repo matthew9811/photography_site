@@ -16,17 +16,16 @@ class Blog
 
     public function toBlog()
     {
+
         return view('blog/blog');
     }
 
 
     public function saveBlog(Request $request)
     {
-//        $post = $request->param();
-//        $view = new View();
         $post = $request->post();
         $content = $post['content'];
-        $this->assign("content", $content);
-        return $this->fetch('blog/blog');
+
+        return json("/index/Blog/toBlog");
     }
 }

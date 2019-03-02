@@ -1,4 +1,4 @@
-function make_editor(id,id2,url) {
+function make_editor(id, id2, url) {
     var E = window.wangEditor;
     var editor = new E(id);
 // 下面两个配置，使用其中一个即可显示“上传图片”的tab。但是两者不要同时使用！！！
