@@ -13,6 +13,6 @@ class Index
 {
     public function index()
     {
-        return "this is admin Index index";
+        return view();
     }
 }

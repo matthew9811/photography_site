@@ -116,7 +116,7 @@ class Index extends Controller
         if ($result[0]) {
             if ($result[0]['password'] == $aes->encode($post['password'])
                 && ($result[0]["nickName"] == $result[0]['nick_name'])
-                && ($result[0]["id"] == $result[0]['id']) )
+                && ($result[0]["id"] == $result[0]['id']))
                 return json("success");
         }
         return json("error");
