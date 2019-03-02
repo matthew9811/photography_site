@@ -13,6 +13,6 @@ class Index
 {
     public function index()
     {
-        return view();
+        return view("index/admin");
     }
 }
