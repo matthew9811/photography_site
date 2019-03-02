@@ -4,6 +4,12 @@
     justify-content: center;
     height: 400px;
 }
+.admin_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
 .reg_form{
     width: 430px;
     height: 300px;
@@ -35,6 +41,13 @@
     /*background-color: #2aabd2;*/
     display: flex;
     align-items: center;
+}
+.admin_btn{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .login_form{
     width: 430px;

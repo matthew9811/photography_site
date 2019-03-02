@@ -73,7 +73,7 @@ class Index extends Controller
                 Session::set("nickName", $result[0]['nick_name']);
                 Session::set("id", $result[0]['id']);
                 session('loginTime', time());
-                return json("success");
+                return json("/index/index/toHome");
             }
         }
         return json("error");
@@ -94,32 +94,11 @@ class Index extends Controller
         $user->templete_img = '/root/images/bg.jpg';
         $result = $user->save();
         if ($result) {
-            return json("success");
+            return json("/index/index/Content");
         } else {
             return json("error");
         }
 
-    }
-
-    //管理员登录
-    public function login_admin(Request $request)
-    {
-
-        $user = new User();
-        $post = $request->post();
-        $aes = new AES();
-        /**当登录成功
-         * 将用户的nickname存进session
-         * 为校验数据进行
-         */
-        $result = $user->where('nick_Name', $post['nickName'])->select();
-        if ($result[0]) {
-            if ($result[0]['password'] == $aes->encode($post['password'])
-                && ($result[0]["nickName"] == $result[0]['nick_name'])
-                && ($result[0]["id"] == $result[0]['id']))
-                return json("success");
-        }
-        return json("error");
     }
 
 

@@ -25,19 +25,9 @@ function ajax(data, rsqUrl, type, index) {
         data: data,
         success: function (data) {
             layer.closeAll(index);
-            if (data == "success") {
+            if (data) {
                 alert("success");
-                var nickName = "{:session('nickName')}";
-                if (nickName) {
-                    window.location.href = "/index/index/toHome";
-                    return;
-                }
-                else {
-                    window.location.href = "/index/index/Content";
-                    return;
-                }
-            } else if (data == "error") {
-                alert("error");
+                window.location.href = data;
             }
         },
         error: function (data) {
