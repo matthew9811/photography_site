@@ -13,6 +13,6 @@ class course extends Base
 
     public function toObject()
     {
-        return view('blog/blog');
+        return view('admin/check_blog');
     }
 }
