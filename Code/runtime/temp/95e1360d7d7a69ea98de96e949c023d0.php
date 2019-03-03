@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"F:\photography_site\Code\public/../application/admin\view\index\loginlog.html";i:1551601611;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"F:\photography_site\Code\public/../application/admin\view\index\loginlog.html";i:1551618592;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -49,13 +49,13 @@
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
         <li><a href="/admin/index/toNotice">公告</a></li>
-        <li><a href="/admin/index/toComment">评论</a></li>
+        <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
         <li class="active"><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
-            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li><a href="/admin/index/toUser">管理用户</a></li>
+            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/admin/index/toLog">管理登录日志</a></li>
           </ul>
@@ -79,63 +79,63 @@
               <tr>
                 <td>1</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="1">删除</a></td>
               </tr>
               <tr>
                 <td>2</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="2">删除</a></td>
               </tr>
               <tr>
                 <td>3</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="3">删除</a></td>
               </tr>
               <tr>
                 <td>4</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="4">删除</a></td>
               </tr>
               <tr>
                 <td>5</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="5">删除</a></td>
               </tr>
               <tr>
                 <td>6</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="6">删除</a></td>
               </tr>
               <tr>
                 <td>7</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="7">删除</a></td>
               </tr>
               <tr>
                 <td>8</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="8">删除</a></td>
               </tr>
               <tr>
                 <td>9</td>
                 <td class="article-title">admin</td>
-                <td>2016-1-11 15:09:11</td>
+                <td>2019-1-11 15:09:11</td>
                 <td>192.168.1.1:1245</td>
                 <td><a rel="9">删除</a></td>
               </tr>

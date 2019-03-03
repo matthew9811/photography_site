@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551601374;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551618238;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -64,13 +64,13 @@
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
         <li><a href="/admin/index/toNotice">论坛</a></li>
-        <li><a href="/admin/index/toComment">评论</a></li>
+        <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
-            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li><a href="/admin/index/toUser">管理用户</a></li>
+            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/admin/index/toLog">管理登录日志</a></li>
           </ul>

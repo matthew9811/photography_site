@@ -35,10 +35,10 @@ class Index
         return view("index/notice");
     }
 
-    public function toComment()
-    {
-        return view("index/comment");
-    }
+//    public function toComment()
+//    {
+//        return view("index/comment");
+//    }
 
     public function toUser()
     {

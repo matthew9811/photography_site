@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/admin\view\index\manage-user.html";i:1551601339;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/admin\view\index\manage-user.html";i:1551618592;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -49,13 +49,13 @@
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
         <li><a href="/admin/index/toNotice">论坛</a></li>
-        <li><a href="/admin/index/toComment">评论</a></li>
+        <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
         <li class="active"><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
-            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li><a href="/admin/index/toUser">管理用户</a></li>
+            <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/admin/index/toLog">管理登录日志</a></li>
           </ul>
@@ -82,16 +82,16 @@
                 <td>edit</td>
                 <td>编辑</td>
                 <td>4</td>
-                <td>2015-12-03 15:14:27</td>
-                <td><a rel="1" name="see">修改</a> <a rel="1" name="delete">删除</a> <a href="/User/checked/id/1/action/n">禁用</a></td>
+                <td>2018-12-03 15:14:27</td>
+                <td><a rel="1" name="delete">删除</a> <a href="/User/checked/id/1/action/n">禁用</a></td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>test</td>
                 <td>测试</td>
                 <td>3</td>
-                <td>2015-12-03 15:14:27</td>
-                <td><a rel="2" name="see">修改</a> <a rel="2" name="delete">删除</a> <a href="/User/checked/id/2/action/y">启用</a></td>
+                <td>2018-12-03 15:14:27</td>
+                <td><a rel="2" name="delete">删除</a> <a href="/User/checked/id/2/action/y">启用</a></td>
               </tr>
             </tbody>
           </table>

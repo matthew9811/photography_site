@@ -281,7 +281,7 @@
             $(this).html(subStr + (str.length > 200 ? '...' : ''));
         });
 
-        //work模块输出文章内容时，超出60个字时显示...
+        //work模块输出文章内容时，超出100个字时显示...
         $(".index_char_describe").each(function() {
             var str = $(this).html();
             var subStr = str.substring(0, 100);
