@@ -20,9 +20,49 @@ class Index
         return view("index/admin");
     }
 
+    public function toMain()
+    {
+        return view("index/main");
+    }
+
+    public function toArticle()
+    {
+        return view("index/article");
+    }
+
+    public function toNotice()
+    {
+        return view("index/notice");
+    }
+
+    public function toComment()
+    {
+        return view("index/comment");
+    }
+
+    public function toUser()
+    {
+        return view("index/manage-user");
+    }
+
+    public function toLog()
+    {
+        return view("index/loginlog");
+    }
+
     public function check()
     {
         return view("index/check_blog");
+    }
+
+    public function toBlog()
+    {
+        return view("index/check_blog");
+    }
+
+    public function toForum()
+    {
+        return view("index/check_forum");
     }
 
 
@@ -40,7 +80,7 @@ class Index
         $admin = \think\Db::name('user')->where('nick_name',"=",$post['nickName'])->find();
         if($admin){
             if($admin['password'] == $aes->encode($post['password']) && $admin['id'] == 17){
-                return view('index/admin');
+                return view('index/main');
             }
         }
         return json("error");

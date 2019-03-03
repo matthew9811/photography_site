@@ -101,5 +101,11 @@ class Index extends Controller
 
     }
 
+    public function toOut()
+    {
+        session(null);
+        return view("index/index");
+    }
+
 
 }

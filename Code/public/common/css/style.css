@@ -25,7 +25,22 @@
 .bar_search{
     float:right;
     padding-top:10px;
-    width: 300px;
+    width: 200px;
+}
+.bar_out{
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    float: right;
+    /*background-color: #880000;*/
+}
+.bar_log{
+    height: 60px;
+    width: 60px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /*页面顶部*/
 

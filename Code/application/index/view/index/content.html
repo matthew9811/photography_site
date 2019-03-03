@@ -74,7 +74,7 @@
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work7.jpg">
                     </div>
-                    <div class="index_char">
+                    <div class="index_char container">
                         <div class="index_char_title">
                             About the Photo About the Photo About the Photo About the Photo
                         </div>
@@ -89,7 +89,7 @@
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work6.jpg">
                     </div>
-                    <div class="index_char">
+                    <div class="index_char container">
                         <div class="index_char_title">
                             About the Photo About the Photo About the Photo About the Photo
                         </div>
@@ -107,7 +107,7 @@
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work5.jpg">
                     </div>
-                    <div class="index_char">
+                    <div class="index_char container">
                         <div class="index_char_title">
                             About the Photo About the Photo About the Photo About the Photo
                         </div>
@@ -122,7 +122,7 @@
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work4.jpg">
                     </div>
-                    <div class="index_char">
+                    <div class="index_char container">
                         <div class="index_char_title">
                             About the Photo About the Photo About the Photo About the Photo
                         </div>
@@ -142,7 +142,7 @@
     <div class="index_v3">
         <div class="index_title">NEW ARTICLE</div>
         <div class="index_article">
-            <div class="index_new">
+            <div class="index_new container">
                 <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_new_title">
                         The new article
@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="index_line"></div>
-            <div class="index_new">
+            <div class="index_new container">
                 <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_new_title">
                         The new article
@@ -188,7 +188,7 @@
                 </div>
             </div>
             <div class="index_line"></div>
-            <div class="index_new">
+            <div class="index_new container">
                 <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_new_title">
                         The new article
@@ -287,6 +287,22 @@
             };
             open(option);
         });
+
+
+        //new article模块输出文章内容时，超出200个字时显示...
+        $(".index_new_describe").each(function() {
+            var str = $(this).html();
+            var subStr = str.substring(0, 200);
+            $(this).html(subStr + (str.length > 200 ? '...' : ''));
+        });
+
+        //work模块输出文章内容时，超出60个字时显示...
+        $(".index_char_describe").each(function() {
+            var str = $(this).html();
+            var subStr = str.substring(0, 100);
+            $(this).html(subStr + (str.length > 100 ? '...' : ''));
+        });
+
 
 
     });
