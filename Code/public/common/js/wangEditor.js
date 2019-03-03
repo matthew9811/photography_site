@@ -7,8 +7,16 @@ function make_editor(id, id2, url) {
 //editor.customConfig.uploadImgServer = '/upload';  // 上传图片到服务器
     editor.create();
     var content;
+    var title = null;
+    // $("#btn").on("click", function () {
+    //     title = $("input[name='title']").val();
+    // });
     $(id2).click(function () {
         content = editor.txt.html();
-        ajaxOfPost({'content': content}, url);
+        title = $("input[name='title']").val();
+        ajaxOfPost({
+            'content': content,
+            'title': title
+        }, url);
     })
 }

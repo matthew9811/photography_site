@@ -35,8 +35,13 @@ class Base extends Controller
          * 判断登录时间
          */
         if (($nowTime - $s_time) > 36000) {
-            session('loginTime', null);
-            $this->error('当前用户未登录或登录超时，请重新登录', U('/index/index'));
+            /*
+             * session('loginTime', null);
+             * 清空session中当前用户的信息
+             * 实现登出
+             */
+            session(null);
+            $this->error('当前用户未登录或登录超时，请重新登录', url('/index/index'));
         } else {
             /**
              * 更新检测时间

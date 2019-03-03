@@ -41,9 +41,9 @@ function ajaxOfPost(data, rsqUrl) {
         url: rsqUrl,
         type: 'post',
         data: data,
-        success: function (data) {
-            alert(data);
-            window.location.href = data;
+        success: function (datas) {
+            // window.location.href = data;
+            $.post(datas.url, datas);
             return;
 
         },

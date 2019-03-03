@@ -40,7 +40,7 @@ class Index
         $admin = \think\Db::name('user')->where('nick_name',"=",$post['nickName'])->find();
         if($admin){
             if($admin['password'] == $aes->encode($post['password']) && $admin['id'] == 17){
-                return json("success");
+                return view('index/admin');
             }
         }
         return json("error");
