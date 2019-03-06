@@ -101,6 +101,7 @@ class Index extends Controller
 
     }
 
+    //用户退出登录
     public function toOut()
     {
         session(null);

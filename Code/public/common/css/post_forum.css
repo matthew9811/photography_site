@@ -103,14 +103,14 @@
     align-items: center;
 }
 .blog_editor{
-    width: 800px;
+    width: 820px;
     height: 497px;
     /*background-color: white;*/
     float: right;
     border: 2px solid white;
 }
 .post_blog{
-    width: 800px;
+    width: 820px;
     height: 130px;
     float: right;
     background-color: white;

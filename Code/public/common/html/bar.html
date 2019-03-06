@@ -15,7 +15,7 @@
             <span class="bar_title">H</span>ome
         </a>
     </div>
-    <div class="navbar-collapse">
+    <div class="navbar-collapse" style="height: 50px">
         <ul class="nav navbar-nav bar_ul">
             <li class="active"><a href="/index/index/toHome" class="bar_nav">Home</a></li>
             <li><a href="/index/Blog/toBlogs" class="bar_nav">Blogs</a></li>
@@ -24,30 +24,71 @@
             <li><a href="/index/index/toAbout" class="bar_nav">About</a></li>
             <li><a href="/index/Personal/toPersonal" class="bar_nav">Personal</a></li>
         </ul>
-        <div class="bar_out">
-            <ul style="display: inline">
-                <li style="display: inline">
-                    <!--<div class="bar_log">-->
-                        <a href="/index/index/toOut" style="color: #0f0f0f;text-decoration:none">New</a>
-                    <!--</div>-->
-                </li>
-                <li style="display: inline">
-                    <!--<div class="bar_log1">-->
-                        <a href="/index/index/toOut" style="color: #0f0f0f;text-decoration:none">New</a>
-                    <!--</div>-->
-                </li>
-            </ul>
-        </div>
-        <div class="input-group bar_search">
-            <input type="text" class="form-control">
-            <span class="input-group-addon">
+        <div class="bar_one">
+            <div class="input-group bar_search">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
             </span>
+            </div>
+            <div class="bar_out">
+                <div id="navs">
+                    <ul class="messages">
+                        <li>
+                            <a href=""><span class="glyphicon glyphicon-bell"></span></a>
+                        </li>
+                        <li><a href="">user</a>
+                            <ul>
+                                <li><a href="/index/index/toOut">Log_out</a></li>
+                                <li><a title="Personal Message" data-toggle="modal" data-target="#seeUserInfo">Your_Message</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="clearfix"></div>
     <br>
     <!-- //navigation -->
+</div>
+<div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form action="" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >个人信息</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table" style="margin-bottom:0px;">
+                        <thead>
+                        <tr></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td wdith="25%">nickName:</td>
+                            <td width="75%">
+                                <input type="text" value="nickName" class="form-control" name="username" maxlength="10" autocomplete="off" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td wdith="25%">mobile:</td>
+                            <td width="75%">
+                                <input type="text" value="mobile" class="form-control" name="usertel" maxlength="13" autocomplete="off" />
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

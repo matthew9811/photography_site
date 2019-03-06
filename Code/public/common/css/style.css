@@ -22,17 +22,26 @@
 .bar_nav{
     color: black;
 }
+.bar_one{
+    width: 320px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    /*background-color: #880000;*/
+    float: right;
+}
 .bar_search{
-    float:right;
+    float: left;
     padding-top:10px;
     width: 200px;
 }
 .bar_out{
-    width: 170px;
-    height: 40px;
+    width: 120px;
+    /*height: 40px;*/
     font-size: 15px;
     float: right;
-    background-color: #880000;
+    /*background-color: #880000;*/
 }
 .bar_log{
     height: 60px;
@@ -53,6 +62,61 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+*{
+    margin:0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+#navs{
+    width: 100px;
+    height: 40px;
+    /*background: #ccc;*/
+    margin: 0 auto;
+}
+/*ul{background: #aaa}*/
+.messages li{
+    float:left;
+    display:block;
+    height: 40px;
+    line-height: 34px;
+    font-size: 17px;
+    padding: 0 10px;
+    position: relative;
+    /*color: #0f0f0f;*/
+}
+.messages li a{
+    color: #9d9d9d;
+    text-decoration: none;
+    cursor:pointer
+}
+.messages li:hover{
+    /*background: #cea;*/
+}
+.messages li ul li{
+    font-size: 12px;
+    height: 16px;
+    margin: 0px;
+    border: 0;
+    float: none;
+}
+/*关键一：将二级菜单设置为display：none;*/
+.messages li ul{
+    position: absolute;
+    top: 18px;
+    left: 0;
+    display: none;
+}
+.messages li ul li:hover{
+    /*background: red;*/
+}
+/*关键二：在划过二级菜单从属的一级菜单时，设置为display:block;*/
+.messages li:hover ul{
+    display: block;
+}
+#seeUserInfo .modal-dialog {
+    max-width: 450px;
 }
 /*页面顶部*/
 
