@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"F:\photography_site\Code\public/../application/index\view\compile\post_course.html";i:1551189111;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"F:\photography_site\Code\public/../application/index\view\compile\post_course.html";i:1551853826;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +39,10 @@
     </div>
 
     <div class="blog_editor">
-        <div class="post_input_title container">
-            <div class="course_topic">Course Title</div>
+        <div class="post_input_title">
+            <!--<div class="course_topic">Course Title</div>-->
             <div class="post_input">
-                <input name="title" type="text" class="form-control" placeholder="输入标题">
+                <input name="title" type="text" class="form-control the_input" placeholder="输入标题">
             </div>
         </div>
         <div id="div1" class="post_wangEditor editor_toolbar"></div>
@@ -52,7 +52,10 @@
     <div class="post_blog">
         <div class="post_line"></div>
         <div class="container post_label">
-            <div class="label">选择教程标签：</div>
+            <div class="label">
+                <span class="glyphicon glyphicon-tag label_sign"></span>
+                选择教程标签：
+            </div>
             <label class="checkbox-inline">
                 <input type="checkbox" id="inlineCheckbox1" value="option1"> photo
             </label>

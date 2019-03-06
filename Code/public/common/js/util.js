@@ -84,8 +84,8 @@ function updataPhoto(option) {
         processData: false,
         cache: false,
         success: function (data) {
-            alert("success");
-            // alert(data.status);
+            // alert("success");
+            alert(data);
         },
         error: function (data) {
             alert("error");

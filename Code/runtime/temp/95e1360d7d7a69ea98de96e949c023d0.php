@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"F:\photography_site\Code\public/../application/admin\view\index\loginlog.html";i:1551618592;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"F:\photography_site\Code\public/../application/admin\view\index\loginlog.html";i:1551874478;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -35,7 +35,7 @@
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="/admin/index/toOut">退出登录</a></li>
           </ul>
         </div>
       </div>
@@ -205,14 +205,12 @@
     </div>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script> 
 <script>
 //是否确认删除
 $(function(){   
 	$("#main table tbody tr td a").click(function(){
 		var name = $(this);
-		var id = name.attr("rel"); //对应id  
+		var id = name.attr("rel"); //对应id
 		if (event.srcElement.outerText === "删除") 
 		{
 			if(window.confirm("此操作不可逆，是否确认？"))

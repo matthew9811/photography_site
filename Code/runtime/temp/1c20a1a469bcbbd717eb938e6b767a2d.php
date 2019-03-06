@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1551618238;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1551878388;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -86,7 +86,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="html/update-article.html">通过</a> <a rel="6">删除</a></td>
+                <td><a id="1">通过</a> <a id="2">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -97,7 +97,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a rel="6">通过</a> <a rel="6">删除</a></td>
+                <td><a>通过</a> <a rel="6">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -108,7 +108,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">删除</a></td>
+                <td><a rel="1">通过</a> <a rel="6">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -119,7 +119,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">删除</a></td>
+                <td><a href="">通过</a> <a rel="6">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -130,7 +130,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">删除</a></td>
+                <td><a href="">通过</a> <a rel="6">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -141,7 +141,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">删除</a></td>
+                <td><a href="">通过</a> <a rel="6">驳回</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -152,7 +152,7 @@
                 </td>
                 <td class="hidden-sm">PHP、JavaScript</td>
                 <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">删除</a></td>
+                <td><a href="">通过</a> <a rel="6">驳回</a></td>
               </tr>
             </tbody>
           </table>
@@ -232,15 +232,14 @@
     </div>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script> 
 <script>
 //是否确认删除
 $(function(){   
-	$("#main table tbody tr td a").click(function(){
+	$("#main table tbody tr td a").click(function(e){
 		var name = $(this);
-		var id = name.attr("rel"); //对应id  
-		if (event.srcElement.outerText == "删除") 
+		var id = name.attr("id"); //对应id
+        console.log(id);
+		if (e.srcElement.outerHTML == "驳回")
 		{
 			if(window.confirm("此操作不可逆，是否确认？"))
 			{
@@ -255,7 +254,7 @@ $(function(){
 				});
 			};
 		};
-	});   
+	});
 });
 </script>
 </body>

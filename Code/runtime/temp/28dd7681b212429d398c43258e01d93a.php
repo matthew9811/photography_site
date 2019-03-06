@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/admin\view\index\manage-user.html";i:1551618592;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"F:\photography_site\Code\public/../application/admin\view\index\manage-user.html";i:1551863905;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -29,13 +29,25 @@
           <a class="navbar-brand" href="/">PhotoHome</a> </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">消息 <span class="badge"></span></a></li>
-            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
+            <li>
+              <a href="">消息
+                <span class="badge"></span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                admin
+                <span class="caret"></span>
+              </a>
               <ul class="dropdown-menu dropdown-menu-left">
-                <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
+                <li>
+                  <a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a>
+                </li>
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li>
+              <a href="/admin/index/toOut">退出登录</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -83,7 +95,9 @@
                 <td>编辑</td>
                 <td>4</td>
                 <td>2018-12-03 15:14:27</td>
-                <td><a rel="1" name="delete">删除</a> <a href="/User/checked/id/1/action/n">禁用</a></td>
+                <td>
+                  <input value="删除" class="btn btn-danger btn-sm" type="button"> <input value="禁用" class="btn btn-warning btn-sm" type="button">
+                </td>
               </tr>
               <tr>
                 <td>2</td>
@@ -91,7 +105,9 @@
                 <td>测试</td>
                 <td>3</td>
                 <td>2018-12-03 15:14:27</td>
-                <td><a rel="2" name="delete">删除</a> <a href="/User/checked/id/2/action/y">启用</a></td>
+                <td>
+                  <input value="删除" class="btn btn-danger btn-sm" type="button"> <input value="禁用" class="btn btn-warning btn-sm" type="button">
+                </td>
               </tr>
             </tbody>
           </table>
@@ -151,13 +167,12 @@
     </div>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script> 
 <script>
 $(function () {
-    $("#main table tbody tr td a").click(function () {
+    $("#main table tbody tr td button").click(function () {
         var name = $(this);
-        var id = name.attr("rel"); //对应id   
+        var id = name.attr("rel"); //对应id
+        console.log(id);
         if (name.attr("name") === "see") {
             $.ajax({
                 type: "POST",

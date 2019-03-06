@@ -85,16 +85,27 @@ class personal extends Base
 
     /**
      * 保存相册图片
-     * @param Request $request
      *
      */
     public function savePhoto()
     {
-        $file = request()->file('photo');
+        $file = request()->file('pic');
+        halt($file);
+        $path = Constant::PIC_URL . Session::get("nickName");
+        if (!is_dir(Constant::PIC_URL . Session::get("nickName"))) {
+            mkdir(iconv("UTF-8", "UTF-8", $path), 0777, true);
+        }
+        $time = new DateTime();
         $suffix = explode(".", $file->getInfo()["name"])[1];
-        $file->setSaveName("update." + $suffix)->move("root\images", "update." + $suffix);
+        $file->setSaveName( $time )->move($path, $time);
+        $url = Constant::PREFIX  . $path . DS . $file->getSaveName() .   "."  . $suffix;
+        Db::table("photo")->insert([
+            'user_id' => Session::get('id'),
+            'src' => $url,
+            'update_time' => new DateTime(),
+        ]);
+        return json(success);
 
-        return $this->success("success");
     }
 
     /**

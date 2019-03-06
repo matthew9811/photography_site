@@ -85,4 +85,16 @@ class Index
         }
         return json("error");
     }
+
+    public function pass()
+    {
+
+    }
+
+    public function toOut()
+    {
+        session(null);
+        return view("/index/index");
+    }
+
 }

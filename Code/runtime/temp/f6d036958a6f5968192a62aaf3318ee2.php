@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551618238;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551862433;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -42,7 +42,7 @@
                 <!--<li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>-->
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="/admin/index/toOut">退出登录</a></li>
             <!--<li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>-->
           </ul>
           <!--<form action="" method="post" class="navbar-form navbar-right" role="search">-->

@@ -21,8 +21,8 @@
     width: 100%;
     height: 60px;
     /*background-color: white;*/
-    display: flex;
-    align-items: center;
+    /*display: flex;*/
+    /*align-items: center;*/
     /*justify-content: center;*/
 }
 .post_title{
@@ -44,8 +44,11 @@
 }
 .post_input{
     float: right;
-    width: 500px;
-    height: 30px;
+    width: 100%;
+    height: 40px;
+}
+.the_input{
+    height: 40px;
 }
 .post_wangEditor{
     width: 100%;

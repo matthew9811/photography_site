@@ -45,7 +45,7 @@
               </ul>
             </li>
             <li>
-              <a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a>
+              <a href="/admin/index/toOut">退出登录</a>
             </li>
           </ul>
         </div>
@@ -162,13 +162,11 @@
     </div>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script> 
 <script>
 $(function () {
     $("#main table tbody tr td a").click(function () {
         var name = $(this);
-        var id = name.attr("rel"); //对应id   
+        var id = name.attr("rel"); //对应id
         if (name.attr("name") === "see") {
             $.ajax({
                 type: "POST",
