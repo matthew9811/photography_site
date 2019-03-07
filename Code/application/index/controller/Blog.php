@@ -11,7 +11,7 @@ use think\Session;
 use DateTime;
 use think\View;
 
-class Blog extends Base
+class Blog 
 {
     public function toBlogs()
     {
