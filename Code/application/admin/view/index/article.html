@@ -34,7 +34,7 @@
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="/admin/index/toOut">退出登录</a></li>
           </ul>
         </div>
       </div>
@@ -76,83 +76,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a id="1">通过</a> <a id="2">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a>通过</a> <a rel="6">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a rel="1">通过</a> <a rel="6">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">驳回</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toBlog">
-                    这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
-                  </a>
-                </td>
-                <td class="hidden-sm">PHP、JavaScript</td>
-                <td>2015-12-03</td>
-                <td><a href="">通过</a> <a rel="6">驳回</a></td>
-              </tr>
+              <volist name="list">
+                <tr>
+                  <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
+                  <td class="article-title">
+                    <a href="/admin/index/toBlog">
+                      这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题
+                    </a>
+                  </td>
+                  <td class="hidden-sm">PHP、JavaScript</td>
+                  <td>2015-12-03</td>
+                  <td><a id="1">通过</a> <a id="2">驳回</a></td>
+                </tr>
+              </volist>
             </tbody>
           </table>
         </div>

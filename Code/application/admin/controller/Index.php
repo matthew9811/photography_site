@@ -8,7 +8,9 @@
 
 namespace app\admin\controller;
 
+use think\Controller;
 use app\common\model\User;
+use think\Db;
 use think\Request;
 use app\common\util\AES;
 
@@ -27,6 +29,9 @@ class Index
 
     public function toArticle()
     {
+        $list = DB::table("blog")->where("status","0")->select();
+//        halt($blogList);
+        $this->assign("list",$list);
         return view("index/article");
     }
 

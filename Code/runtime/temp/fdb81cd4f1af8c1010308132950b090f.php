@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/index\view\course\course.html";i:1551055607;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/index\view\course\course.html";i:1551927893;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
     <!-- left -->
     <div class="course_left">
         <div class="course_slide">
-            <img src="/common/image/course.jpg">
+            <img src="/common/image/course2.png">
         </div>
         <div class="course_nav">
             <div class="course_tab">

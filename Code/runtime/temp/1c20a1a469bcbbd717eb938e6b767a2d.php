@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1551878388;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1551966138;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -35,7 +35,7 @@
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
               </ul>
             </li>
-            <li><a href="/Index/outLogin" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="/admin/index/toOut">退出登录</a></li>
           </ul>
         </div>
       </div>

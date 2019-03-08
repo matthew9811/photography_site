@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551862433;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"F:\photography_site\Code\public/../application/admin\view\index\main.html";i:1551874478;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -39,19 +39,10 @@
             <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
               <ul class="dropdown-menu dropdown-menu-left">
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
-                <!--<li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>-->
               </ul>
             </li>
             <li><a href="/admin/index/toOut">退出登录</a></li>
-            <!--<li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>-->
           </ul>
-          <!--<form action="" method="post" class="navbar-form navbar-right" role="search">-->
-            <!--<div class="input-group">-->
-              <!--<input type="text" class="form-control" autocomplete="off" placeholder="键入关键字搜索" maxlength="15">-->
-              <!--<span class="input-group-btn">-->
-              <!--<button class="btn btn-default" type="submit">搜索</button>-->
-              <!--</span> </div>-->
-          <!--</form>-->
         </div>
       </div>
     </nav>
@@ -64,7 +55,6 @@
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
         <li><a href="/admin/index/toNotice">论坛</a></li>
-        <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
@@ -221,8 +211,5 @@
     </div>
   </div>
 </div>
-
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script>
 </body>
 </html>
