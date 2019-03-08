@@ -8,9 +8,10 @@
 
 namespace app\admin\controller\commonn;
 
+use think\Controller;
 use \traits\controller\Jump;//类里面引入jump类
 
-class Base
+class Base extends Controller
 {
 
 

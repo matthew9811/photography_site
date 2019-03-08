@@ -8,14 +8,15 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
+use app\admin\controller\commonn\Base;
 use app\common\model\User;
 use think\Db;
 use think\Request;
 use app\common\util\AES;
+use think\Session;
 
 
-class Index
+class Index extends Base
 {
     public function index()
     {
@@ -85,6 +86,7 @@ class Index
         $admin = \think\Db::name('user')->where('nick_name',"=",$post['nickName'])->find();
         if($admin){
             if($admin['password'] == $aes->encode($post['password']) && $admin['id'] == 17){
+                Session::set("user", $admin['id']);
                 return view('index/main');
             }
         }
