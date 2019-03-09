@@ -57,9 +57,13 @@
                 <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;" accept="image/gif,image/jpeg,image/x-png"/>
             </form>
         </div>
+        {notempty name='photo'}
+        {volist name='photo' id='item' empty='empty'}
         <div class='photo_div'>
-            <img id="photo" src={$user->img} class='img_div'>
+            <img id="photo" src='{$item.src}' class='img_div'>
         </div>
+        {/volist}
+        {/notempty}
     </div>
 </div>
 </body>

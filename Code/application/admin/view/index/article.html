@@ -82,6 +82,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {notempty name="list"}
                         {volist name="list" id="item"}
                             <tr>
                                 <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
@@ -95,6 +96,7 @@
                                 <td><a id="1">通过</a> <a id="2">驳回</a></td>
                             </tr>
                         {/volist}
+                        {/notempty}
                         </tbody>
                     </table>
                 </div>

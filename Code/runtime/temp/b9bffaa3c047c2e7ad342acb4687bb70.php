@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"F:\photography_site\Code\public/../application/admin\view\index\notice.html";i:1551863235;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"F:\photography_site\Code\public/../application/admin\view\index\notice.html";i:1551874478;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -49,6 +49,7 @@
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
         <li class="active"><a href="/admin/index/toNotice">论坛</a></li>
+        <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
@@ -63,6 +64,10 @@
     </aside>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
       <form action="/Article/checkAll" method="post" >
+        <!--<h1 class="page-header">操作</h1>-->
+        <!--<ol class="breadcrumb">-->
+          <!--<li><a href="add-notice.html">增加公告</a></li>-->
+        <!--</ol>-->
         <h1 class="page-header">管理 <span class="badge"></span></h1>
         <div class="table-responsive">
           <table class="table table-striped table-hover">
@@ -81,9 +86,7 @@
                   <a href="/admin/index/toForum">这是测试标题</a>
                 </td>
                 <td>2015-12-03</td>
-                <td>
-                  <input value="通过" class="btn btn-default btn-sm" type="button"> <input value="删除" class="btn btn-danger btn-sm" type="button">
-                </td>
+                <td><a href="">修改</a> <a rel="6">删除</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -91,9 +94,7 @@
                   <a href="/admin/index/toForum">这是测试标题</a>
                 </td>
                 <td>2015-12-03</td>
-                <td>
-                  <input value="通过" class="btn btn-default btn-sm" type="button"> <input value="删除" class="btn btn-danger btn-sm" type="button">
-                </td>
+                <td><a href="">修改</a> <a rel="6">删除</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
@@ -101,9 +102,7 @@
                   <a href="/admin/index/toForum">这是测试标题</a>
                 </td>
                 <td>2015-12-03</td>
-                <td>
-                  <input value="通过" class="btn btn-default btn-sm" type="button"> <input value="删除" class="btn btn-danger btn-sm" type="button">
-                </td>
+                <td><a href="">修改</a> <a rel="6">删除</a></td>
               </tr>
             </tbody>
           </table>
@@ -178,8 +177,6 @@
     </div>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/admin-scripts.js"></script>
 <script>
 //是否确认删除
 $(function(){
