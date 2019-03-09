@@ -22,13 +22,13 @@ class Blog
     {
         $post = $request->post();
         $view = new View();
-        $blog = Db::table('blog')->where('user_id', $post['id'])->where('title', $post['title'])->select();
-        $file = fopen($blog->content, "r");
+        $blog = Db::table('blog')->where('user_id', $post['id'])->where('title', $post['title'])->select()[0];
+        $file = fopen($blog['content'], "r");
         if ($file) {
-            $content = fread($file, filesize($file));
+            $content = file_get_contents($blog['content']);
             $view->content = $content;
         }
-        $view->title = $blog->title;
+        $view->title = $blog['title'];
         return $view->fetch('blog/blog');
     }
 
