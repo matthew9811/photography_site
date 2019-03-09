@@ -90,21 +90,21 @@ class personal extends Base
     public function savePhoto()
     {
         $file = request()->file('pic');
-        halt($file);
         $path = Constant::PIC_URL . Session::get("nickName");
         if (!is_dir(Constant::PIC_URL . Session::get("nickName"))) {
             mkdir(iconv("UTF-8", "UTF-8", $path), 0777, true);
         }
-        $time = new DateTime();
+        $time = new \DateTime();
+        $time = $time->format("Y-m-d");
         $suffix = explode(".", $file->getInfo()["name"])[1];
         $file->setSaveName( $time )->move($path, $time);
         $url = Constant::PREFIX  . $path . DS . $file->getSaveName() .   "."  . $suffix;
         Db::table("photo")->insert([
             'user_id' => Session::get('id'),
             'src' => $url,
-            'update_time' => new DateTime(),
+            'update_time' => new \DateTime(),
         ]);
-        return json(success);
+        return json("success");
 
     }
 

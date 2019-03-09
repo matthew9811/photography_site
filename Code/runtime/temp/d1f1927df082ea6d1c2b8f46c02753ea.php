@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:91:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\compile\post_blog.html";i:1551660795;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:91:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\compile\post_blog.html";i:1551890472;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +39,11 @@
     </div>
 
     <div class="blog_editor">
-        <div class="post_input_title container">
-            <div class="post_title">Post Title</div>
+        <div class="post_input_title">
+            <!--<div class="post_title">Post Title</div>-->
             <div class="post_input">
                 <form>
-                    <input name="title" type="text" class="form-control" placeholder="输入标题">
+                    <input name="title" type="text" class="form-control the_input" placeholder="输入标题">
                 </form>
             </div>
         </div>

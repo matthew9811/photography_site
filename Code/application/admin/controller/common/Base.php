@@ -6,7 +6,7 @@
  * Time: 8:51
  */
 
-namespace app\admin\controller\commonn;
+namespace app\admin\controller\common;
 
 use think\Controller;
 use \traits\controller\Jump;//类里面引入jump类

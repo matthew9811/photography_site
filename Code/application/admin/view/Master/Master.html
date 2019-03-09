@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master</title>
+</head>
+<body>
+<!--分页后一些功能-->
+{if($books->isEmpty())}
+//是否为空的判断
+{$books->currentPage()}
+//当前页码的获取
+{$books->lastPage()}
+//最后一页页码的获取
+
+在你的显示页面中，我使用的listarea等于item
+{$listarea->total()}//数据总数
+{$listarea->lastPage()}//总页数
+{$listarea->currentPage()}//当前页
+</body>
+</html>

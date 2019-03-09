@@ -8,7 +8,7 @@
 
 namespace app\admin\controller;
 
-use app\admin\controller\commonn\Base;
+use app\admin\controller\common\Base;
 use app\common\model\User;
 use think\Db;
 use think\Request;
@@ -30,7 +30,7 @@ class Index extends Base
 
     public function toArticle()
     {
-        $list = DB::table("blog")->where("status","0")->select();
+        $list = DB::table("blog")->where("status","0")->where('delete_flag', '0')->paginate(10);
 //        halt($blogList);
         $this->assign("list",$list);
         return view("index/article");

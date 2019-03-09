@@ -14,6 +14,6 @@ class Constant extends Utils
 {
     const INSERT_MARK = 0;
     const PREFIX = "\\";
-    const BLOG_URL = 'root/blog/';
-    const PIC_URL = 'root/pic/';
+    const BLOG_URL = 'root\blog\\';
+    const PIC_URL = 'root\pic\\';
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:88:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\personal\photo.html";i:1551660795;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:88:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\personal\photo.html";i:1551890472;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +87,7 @@
             $("#name").change(function () {
                 var objUrl = getObjectURL(this.files[0]);//获取文件信息
                 var formData = new FormData();
-                formData.append('photo', $(this).get(0).files[0]);
+                formData.append('pic', $(this).get(0).files[0]);
                 console.log(formData);
                 var option = {
                     'data' : formData,
