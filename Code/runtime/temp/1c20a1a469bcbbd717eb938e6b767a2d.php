@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1552390249;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1552446296;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -85,17 +85,17 @@
                         </thead>
                         <tbody>
                         <?php if(!(empty($list) || (($list instanceof \think\Collection || $list instanceof \think\Paginator ) && $list->isEmpty()))): if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-                            <tr>
-                                <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                                <td class="article-title">
-                                    <a href="/admin/index/toBlog">
-                                       <?php echo $item['id']; ?> + <?php echo $item['title']; ?>
-                                    </a>
-                                </td>
-                                <td class="hidden-sm">PHP、JavaScript</td>
-                                <td><?php echo $item['create_time']; ?></td>
-                                <td><a id='<?php echo $item['id']; ?>,1'>通过</a> <a id='<?php echo $item['id']; ?>,2'>驳回</a></td>
-                            </tr>
+                        <tr>
+                            <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
+                            <td class="article-title">
+                                <a href="/admin/index/toBlog">
+                                    <?php echo $item['id']; ?> + <?php echo $item['title']; ?>
+                                </a>
+                            </td>
+                            <td class="hidden-sm">PHP、JavaScript</td>
+                            <td><?php echo $item['create_time']; ?></td>
+                            <td><a id='<?php echo $item['id']; ?>,1'>通过</a> <a id='<?php echo $item['id']; ?>,2'>驳回</a></td>
+                        </tr>
                         <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                         </tbody>
                     </table>
@@ -195,10 +195,13 @@
             var name = $(this);
             var id = name.attr("id");
             var laber = document.getElementById(id).innerHTML;
-            console.log(laber);
+            // console.log(laber);
             // console.log(name);
             if (laber == "通过") {
                 review(name,'/admin/index/reviewBlog');
+            }
+            else {
+                review(name,'/admin/index/deleteBlog');
             }
         });
     });

@@ -196,10 +196,13 @@
             var name = $(this);
             var id = name.attr("id");
             var laber = document.getElementById(id).innerHTML;
-            console.log(laber);
+            // console.log(laber);
             // console.log(name);
             if (laber == "通过") {
                 review(name,'/admin/index/reviewBlog');
+            }
+            else {
+                review(name,'/admin/index/deleteBlog');
             }
         });
     });

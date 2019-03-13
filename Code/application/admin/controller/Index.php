@@ -103,7 +103,16 @@ class Index extends Base
     public function reviewBlog(Request $request)
     {
         $req = $request->post();
-        halt($req);
+        halt($request);
+        $id = $req['id'];
+        $status = $req['status'];
+        $blog = DB::table("blog")->where('id',$id)->update("status",$status);
+        return json('success');
+    }
+
+    public function deleteBlog(Request $request)
+    {
+        $req = $request->post();
         $id = $req['id'];
         $status = $req['status'];
         $blog = DB::table("blog")->where('id',$id)->update("status",$status);
