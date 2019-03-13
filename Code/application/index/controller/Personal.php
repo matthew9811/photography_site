@@ -41,10 +41,7 @@ class personal extends Base
         $id = Session::get("id");
         $user = $this->getUser($id);
         $user = $user[0];
-        $photo = model("common/Photo")->where("user_id", $id)->select();
-        if ($photo) {
-            $photo = $photo[0];
-        }
+        $photo = DB::table("photo")->where('user_id',$id)->select();
         $this->assign("user", $user);
         $this->assign("photo", $photo);
         return view('personal/article');

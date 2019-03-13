@@ -93,15 +93,21 @@ class Index extends Base
         return json("error");
     }
 
-    public function pass()
-    {
-
-    }
 
     public function toOut()
     {
         session(null);
         return view("/index/index");
+    }
+
+    public function reviewBlog(Request $request)
+    {
+        $req = $request->post();
+        halt($req);
+        $id = $req['id'];
+        $status = $req['status'];
+        $blog = DB::table("blog")->where('id',$id)->update("status",$status);
+        return json('success');
     }
 
 }

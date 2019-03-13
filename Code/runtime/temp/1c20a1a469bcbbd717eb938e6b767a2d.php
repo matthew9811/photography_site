@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1552140723;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"F:\photography_site\Code\public/../application/admin\view\index\article.html";i:1552390249;}*/ ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -17,6 +17,7 @@
     <script type="text/javascript" src="/static/admin/html5shiv.min.js"></script>
     <script type="text/javascript" src="/static/admin/respond.min.js"></script>
     <script type="text/javascript" src="/static/admin/selectivizr-min.js"></script>
+    <script type="text/javascript" src="/common/js/util.js"></script>
 </head>
 
 <body class="user-select">
@@ -93,7 +94,7 @@
                                 </td>
                                 <td class="hidden-sm">PHP、JavaScript</td>
                                 <td><?php echo $item['create_time']; ?></td>
-                                <td><a id="1">通过</a> <a id="2">驳回</a></td>
+                                <td><a id='<?php echo $item['id']; ?>,1'>通过</a> <a id='<?php echo $item['id']; ?>,2'>驳回</a></td>
                             </tr>
                         <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                         </tbody>
@@ -187,28 +188,18 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/javascript">
     //是否确认删除
     $(function () {
         $("#main table tbody tr td a").click(function (e) {
             var name = $(this);
-            var id = name.attr("id"); //对应id
-            console.log(id);
-            if (e.srcElement.outerHTML == "驳回") {
-                if (window.confirm("此操作不可逆，是否确认？")) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/Article/delete",
-                        data: "id=" + id,
-                        cache: false, //不缓存此页面
-                        success: function (data) {
-                            window.location.reload();
-                        }
-                    });
-                }
-                ;
+            var id = name.attr("id");
+            var laber = document.getElementById(id).innerHTML;
+            console.log(laber);
+            // console.log(name);
+            if (laber == "通过") {
+                review(name,'/admin/index/reviewBlog');
             }
-            ;
         });
     });
 </script>

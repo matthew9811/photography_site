@@ -117,3 +117,26 @@ function updataPicture(option) {
         }
     })
 }
+
+function review(name,url) {
+    var id = name.attr("id"); //对应id
+    console.log("++++++++");
+    // var laber = document.getElementById(id).innerHTML;
+    var status = id.split(',');
+    var data = {};
+    data['id'] = status[0];
+    data['status'] = status[1];
+    console.log(data);
+    console.log(url);
+    $.ajax({
+        type: "post",
+        url: url,
+        dataType: 'json',
+        data: status,
+        cache: false,
+        success: function (data) {
+            // window.location.reload();
+            console.log('222');
+        }
+    });
+}

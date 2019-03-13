@@ -79,30 +79,18 @@
               </tr>
             </thead>
             <tbody>
+              {notempty name="forum"}
+                {volist name="forum" id="item"}
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">
                   <a href="/admin/index/toForum">这是测试标题</a>
                 </td>
                 <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
+                <td><a id="{$item.id}yes">通过</a> <a id="{$item.id}no">驳回</a></td>
               </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toForum">这是测试标题</a>
-                </td>
-                <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">
-                  <a href="/admin/index/toForum">这是测试标题</a>
-                </td>
-                <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
-              </tr>
+                {/volist}
+              {/notempty}
             </tbody>
           </table>
         </div>
