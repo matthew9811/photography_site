@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:88:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\personal\photo.html";i:1551890472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:88:"D:\shengxi\hc\photography_site\Code\public/../application/index\view\personal\photo.html";i:1552140946;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,9 +58,11 @@
                 <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;" accept="image/gif,image/jpeg,image/x-png"/>
             </form>
         </div>
+        <?php if(!(empty($photo) || (($photo instanceof \think\Collection || $photo instanceof \think\Paginator ) && $photo->isEmpty()))): if(is_array($photo) || $photo instanceof \think\Collection || $photo instanceof \think\Paginator): $i = 0; $__LIST__ = $photo;if( count($__LIST__)==0 ) : echo "empty" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
         <div class='photo_div'>
-            <img id="photo" src=<?php echo $user->img; ?> class='img_div'>
+            <img id="photo" src='<?php echo $item['src']; ?>' class='img_div'>
         </div>
+        <?php endforeach; endif; else: echo "empty" ;endif; endif; ?>
     </div>
 </div>
 </body>

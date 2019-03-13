@@ -87,7 +87,7 @@
                   <a href="/admin/index/toForum">这是测试标题</a>
                 </td>
                 <td>2015-12-03</td>
-                <td><a id="{$item.id}yes">通过</a> <a id="{$item.id}no">驳回</a></td>
+                <td><a id="{$item.id},1">通过</a> <a id="{$item.id},2">驳回</a></td>
               </tr>
                 {/volist}
               {/notempty}
@@ -167,25 +167,14 @@
 <script>
 //是否确认删除
 $(function(){
-	$("#main table tbody tr td a").click(function(){
-		var name = $(this);
-		var id = name.attr("rel"); //对应id
-		if (event.srcElement.outerText == "删除")
-		{
-			if(window.confirm("此操作不可逆，是否确认？"))
-			{
-				$.ajax({
-					type: "POST",
-					url: "/Article/delete",
-					data: "id=" + id,
-					cache: false, //不缓存此页面
-					success: function (data) {
-						window.location.reload();
-					}
-				});
-			};
-		};
-	});
+    $("#main table tbody tr td a").click(function (e) {
+        var name = $(this);
+        var id = name.attr("id");
+        var laber = document.getElementById(id).innerHTML;
+        // console.log(laber);
+        // console.log(name);
+        review(name,'/admin/index/removeForum');
+    });
 });
 </script>
 </body>

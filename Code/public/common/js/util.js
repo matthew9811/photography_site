@@ -127,14 +127,11 @@ function review(name,url) {
     data['status'] = status[1];
     $.ajax({
         type: "post",
-        url: "/admin/index/deleteBlog",
+        url: url,
         // dataType: 'json',
         data: data,
         success: function (data) {
-            // window.location.reload();
-        },
-        error: function (data) {
-            alert("error");
+            window.location.reload();
         }
     });
 }

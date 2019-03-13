@@ -148,7 +148,7 @@
                         <tbody>
                         <tr>
                             <td wdith="20%">姓名:</td>
-                            <td width="80%"><input type="text" value="王雨" class="form-control" name="truename"
+                            <td width="80%"><input type="text" value="海绸" class="form-control" name="truename"
                                                    maxlength="10" autocomplete="off"/></td>
                         </tr>
                         <tr>
@@ -198,12 +198,7 @@
             var laber = document.getElementById(id).innerHTML;
             // console.log(laber);
             // console.log(name);
-            if (laber == "通过") {
-                review(name,'/admin/index/reviewBlog');
-            }
-            else {
-                review(name,'/admin/index/deleteBlog');
-            }
+            review(name,'/admin/index/removeBlog');
         });
     });
 </script>

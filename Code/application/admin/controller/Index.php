@@ -41,10 +41,6 @@ class Index extends Base
         return view("index/notice");
     }
 
-//    public function toComment()
-//    {
-//        return view("index/comment");
-//    }
 
     public function toUser()
     {
@@ -100,23 +96,28 @@ class Index extends Base
         return view("/index/index");
     }
 
-    public function reviewBlog(Request $request)
+
+    public function removeBlog(Request $request)
     {
         $req = $request->post();
-        halt($request);
         $id = $req['id'];
         $status = $req['status'];
-        $blog = DB::table("blog")->where('id',$id)->update("status",$status);
-        return json('success');
+        $blog = DB::table("blog")->where('id',$id)->update(["status" => $status]);
+        if ($blog) {
+            return json('success');
+        }
     }
 
-    public function deleteBlog(Request $request)
+    public function removeForum(Request $request)
     {
         $req = $request->post();
         $id = $req['id'];
         $status = $req['status'];
-        $blog = DB::table("blog")->where('id',$id)->update("status",$status);
-        return json('success');
+        $forum = DB::table("forum")->where('id',$id)->update(["status" => $status]);
+        if ($forum) {
+            return json('success');
+        }
     }
+
 
 }
