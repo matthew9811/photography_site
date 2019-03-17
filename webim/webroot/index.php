@@ -6,7 +6,7 @@ define('ROOT_PATH', dirname(__DIR__));
  * /vendor/autoload.php是Composer工具生成的
  * shell: composer update
  */
-require dirname(__DIR__) . '/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/Autoload.php';
 /**
  * Swoole框架自动载入器初始化
  */

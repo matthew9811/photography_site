@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LayIM测试</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css" media="all">
+</head>
+<body>
+<script src="__STATIC__/layui/layui.js"></script>
+<script>
+    layui.use('layim', function (layim) {
+
+        //建立WebSocket通讯
+        //注意：如果你要兼容ie8+，建议你采用 socket.io 的版本。下面是以原生WS为例
+
+        var socket = new WebSocket('ws://127.0.0.1:17');
+
+        //连接成功时触发
+        socket.onopen = function () {
+            socket.send('XXX连接成功');
+        };
+        //发送一个消息
+        socket.send('Hi Server, I am LayIM!');
+        codelayui.code
+//更多情况下，一般是传递一个JSON
+        socket.send(JSON.stringify({
+            type: '' //随便定义，用于在服务端区分消息类型
+            , data: {}
+        }));
+
+
+        //监听收到的消息
+        socket.onmessage = function (res) {
+            //res为接受到的值，如 {"emit": "messageName", "data": {}}
+            //emit即为发出的事件名，用于区分不同的消息
+        };
+
+        // 另外还有onclose、onerror，分别是在链接关闭和出错时触发。
+
+        //基本上常用的就上面几个了，是不是非一般的简单？
+        socket.onerror = function(event) {
+            alert('无法连接到:' + socket_ip);
+        };
+
+    });
+</script>
+</body>
+</html>
