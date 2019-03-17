@@ -1,0 +1,2 @@
+php workerman.php
+pause
