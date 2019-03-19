@@ -16,8 +16,8 @@ class Index extends Server
      */
     public function onMessage($connection, $data)
     {
-//        $connection->send('我收到你的信息了');
-        $connection->send('init');
+        $connection->send('ping');
+//        $connection->send('init');
     }
 
     /**
@@ -26,7 +26,7 @@ class Index extends Server
      */
     public function onConnect($connection)
     {
-
+        $connection->send("init");
     }
 
     /**
