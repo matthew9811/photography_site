@@ -7,7 +7,7 @@ use think\worker\Server;
 
 class Index extends Server
 {
-    protected $socket = 'websocket://0.0.0.0:17';
+    protected $socket = 'websocket://0.0.0.0:1731';
 
     /**
      * 收到信息
@@ -16,7 +16,8 @@ class Index extends Server
      */
     public function onMessage($connection, $data)
     {
-        $connection->send('我收到你的信息了');
+//        $connection->send('我收到你的信息了');
+        $connection->send('init');
     }
 
     /**
