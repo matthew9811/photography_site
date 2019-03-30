@@ -42,6 +42,11 @@
             ,chatLog: "{:url('Chatlog/index')}" //聊天记录地址（如果未填则不显示）
             // ,find: "{:url('findgroup/index')}" //查找好友/群的地址（如果未填则不显示）
             ,copyright: true //是否授权，如果通过官网捐赠获得LayIM，此处可填true
+        }).chat({
+            name: '在线客服二' //名称
+            ,type: 'friend' //聊天类型
+            ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+            ,id: -2 //定义唯一的id方便你处理信息
         });
         //建立WebSocket通讯
         var socket = new WebSocket('ws://127.0.0.1:1731');
