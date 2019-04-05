@@ -39,16 +39,16 @@ function ajax(data, rsqUrl, type, index) {
 function ajaxOfPost(data, rsqUrl) {
     $.ajax({
         url: rsqUrl,
+        async : true,
+        // url: '/index/Blog/testBlog',
         type: 'post',
         data: data,
         success: function (datas) {
-            // window.location.href = data;
-            $.post(datas.url, datas);
-            return;
+            console.log('success111');
 
         },
-        error: function (data) {
-            console.log(data.status);
+        error: function () {
+            console.log('error');
         }
     })
 }
@@ -131,6 +131,7 @@ function review(name,url) {
         // dataType: 'json',
         data: data,
         success: function (data) {
+            alert('操作成功');
             window.location.reload();
         }
     });

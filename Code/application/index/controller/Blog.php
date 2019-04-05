@@ -4,14 +4,14 @@ namespace app\index\controller;
 
 use app\common\util\Constant;
 use app\index\controller\common\Base;
-
 use think\Db;
 use think\Request;
 use think\Session;
+use think\Controller;
 use DateTime;
 use think\View;
 
-class Blog 
+class Blog extends Controller
 {
     public function toBlogs()
     {
@@ -20,16 +20,23 @@ class Blog
 
     public function toBlog(Request $request)
     {
+//        $post = $request->post();
+//        $view = new View();
+//        $blog = Db::table('blog')->where('id', $post['id'])->where('title', $post['title'])->select()[0];
+//        $file = fopen($blog['content'], "r");
+//        if ($file) {
+//            $content = file_get_contents($blog['content']);
+//            $view->content = $content;
+//        }
+//        $view->title = $blog['title'];
+//        return $view->fetch('blog/blog');
         $post = $request->post();
-        $view = new View();
-        $blog = Db::table('blog')->where('user_id', $post['id'])->where('title', $post['title'])->select()[0];
-        $file = fopen($blog['content'], "r");
-        if ($file) {
-            $content = file_get_contents($blog['content']);
-            $view->content = $content;
-        }
-        $view->title = $blog['title'];
-        return $view->fetch('blog/blog');
+        $id = $post['id'];
+        $blog = Db::table('blog')->where('id',$id)->select();
+        $this->assign("blog", $blog);
+        halt($blog);
+        return view('blog/blog');
+
     }
 
 
@@ -56,7 +63,27 @@ class Blog
             'create_time' => new DateTime(),
 
         ]);
-        $url = '/index/Blog/toBlog';
-        return json(['url' => $url, 'title' => $title, 'id' => Session::get('id')]);
+        $blog = Db::table('blog')->where('user_id',Session::get('id'))
+            ->where('title',$title)->select()[0];
+//        $this->redirect("ok",array('id' => $blog['id']));
+//        $this->assign("blog", $blog);
+//        return view('blog/blog');
+        return json($blog);
+    }
+
+    public function ok(Request $request)
+    {
+        $req = $request->post();
+        $id = $req['id'];
+        $blog = Db::table('blog')->where('id',$id)->select()[0];
+        $this->assign("blog", $blog);
+        return view('blog/blog');
+    }
+
+    public function testBlog()
+    {
+        $blog = Db::table('blog')->where('id',52)->select()[0];
+        $this->assign("blog", $blog);
+        return view('blog/blog');
     }
 }

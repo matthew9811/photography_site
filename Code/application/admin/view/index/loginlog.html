@@ -47,7 +47,7 @@
       </ul>
       <ul class="nav nav-sidebar">
         <li><a href="/admin/index/toArticle">文章</a></li>
-        <li><a href="/admin/index/toNotice">公告</a></li>
+        <li><a href="/admin/index/toNotice">论坛</a></li>
         <!--<li><a href="/admin/index/toComment">评论</a></li>-->
       </ul>
       <ul class="nav nav-sidebar">
@@ -68,88 +68,36 @@
             <thead>
               <tr>
                 <th><span class="visible-lg">ID</span></th>
-                <th><span class="visible-lg">用户</span></th>
+                <th><span class="visible-lg">昵称</span></th>
                 <th><span class="visible-lg">时间</span></th>
                 <th><span class="visible-lg">IP</span></th>
-                <th><span class="visible-lg">操作</span></th>
+                <!--<th><span class="visible-lg">操作</span></th>-->
               </tr>
             </thead>
             <tbody>
+            {notempty name="user"}
+            {volist name="user" id="item"}
               <tr>
-                <td>1</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="1">删除</a></td>
+                <td>{$item.id}</td>
+                <td class="article-title">{$item.nick_name}</td>
+                <td>{$item.create_time}</td>
+                <td>{$item.ip}</td>
+                <!--<td><a rel="1">删除</a></td>-->
               </tr>
-              <tr>
-                <td>2</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="2">删除</a></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="3">删除</a></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="4">删除</a></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="5">删除</a></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="6">删除</a></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="7">删除</a></td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="8">删除</a></td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td class="article-title">admin</td>
-                <td>2019-1-11 15:09:11</td>
-                <td>192.168.1.1:1245</td>
-                <td><a rel="9">删除</a></td>
-              </tr>
+            {/volist}
+            {/notempty}
             </tbody>
           </table>
         </div>
-        <footer class="message_footer">
-          <nav>
-            <ul class="pagination pagenav">
-              <li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
-              <li class="active"><a>1</a></li>
-              <li class="disabled"><a aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
-            </ul>
-          </nav>
-        </footer>
+        <!--<footer class="message_footer">-->
+          <!--<nav>-->
+            <!--<ul class="pagination pagenav">-->
+              <!--<li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>-->
+              <!--<li class="active"><a>1</a></li>-->
+              <!--<li class="disabled"><a aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>-->
+            <!--</ul>-->
+          <!--</nav>-->
+        <!--</footer>-->
     </div>
   </div>
 </section>
@@ -170,7 +118,7 @@
             <tbody>
               <tr>
                 <td wdith="20%">姓名:</td>
-                <td width="80%"><input type="text" value="王雨" class="form-control" name="truename" maxlength="10" autocomplete="off" /></td>
+                <td width="80%"><input type="text" value="海绸" class="form-control" name="truename" maxlength="10" autocomplete="off" /></td>
               </tr>
               <tr>
                 <td wdith="20%">用户名:</td>

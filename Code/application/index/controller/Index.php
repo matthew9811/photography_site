@@ -4,16 +4,53 @@ namespace app\index\controller;
 
 use app\common\model\User;
 use think\Controller;
+use think\Db;
 use think\Request;
 use think\Session;
+use DateTime;
 use app\common\util\AES;
 
 class Index extends Controller
 {
     public function index()
     {
+        $blogs = Db::table('blog')->where('type','0')
+            ->where('status','1')
+            ->limit(3)->select();
+        $course = Db::table('blog')->where('type','1')
+            ->where('status','1')
+            ->limit(4)->select();
+        $hot = Db::table('blog')
+            ->limit(5)->select();
+        for ($i = 0; $i < count($blogs); $i = $i + 1) {
+            $blog = $blogs[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $blogs[$i] = $blog;
+        }
+        for ($i = 0; $i < count($course); $i = $i + 1) {
+            $blog = $course[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $course[$i] = $blog;
+        }
         $nickName = Session::get("nickName");
+        $this->assign("blog",$blogs);
+        $this->assign("course1",$course[0]);
+        $this->assign("course2",$course[1]);
+        $this->assign("course3",$course[2]);
+        $this->assign("course4",$course[3]);
+        $this->assign("hot",$hot);
         if ($nickName) {
+            $this->assign("blog",$blogs);
+            $this->assign("course",$course);
+            $this->assign("hot",$hot);
             return view("index/home");
         }
         return view("index/content");
@@ -36,11 +73,53 @@ class Index extends Controller
 
     public function toAbout()
     {
-        return view('index/content');
+        $blogs = Db::table('blog')->where('type','0')
+            ->where('status','1')
+            ->limit(3)->select();
+        $course = Db::table('blog')->where('type','1')
+            ->where('status','1')
+            ->limit(4)->select();
+        $hot = Db::table('blog')
+            ->limit(5)->select();
+        for ($i = 0; $i < count($blogs); $i = $i + 1) {
+            $blog = $blogs[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $blogs[$i] = $blog;
+        }
+        for ($i = 0; $i < count($course); $i = $i + 1) {
+            $blog = $course[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $course[$i] = $blog;
+        }
+        $this->assign("blog",$blogs);
+        $this->assign("course1",$course[0]);
+        $this->assign("course2",$course[1]);
+        $this->assign("course3",$course[2]);
+        $this->assign("course4",$course[3]);
+        $this->assign("hot",$hot);
+        return view('index/home');
     }
 
     public function toBlog()
     {
+        $id = input()['id'];
+        $blog = Db::table('blog')->where('id',$id)->select()[0];
+        $user = Db::table('user')->where('id',$blog['user_id'])->select()[0];
+        $content = fopen('http://www.php.com/'.$blog['content'],"r");
+        if ($content) {
+            $content = file_get_contents('http://www.php.com/'.$blog['content']);
+            $blog['content'] = $content;
+        }
+        $this->assign('user',$user);
+        $this->assign('blog',$blog);
         return view('blog/blog');
     }
 
@@ -52,6 +131,38 @@ class Index extends Controller
 
     public function toHome()
     {
+        $blogs = Db::table('blog')->where('type','0')
+            ->where('status','1')
+            ->limit(3)->select();
+        $course = Db::table('blog')->where('type','1')
+            ->where('status','1')
+            ->limit(4)->select();
+        $hot = Db::table('blog')
+            ->limit(5)->select();
+        for ($i = 0; $i < count($blogs); $i = $i + 1) {
+            $blog = $blogs[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $blogs[$i] = $blog;
+        }
+        for ($i = 0; $i < count($course); $i = $i + 1) {
+            $blog = $course[$i];
+            $content = fopen('http://www.php.com/'.$blog['content'],"r");
+            if ($content) {
+                $content = file_get_contents('http://www.php.com/'.$blog['content']);
+                $blog['content'] = $content;
+            }
+            $course[$i] = $blog;
+        }
+        $this->assign("blog",$blogs);
+        $this->assign("course1",$course[0]);
+        $this->assign("course2",$course[1]);
+        $this->assign("course3",$course[2]);
+        $this->assign("course4",$course[3]);
+        $this->assign("hot",$hot);
         return view('index/home');
     }
 
@@ -59,9 +170,10 @@ class Index extends Controller
     //用户登录
     public function login(Request $request)
     {
-
         $user = new User();
         $post = $request->post();
+        $req = Request::instance();
+        $ip = $req->ip();
         $aes = new AES();
         /**当登录成功
          * 将用户的nickname存进session
@@ -69,6 +181,12 @@ class Index extends Controller
          */
         $result = $user->where('nick_Name', $post['nickName'])->select();
         if ($result[0]) {
+            Db::table('user')->where('nick_Name', $post['nickName'])
+                ->update([
+                    'ip' => $ip,
+                    'create_time' => date("Y-m-d H:i:s",time())
+                ]);
+//            halt(date("Y-m-d H:i:s",time()));
             if ($result[0]['password'] == $aes->encode($post['password'])) {
                 Session::set("nickName", $result[0]['nick_name']);
                 Session::set("id", $result[0]['id']);

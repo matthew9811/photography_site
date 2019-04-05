@@ -89,7 +89,7 @@
                             <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
                             <td class="article-title">
                                 <a href="/admin/index/toBlog">
-                                    {$item.id} + {$item.title}
+                                    {$item.title}
                                 </a>
                             </td>
                             <td class="hidden-sm">PHP、JavaScript</td>
@@ -114,16 +114,16 @@
                                 </button>
                             </div>
                         </div>
-                        <ul class="pagination pagenav">
-                            <li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
-                        </ul>
+                        <!--<ul class="pagination pagenav">-->
+                            <!--<li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>-->
+                            <!--</li>-->
+                            <!--<li class="active"><a href="#">1</a></li>-->
+                            <!--<li><a href="#">2</a></li>-->
+                            <!--<li><a href="#">3</a></li>-->
+                            <!--<li><a href="#">4</a></li>-->
+                            <!--<li><a href="#">5</a></li>-->
+                            <!--<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>-->
+                        <!--</ul>-->
                     </nav>
                 </footer>
             </form>
@@ -148,9 +148,9 @@
                         <tbody>
                         <tr>
                             <td wdith="20%">姓名:</td>
-                            <td width="80%"><input type="text" value="海绸" class="form-control" name="truename"
-
-                                                   maxlength="10" autocomplete="off"/></td>
+                            <td width="80%">
+                                <input type="text" value="海绸" class="form-control" name="truename" maxlength="10" autocomplete="off"/>
+                            </td>
                         </tr>
                         <tr>
                             <td wdith="20%">用户名:</td>
