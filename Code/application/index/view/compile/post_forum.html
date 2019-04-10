@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhotoHome</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="__ROOT__/common/css/post_forum.css" rel="stylesheet" />
     <script src="__ROOT__/common/js/wangEditor.js"></script>
@@ -12,28 +11,24 @@
     <div class="post_left">
         <div class="post_up">
             <div class="post_name container">The New</div>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
+            {notempty name="new"}
+            {volist name="new" id="item"}
+            <a href="{:url('/index/Forum/toInvitation?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
-            </a>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
         <div class="post_line"></div>
         <div class="post_up">
             <div class="post_name container">The hot topic</div>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
+            {notempty name="hot"}
+            {volist name="hot" id="item"}
+            <a href="{:url('/index/Forum/toInvitation?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
-            </a>
-            <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                <div class="post_forum container">The forum title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
     </div>
 
@@ -55,8 +50,9 @@
 
 </body>
 <script type="text/javascript">
+    var content;
     $(function () {
-        make_editor("#div1","#btn","/index/Forum/toPost");
+        content = make_editor("#div1", "#btn","/index/Forum/saveForum");
     })
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>

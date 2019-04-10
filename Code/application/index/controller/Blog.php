@@ -15,6 +15,21 @@ class Blog extends Controller
 {
     public function toBlogs()
     {
+        $art = Db::table('blog')->where('status','1')
+            ->order('create_time desc')->select();
+        $list = Db::table('blog')->order('like desc')->limit(5)
+            ->select();
+        for ($i = 0; $i < count($art); $i = $i + 1) {
+            $blog = $art[$i];
+            $content = fopen(iconv("UTF-8", "gbk", $blog['content']),"r");
+            if ($content) {
+                $content = file_get_contents(iconv("UTF-8", "gbk", $blog['content']));
+                $blog['content'] = $content;
+            }
+            $art[$i] = $blog;
+        }
+        $this->assign('blog',$art);
+        $this->assign('list',$list);
         return view('blog/blogs');
     }
 

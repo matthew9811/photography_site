@@ -49,6 +49,9 @@ class Index extends Base
 
     public function toNotice()
     {
+        $forum = Db::table('forum')->where('delete_flag','0')
+            ->select();
+        $this->assign('forum',$forum);
         return view("index/notice");
     }
 
@@ -165,7 +168,7 @@ class Index extends Base
         $req = $request->post();
         $id = $req['id'];
         $status = $req['status'];
-        $forum = DB::table("forum")->where('id',$id)->update(["status" => $status]);
+        $forum = DB::table("forum")->where('id',$id)->update(["delete_flag" => '1']);
         if ($forum) {
             return json('success');
         }

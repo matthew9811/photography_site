@@ -16,6 +16,7 @@
   <script type="text/javascript" src="__ROOT__/static/admin/html5shiv.min.js"></script>
   <script type="text/javascript" src="__ROOT__/static/admin/respond.min.js"></script>
   <script type="text/javascript" src="__ROOT__/static/admin/selectivizr-min.js"></script>
+  <script type="text/javascript" src="__ROOT__/common/js/util.js"></script>
 </head>
 
 <body class="user-select">
@@ -86,8 +87,8 @@
                 <td class="article-title">
                   <a href="/admin/index/toForum">{$item.title}</a>
                 </td>
-                <td>{$item.create_time}</td>
-                <td><a id="{$item.id},1">通过</a> <a id="{$item.id},2">驳回</a></td>
+                <td>{$item.publish_time}</td>
+                <td><a id="{$item.id},2">删除</a></td>
               </tr>
                 {/volist}
               {/notempty}
@@ -97,9 +98,12 @@
         <footer class="message_footer">
           <nav>
             <div class="btn-toolbar operation" role="toolbar">
-              <div class="btn-group" role="group"> <a class="btn btn-default" onClick="select()">全选</a> <a class="btn btn-default" onClick="reverse()">反选</a> <a class="btn btn-default" onClick="noselect()">不选</a> </div>
               <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="删除全部选中" name="checkbox_delete">删除</button>
+                <a class="btn btn-default" onClick="select()">全选</a>
+                <a class="btn btn-default" onClick="reverse()">反选</a>
+                <a class="btn btn-default" onClick="noselect()">不选</a> </div>
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-default">删除</button>
               </div>
             </div>
             <!--<ul class="pagination pagenav">-->

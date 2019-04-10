@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhotoHome</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="__ROOT__/common/css/post_forum.css" rel="stylesheet" />
     <script src="__ROOT__/common/js/wangEditor.js"></script>
@@ -12,38 +11,32 @@
     <div class="post_left">
         <div class="post_up">
             <div class="post_name container">The New</div>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
+            {notempty name="new"}
+            {volist name="new" id="item"}
+            <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
-            </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
         <div class="post_line"></div>
         <div class="post_up">
             <div class="post_name container">The hot article</div>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
+            {notempty name="hot"}
+            {volist name="hot" id="item"}
+            <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
-            </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The blog title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
     </div>
 
     <div class="blog_editor">
         <div class="post_input_title">
-            <!--<div class="post_title">Post Title</div>-->
+
             <div class="post_input">
-                <form>
-                    <input name="title" type="text" class="form-control the_input" placeholder="输入标题">
-                </form>
+                <input name="title" type="text" class="form-control the_input" placeholder="输入标题">
             </div>
         </div>
         <div id="div1" class="post_wangEditor editor_toolbar"></div>

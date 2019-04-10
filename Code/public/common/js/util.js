@@ -39,13 +39,10 @@ function ajax(data, rsqUrl, type, index) {
 function ajaxOfPost(data, rsqUrl) {
     $.ajax({
         url: rsqUrl,
-        async : true,
-        // url: '/index/Blog/testBlog',
         type: 'post',
         data: data,
         success: function (datas) {
-            console.log('success111');
-
+            alert('success');
         },
         error: function () {
             console.log('error');

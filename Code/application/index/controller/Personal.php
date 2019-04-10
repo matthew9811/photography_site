@@ -49,6 +49,12 @@ class personal extends Base
 
     public function toPost()
     {
+        $new = Db::table('blog')->where('delete_flag','0')
+            ->order('create_time desc')->limit(3)->select();
+        $hot = Db::table('blog')->where('delete_flag','0')
+            ->order('like desc')->limit(3)->select();
+        $this->assign('new',$new);
+        $this->assign('hot',$hot);
         return view('compile/post_blog');
     }
 

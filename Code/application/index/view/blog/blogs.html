@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhotoHome</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="/common/css/course.css" rel="stylesheet" />
 </head>
@@ -17,107 +16,32 @@
         </div>
         <br>
         <div class="course_article">
+            {notempty name="blog"}
+            {volist name="blog" id="item"}
             <div class="course_line"></div>
             <div class="course_article_one container">
-                <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
+                <a href="{:url('/index/index/toBlog?id='.$item['id'])}" class="course_article_des" style="color: #0f0f0f;text-decoration:none">
+                    <div class="course_article_title container">
+                        {$item.title}
                     </div>
                     <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
+                        {$item.content}
                     </div>
                 </a>
                 <div class="course_icon">
+                    <!--<div class="course_ico">-->
+                        <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
+                    <!--</div>-->
                     <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
+                        <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
                     </div>
                     <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
+                        <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
                     </div>
                 </div>
             </div>
-            <div class="course_line"></div>
-            <div class="course_article_one container">
-                <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <div class="course_line"></div>
-            <div class="course_article_one container">
-                <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <div class="course_line"></div>
-            <div class="course_article_one container">
-                <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <!--<div class="course_line"></div>-->
-            <!--<div class="course_article_one">-->
-
-            <!--</div>-->
-
+            {/volist}
+            {/notempty}
         </div>
     </div>
     <!-- left -->
@@ -129,35 +53,15 @@
             RANKING LIST
         </div>
         <div class="course_list_line"></div>
-        <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration: none">
+        {notempty name="list"}
+        {volist name="list" id="item"}
+        <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
             <div class="course_title container">
-                Blog Title
+                {$item.title}
             </div>
         </a>
-
-        <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title container">
-                Blog Title
-            </div>
-        </a>
-
-        <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title container">
-                Blog Title
-            </div>
-        </a>
-
-        <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title container">
-                Blog Title
-            </div>
-        </a>
-
-        <a href="/index/Blog/toBlog" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title container">
-                Blog Title
-            </div>
-        </a>
+        {/volist}
+        {/notempty}
     </div>
     <!-- //right -->
 
@@ -165,11 +69,11 @@
 </body>
 <script type="text/javascript">
     $(function () {
-        //输出文章内容时，超出200个字时显示...
+        //输出文章内容时，超出62个字时显示...
         $(".course_describe").each(function() {
             var str = $(this).html();
-            var subStr = str.substring(0, 200);
-            $(this).html(subStr + (str.length > 200 ? '...' : ''));
+            var subStr = str.substring(0, 62);
+            $(this).html(subStr + (str.length > 62 ? '...' : ''));
         });
 
         $("#good").click(function () {

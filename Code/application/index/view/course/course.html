@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Course</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="/common/css/course.css" rel="stylesheet" />
 </head>
@@ -26,102 +25,32 @@
             </div>
         </div>
         <div class="course_article">
+            {notempty name="blog"}
+            {volist name="blog" id="item"}
             <div class="course_line"></div>
             <div class="course_article_one">
-                <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
+                <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
                     <div class="course_article_title">
-                        The title The title The title The title The title
+                        {$item.title}
                     </div>
                     <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
+                        {$item.content}
                     </div>
                 </a>
                 <div class="course_icon">
+                    <!--<div class="course_ico">-->
+                        <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
+                    <!--</div>-->
                     <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
+                        <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
                     </div>
                     <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
+                        <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
                     </div>
                 </div>
             </div>
-            <div class="course_line"></div>
-            <div class="course_article_one">
-                <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <div class="course_line"></div>
-            <div class="course_article_one">
-                <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <div class="course_line"></div>
-            <div class="course_article_one">
-                <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-                    <div class="course_article_title">
-                        The title The title The title The title The title
-                    </div>
-                    <div class="course_describe">
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                        The describe The describe The describe The describe The describe
-                    </div>
-                </a>
-                <div class="course_icon">
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
+            {/volist}
+            {/notempty}
         </div>
     </div>
     <!-- left -->
@@ -133,35 +62,15 @@
             RANKING LIST
         </div>
         <div class="course_list_line"></div>
-        <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title">
-                Course Title
+        {notempty name="list"}
+        {volist name="list" id="item"}
+        <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
+            <div class="course_title container">
+                {$item.title}
             </div>
         </a>
-
-        <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title">
-                Course Title
-            </div>
-        </a>
-
-        <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title">
-                Course Title
-            </div>
-        </a>
-
-        <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title">
-                Course Title
-            </div>
-        </a>
-
-        <a href="/index/Course/toObject" style="color: #0f0f0f;text-decoration: none">
-            <div class="course_title">
-                Course Title
-            </div>
-        </a>
+        {/volist}
+        {/notempty}
     </div>
     <!-- //right -->
 
@@ -175,6 +84,17 @@
             $(this).addClass("selected")            //当前<li>元素高亮
                 .siblings().removeClass("selected");  //去掉其它同辈<li>元素的高亮
             var index =  $div_li.index(this);  // 获取当前点击的<li>元素 在 全部li元素中的索引。
+            console.log(index);
+            $.ajax({
+                url: '/index/Course/toSelect',
+                type: 'post',
+                data: {
+                    'id': index
+                },
+                success:function () {
+                    alert('success')
+                }
+            });
             $("div.tab_box > div")     //选取子节点。不选取子节点的话，会引起错误。如果里面还有div
                 .eq(index).removeClass("hide")
                 .show()   //显示 <li>元素对应的<div>元素
@@ -184,8 +104,8 @@
         //输出文章内容时，超出200个字时显示...
         $(".course_describe").each(function() {
             var str = $(this).html();
-            var subStr = str.substring(0, 200);
-            $(this).html(subStr + (str.length > 200 ? '...' : ''));
+            var subStr = str.substring(0, 62);
+            $(this).html(subStr + (str.length > 62 ? '...' : ''));
         });
     })
 </script>

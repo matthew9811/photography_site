@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhotoHome</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="__ROOT__/common/css/index.css" rel="stylesheet">
 </head>
@@ -66,31 +65,31 @@
         <div class="index_title">CAMERA WORK</div>
         <div class="index_camera">
             <div class="index_work1">
-                <a href="/index/index/toBlog" style="color: #0f0f0f">
+                <a href="{:url('/index/index/toBlog?id='.$course1['id'])}" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work7.jpg">
                     </div>
                     <div class="index_char container">
                         <div class="index_char_title">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course1.title}
                         </div>
                         <div class="index_char_describe">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course1.content}
                         </div>
                     </div>
                 </a>
             </div>
             <div class="index_work2">
-                <a href="/index/index/toBlog" style="color: #0f0f0f">
+                <a href="{:url('/index/index/toBlog?id='.$course2['id'])}" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work6.jpg">
                     </div>
                     <div class="index_char container">
                         <div class="index_char_title">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course2.title}
                         </div>
                         <div class="index_char_describe">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course2.content}
                         </div>
                     </div>
                 </a>
@@ -99,31 +98,31 @@
         <div class="index_line"></div>
         <div class="index_camera">
             <div class="index_work1">
-                <a href="/index/index/toBlog" style="color: #0f0f0f">
+                <a href="{:url('/index/index/toBlog?id='.$course3['id'])}" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work5.jpg">
                     </div>
                     <div class="index_char container">
                         <div class="index_char_title">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course3.title}
                         </div>
                         <div class="index_char_describe">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course3.content}
                         </div>
                     </div>
                 </a>
             </div>
             <div class="index_work2">
-                <a href="/index/index/toBlog" style="color: #0f0f0f">
+                <a href="{:url('/index/index/toBlog?id='.$course4['id'])}" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_image">
                         <img src="__ROOT__/common/image/work4.jpg">
                     </div>
                     <div class="index_char container">
                         <div class="index_char_title">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course4.title}
                         </div>
                         <div class="index_char_describe">
-                            About the Photo About the Photo About the Photo About the Photo
+                            {$course4.content}
                         </div>
                     </div>
                 </a>
@@ -138,98 +137,44 @@
     <div class="index_v3">
         <div class="index_title">NEW ARTICLE</div>
         <div class="index_article">
+            {notempty name="blog"}
+            {volist name="blog" id="item"}
             <div class="index_new container">
-                <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
+                <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="color: #0f0f0f;text-decoration:none">
                     <div class="index_new_title">
-                        The new article
+                        {$item.title}
                     </div>
                     <div class="index_new_describe">
-                        The new article The new article The new article The new article The new article
-                        The new article The new article The new article The new article The new article
+                        {$item.content}
+                    </div>
+                    <div class="index_icon">
+                        <!--<div class="index_ico">-->
+                        <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
+                        <!--</div>-->
+                        <div class="index_ico">
+                            <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
+                        </div>
+                        <div class="index_ico">
+                            <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
+                        </div>
                     </div>
                 </a>
-                <div class="index_icon">
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
             </div>
             <div class="index_line"></div>
-            <div class="index_new container">
-                <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="index_new_title">
-                        The new article
-                    </div>
-                    <div class="index_new_describe">
-                        The new article The new article The new article The new article The new article
-                        The new article The new article The new article The new article The new article
-                    </div>
-                </a>
-                <div class="index_icon">
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
-            <div class="index_line"></div>
-            <div class="index_new container">
-                <a href="/index/index/toBlog" style="color: #0f0f0f;text-decoration:none">
-                    <div class="index_new_title">
-                        The new article
-                    </div>
-                    <div class="index_new_describe">
-                        The new article The new article The new article The new article The new article
-                        The new article The new article The new article The new article The new article
-                    </div>
-                </a>
-                <div class="index_icon">
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-thumbs-up">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-heart-empty">123</span>
-                    </div>
-                    <div class="index_ico">
-                        <span class="glyphicon glyphicon-eye-open">123</span>
-                    </div>
-                </div>
-            </div>
+            {/volist}
+            {/notempty}
         </div>
         <div class="index_hot">
             <div class="index_hot_article">
                 HOT ARTICLE
             </div>
-            <div class="index_hot_title">
-                <a href="#">I like Photos</a>
+            {notempty name="hot"}
+            {volist name="hot" id="item"}
+            <div class="index_hot_title container">
+                <a href="{:url('/index/index/toBlog?id='.$item['id'])}">{$item.title}</a>
             </div>
-            <div class="index_parting"></div>
-            <div class="index_hot_title">
-                <a href="#">I like Photos</a>
-            </div>
-            <div class="index_parting"></div>
-            <div class="index_hot_title">
-                <a href="#">I like Photos</a>
-            </div>
-            <div class="index_parting"></div>
-            <div class="index_hot_title">
-                <a href="#">I like Photos</a>
-            </div>
-            <div class="index_parting"></div>
-            <div class="index_hot_title">
-                <a href="#">I like Photos</a>
-            </div>
+            {/volist}
+            {/notempty}
         </div>
     </div>
     <!-- //new article-->

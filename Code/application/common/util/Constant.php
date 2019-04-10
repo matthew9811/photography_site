@@ -15,5 +15,6 @@ class Constant extends Utils
     const INSERT_MARK = 0;
     const PREFIX = "\\";
     const BLOG_URL = 'root\blog\\';
+    const FORUM_URL = 'root\forum\\';
     const PIC_URL = 'root\pic\\';
 }

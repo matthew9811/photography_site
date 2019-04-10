@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Course</title>
     <?php include("__ROOT__/common/html/bar.html"); ?>
     <link href="/common/css/forum.css" rel="stylesheet" />
 </head>
@@ -31,66 +30,20 @@
                     <th>Replies</th>
                     <th>Page View</th>
                 </tr>
+                {notempty name="forum"}
+                {volist name="forum" id="item"}
                 <tr>
                     <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
+                        <a href="{:url('/index/Forum/toInvitation?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
+                            {$item.title}
                         </a>
                     </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
+                    <td>{$item.user_id}</td>
+                    <td>{$item.like}</td>
+                    <td>{$item.count}</td>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
-                        </a>
-                    </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
-                        </a>
-                    </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
-                        </a>
-                    </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
-                        </a>
-                    </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-                            I like Photo
-                        </a>
-                    </td>
-                    <td>Lilith</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
+                {/volist}
+                {/notempty}
             </table>
         </div>
     </div>
@@ -103,24 +56,15 @@
             Bulletin Board
         </div>
         <div class="forum_list_line"></div>
-        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
+        {notempty name="board"}
+        {volist name="board" id="item"}
+        <a href="{:url('/index/Forum/toInvitation?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
             <div class="forum_title">
-                Bulletin Board Bulletin Board Bulletin Board Bulletin Board
+                {$item.title}
             </div>
         </a>
-
-        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-            <div class="forum_title">
-                Bulletin Board Bulletin Board Bulletin Board Bulletin Board
-            </div>
-        </a>
-
-        <a href="/index/Forum/toInvitation" style="color: #0f0f0f;text-decoration: none">
-            <div class="forum_title">
-                Bulletin Board Bulletin Board Bulletin Board Bulletin Board
-            </div>
-        </a>
-
+        {/volist}
+        {/notempty}
 
     </div>
     <!-- //right -->

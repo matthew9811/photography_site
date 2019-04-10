@@ -160,7 +160,7 @@
 }
 .index_new{
     width: 100%;
-    height: 127px;
+    height: 135px;
     background-color: white;
 }
 .index_new_title{
@@ -184,8 +184,8 @@
 }
 .index_icon{
     float: right;
-    width: 35%;
-    height: 20%;
+    width: 30%;
+    height: 15%;
     font-size: 18px;
 }
 .index_ico{

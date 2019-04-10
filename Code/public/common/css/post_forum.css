@@ -81,7 +81,7 @@
 .post_up{
     background-color: #843534;
     width: 100%;
-    height: 163px;
+    height: 223px;
 }
 .post_line{
     width: 100%;
@@ -96,10 +96,11 @@
     font-size: 22px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .post_forum{
     width: 100%;
-    height: 40px;
+    height: 60px;
     background-color: white;
     font-size: 17px;
     display: flex;
