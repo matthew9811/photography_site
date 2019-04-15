@@ -1,85 +1,29 @@
 <?php
 
-namespace app\common\controller;
+namespace app\index\controller;
 
-use app\index\controller\Base;
+use app\common\util\Constant;
+use app\index\controller\common\Base;
+use think\Db;
 use think\Request;
+use think\Session;
+use DateTime;
 
 class Comment extends Base
 {
-    /**
-     * 显示资源列表
-     *
-     * @return \think\Response
-     */
-    public function index()
+    public function commentBlog(Request $request)
     {
-        //
-    }
-
-    /**
-     * 显示创建资源表单页.
-     *
-     * @return \think\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * 保存新建的资源
-     *
-     * @param  \think\Request  $request
-     * @return \think\Response
-     */
-    public function save(Request $request)
-    {
-        //
-    }
-
-    /**
-     * 显示指定的资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
-
-    /**
-     * 显示编辑资源表单页.
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request  $request
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * 删除指定资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function delete($id)
-    {
-        //
+        $req = $request->post();
+        $blogId = $req['blogId'];
+        $comment = $req['comment'];
+        $id = Session::get("id");
+        Db::table('comment')->insert([
+            'user_id' => $id,
+            'type' => '1',
+            'type_id' => $blogId,
+            'content' => $comment,
+            'delete_flag' => '0',
+            'comment_time' => new \DateTime()
+        ]);
     }
 }

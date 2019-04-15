@@ -43,6 +43,16 @@ class Index extends Base
         $list = DB::table("blog")->where("status","0")
             ->where('delete_flag', '0')->paginate(10);
 //        halt($blogList);
+        for ($i = 0; $i < count($list);$i = $i + 1) {
+            $blog = $list[$i];
+            if ($blog['type'] == 1) {
+                $blog['type'] = '教程';
+            }
+            else {
+                $blog['type'] = '普通博文';
+            }
+            $list[$i] = $blog;
+        }
         $this->assign("list",$list);
         return view("index/article");
     }
@@ -163,6 +173,17 @@ class Index extends Base
         }
     }
 
+    public function removeSomeBlog(Request $request)
+    {
+        $req = $request->post();
+        $list = $req['list'];
+        for ($i = 0;$i < count($list);$i = $i + 1) {
+            Db::table('blog')->where('id',$list[$i])
+                ->update(['status' => '1']);
+        }
+        return json('success');
+    }
+
     public function removeForum(Request $request)
     {
         $req = $request->post();
@@ -172,6 +193,17 @@ class Index extends Base
         if ($forum) {
             return json('success');
         }
+    }
+
+    public function removeSomeForum(Request $request)
+    {
+        $req = $request->post();
+        $list = $req['list'];
+        for ($i = 0;$i < count($list);$i = $i + 1) {
+            Db::table('forum')->where('id',$list[$i])
+                ->update(['delete_flag' => '1']);
+        }
+        return json('success');
     }
 
 

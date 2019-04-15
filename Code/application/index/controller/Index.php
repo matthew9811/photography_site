@@ -118,8 +118,33 @@ class Index extends Controller
             $content = file_get_contents(iconv("UTF-8", "gbk", $blog['content']));
             $blog['content'] = $content;
         }
+        if ($blog['label_id'] == 1) {
+            $blog['label_id'] = 'photo';
+        }
+        else if ($blog['label_id'] == 2) {
+            $blog['label_id'] = 'camera';
+        }
+        else if ($blog['label_id'] == 3) {
+            $blog['label_id'] = 'color';
+        }
+        else if ($blog['label_id'] == 4) {
+            $blog['label_id'] = 'light';
+        }
+        else {
+            $blog['label_id'] = '';
+        }
+        $comment = Db::table('comment')->where('type','1')
+            ->where('type_id',$blog['id'])->select();
+        for ($i = 0;$i < count($comment);$i = $i + 1) {
+            $userId = $comment[$i];
+            $commentor = Db::table('user')->where('id',$userId['user_id'])
+                ->select()[0];
+            $userId['img'] = $commentor['img'];
+            $comment[$i] = $userId;
+        }
         $this->assign('user',$user);
         $this->assign('blog',$blog);
+        $this->assign('comment',$comment);
         return view('blog/blog');
     }
 
@@ -158,6 +183,7 @@ class Index extends Controller
         $this->assign("course4",$course[3]);
         $this->assign("hot",$hot);
         return view('index/login_content');
+
     }
 
     public function toHome()

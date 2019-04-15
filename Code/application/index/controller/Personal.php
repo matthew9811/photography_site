@@ -36,14 +36,49 @@ class personal extends Base
         return View('personal/photo');
     }
 
+    //点击用户头像跳转用户主页
+    public function toUser()
+    {
+        $id = Session::get("id");
+        $userId = input()['id'];
+        if ($userId == $id) {
+            $user = $this->getUser($id);
+            $user = $user[0];
+            $photo = DB::table("photo")->where('user_id',$id)->select();
+        }
+        else {
+            $user = $this->getUser($userId);
+            $user = $user[0];
+            $photo = DB::table("photo")->where('user_id', $userId)->select();
+        }
+        $this->assign("user", $user);
+        $this->assign("photo", $photo);
+        return View('personal/photo');
+    }
+
     public function toArticle()
     {
         $id = Session::get("id");
         $user = $this->getUser($id);
         $user = $user[0];
         $photo = DB::table("photo")->where('user_id',$id)->select();
+        $course = Db::table('blog')->where('user_id',$id)
+            ->where('type','1')->where('delete_flag','0')->select();
+        $blogs = Db::table('blog')->where('user_id',$id)
+            ->where('type','0')->where('delete_flag','0')->select();
+        for ($i = 0; $i < count($blogs); $i = $i + 1) {
+            $blog = $blogs[$i];
+            $content = fopen(iconv("UTF-8", "gbk", $blog['content']),"r");
+            if ($content) {
+                $content = file_get_contents(iconv("UTF-8", "gbk", $blog['content']));
+                $blog['content'] = $content;
+            }
+            $blogs[$i] = $blog;
+        }
         $this->assign("user", $user);
         $this->assign("photo", $photo);
+        $this->assign('blog',$blogs);
+        $this->assign('course',$course);
         return view('personal/article');
     }
 
@@ -60,6 +95,14 @@ class personal extends Base
 
     public function postCourse()
     {
+        $new = Db::table('blog')->where('type','1')
+            ->where('status','1')->order('create_time desc')
+            ->where('delete_flag','0')->limit(3)->select();
+        $hot = Db::table('blog')->where('type','1')
+            ->where('status','1')->order('like desc')
+            ->where('delete_flag','0')->limit(3)->select();
+        $this->assign('new',$new);
+        $this->assign('hot',$hot);
         return view("compile/post_course");
     }
 
@@ -82,9 +125,7 @@ class personal extends Base
 
     protected function getUser($id)
     {
-
         $user = model("common/User")->where("id", $id)->select();
-
         return $user;
     }
 

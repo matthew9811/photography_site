@@ -49,6 +49,7 @@
 <br>
 <div class="container">
     <div id="photos">
+        <if condition="$user.id eq {$Think.session.id}">
         <div class="photo_div">
             <div class="icon_div">
                 <span class="glyphicon glyphicon-plus add_icon"></span>
@@ -57,6 +58,7 @@
                 <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;" accept="image/gif,image/jpeg,image/x-png"/>
             </form>
         </div>
+        </if>
         {notempty name='photo'}
         {volist name='photo' id='item' empty='empty'}
         <div class='photo_div'>

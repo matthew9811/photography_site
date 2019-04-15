@@ -77,7 +77,9 @@
                         <tr>
                             <th><span class="visible-lg">选择</span></th>
                             <th><span class="visible-lg">标题</span></th>
-                            <th class="hidden-sm"><span class="visible-lg">标签</span></th>
+                            <th class="hidden-sm">
+                                <span class="visible-lg">类型</span>
+                            </th>
                             <th><span class="visible-lg">日期</span></th>
                             <th><span class="visible-lg">操作</span></th>
                         </tr>
@@ -86,13 +88,15 @@
                         {notempty name="list"}
                         {volist name="list" id="item"}
                         <tr>
-                            <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
+                            <td>
+                                <input type="checkbox" class="input-control" name="checkbox[]" value="{$item.id}"/>
+                            </td>
                             <td class="article-title">
                                 <a href="/admin/index/toBlog">
                                     {$item.title}
                                 </a>
                             </td>
-                            <td class="hidden-sm">PHP、JavaScript</td>
+                            <td class="hidden-sm">{$item.type}</td>
                             <td>{$item.create_time}</td>
                             <td><a id='{$item.id},1'>通过</a> <a id='{$item.id},2'>驳回</a></td>
                         </tr>
@@ -104,26 +108,15 @@
                 <footer class="message_footer">
                     <nav>
                         <div class="btn-toolbar operation" role="toolbar">
-                            <div class="btn-group" role="group"><a class="btn btn-default" onClick="select()">全选</a> <a
-                                    class="btn btn-default" onClick="reverse()">反选</a> <a class="btn btn-default"
-                                                                                          onClick="noselect()">不选</a>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-default" onClick="select()">全选</a>
+                                <a class="btn btn-default" onClick="reverse()">反选</a>
+                                <a class="btn btn-default" onClick="noselect()">不选</a>
                             </div>
                             <div class="btn-group" role="group">
-                                <button type="submit" class="btn btn-default" data-toggle="tooltip"
-                                        data-placement="bottom" title="删除全部选中" name="checkbox_delete">删除
-                                </button>
+                                <a id="past" class="btn btn-default">通过</a>
                             </div>
                         </div>
-                        <!--<ul class="pagination pagenav">-->
-                            <!--<li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>-->
-                            <!--</li>-->
-                            <!--<li class="active"><a href="#">1</a></li>-->
-                            <!--<li><a href="#">2</a></li>-->
-                            <!--<li><a href="#">3</a></li>-->
-                            <!--<li><a href="#">4</a></li>-->
-                            <!--<li><a href="#">5</a></li>-->
-                            <!--<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>-->
-                        <!--</ul>-->
                     </nav>
                 </footer>
             </form>
@@ -201,6 +194,25 @@
             // console.log(name);
             review(name,'/admin/index/removeBlog');
         });
+        $("#past").click(function (e) {
+            var obj = document.getElementsByName("checkbox[]");
+            var check_val = [];
+            for (var k in obj) {
+                if (obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            $.ajax({
+                url: '/admin/index/removeSomeBlog',
+                type: 'post',
+                data: {
+                    list: check_val
+                },
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                }
+            })
+        })
     });
 </script>
 </body>

@@ -20,3 +20,28 @@ function make_editor(id, id2, url) {
         }, url);
     })
 }
+function postTheCourse(id, id2, url,id3) {
+    var E = window.wangEditor;
+    var editor = new E(id);
+    editor.customConfig.uploadImgShowBase64 = true;
+    editor.create();
+    var content;
+    var title = null;
+    var obj = null;
+    $(id2).click(function () {
+        content = editor.txt.html();
+        title = $("input[name='title']").val();
+        obj = document.getElementsByName(id3);
+        for(var i = 0; i < obj.length; i ++){
+            if(obj[i].checked){
+                var label = obj[i].value;
+            }
+        }
+        console.log(label);
+        ajaxOfPost({
+            'content': content,
+            'title': title,
+            'label' : label
+        }, url);
+    })
+}

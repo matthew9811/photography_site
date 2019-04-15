@@ -11,28 +11,24 @@
     <div class="post_left">
         <div class="post_up">
             <div class="post_name container">The New</div>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
+            {notempty name="new"}
+            {volist name="new" id="item"}
+            <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
-            </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
         <div class="post_line"></div>
         <div class="post_up">
             <div class="post_name container">The hot course</div>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
+            {notempty name="hot"}
+            {volist name="hot" id="item"}
+            <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="text-decoration: none;color: #000;">
+                <div class="post_forum container">{$item.title}</div>
             </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
-            </a>
-            <a href="/index/Blog/toBlog" style="text-decoration: none;color: #000;">
-                <div class="post_forum container">The course title</div>
-            </a>
+            {/volist}
+            {/notempty}
         </div>
     </div>
 
@@ -55,16 +51,16 @@
                 选择教程标签：
             </div>
             <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> photo
+                <input type="radio" name="label" value="1"> photo
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> camera
+                <input type="radio" name="label" value="2"> camera
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> color
+                <input type="radio" name="label" value="3"> color
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox4" value="option4"> light
+                <input type="radio" name="label" value="4"> light
             </label>
         </div>
         <div class="blog_input">
@@ -79,7 +75,7 @@
 <script type="text/javascript">
     var content;
     $(function () {
-        content = make_editor("#div1", "#btn");
+        content = postTheCourse("#div1", "#btn","/index/Course/saveCourse","label");
     })
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>

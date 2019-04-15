@@ -85,20 +85,4 @@ class Blog extends Controller
 //        return view('blog/blog');
         return json($blog);
     }
-
-    public function ok(Request $request)
-    {
-        $req = $request->post();
-        $id = $req['id'];
-        $blog = Db::table('blog')->where('id',$id)->select()[0];
-        $this->assign("blog", $blog);
-        return view('blog/blog');
-    }
-
-    public function testBlog()
-    {
-        $blog = Db::table('blog')->where('id',52)->select()[0];
-        $this->assign("blog", $blog);
-        return view('blog/blog');
-    }
 }

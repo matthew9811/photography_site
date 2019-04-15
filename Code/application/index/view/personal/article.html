@@ -62,40 +62,40 @@
 
                     </div>
                 </li>
+                {notempty name="blog"}
+                {volist name="blog" id="item"}
                 <li>
                     <div class="li_div">
-                        <div class="li_date">19.02.16</div>
+                        <div class="li_date">{$item.create_time}</div>
                         <div class="li_article container">
-                            <a href="/index/Personal/toBlog" style="color: #0f0f0f;text-decoration:none">
-                                <div class="li_title">文章题目</div>
-                                <div class="li_contend">在设置拍摄参数时主要遵循4个原则。第一个原则在光线够的时候不要用
-                                    太高的感光度，不然画面的噪点会比较大，画质不好，所以这次选择的感光度是100。
-                                    第二个原则，快门速度最好要高于镜头焦段的数值，比如我用的是35镜头，最慢的快门速度不能低于
-                                    1\35秒，一般相机没有1\35秒，而是1\60秒，或者1\30秒，这是安全快门速度，一般我们手持拍摄，
-                                    要保证快门速度不能因为手抖而把画面拍糊。我这次选择的是1\400秒，远高于安全快门速度。
+                            <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="color: #0f0f0f;text-decoration:none">
+                                <div class="li_title">{$item.title}</div>
+                                <div class="li_contend">
+                                    {$item.content}
                                 </div>
                             </a>
                             <div class="li_icon">
-                                <div class="li_span">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    <div class="li_num">123</div>
-                                </div>
+                                <!--<div class="li_span">-->
+                                    <!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
+                                    <!--<div class="li_num">123</div>-->
+                                <!--</div>-->
                                 <div class="li_span">
                                     <span class="glyphicon glyphicon-heart-empty"></span>
-                                    <div class="li_num">123</div>
+                                    <div class="li_num">{$item.like}</div>
                                 </div>
                                 <div class="li_span">
                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                    <div class="li_num">123</div>
+                                    <div class="li_num">{$item.count}</div>
                                 </div>
                                 <div class="li_span">
                                     <span class="glyphicon glyphicon-trash"></span>
-                                    <div class="li_num">123</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
+                {/volist}
+                {/notempty}
             </ul>
 
             <div class="like_course">
@@ -106,11 +106,15 @@
                             <span class="glyphicon glyphicon-edit" style="font-size: 18px;color: #FFCC33"></span>
                         </a>
                     </div>
+                    {notempty name="course"}
+                    {volist name="course" id="item"}
                     <div class="my_course">
-                        <a href="/index/Course/toCourse" style="text-decoration: none;color: #0f0f0f">
-                            Course topic
+                        <a href="{:url('/index/index/toBlog?id='.$item['id'])}" style="text-decoration: none;color: #0f0f0f">
+                            {$item.title}
                         </a>
                     </div>
+                    {/volist}
+                    {/notempty}
                 </div>
             </div>
         </div>
@@ -118,9 +122,6 @@
 </div>
 <script type="text/javascript">
     $(function() {
-
-
-
         $("div.tab_menu ul li").eq(0).css({"color":"#000"});
         $("div.tab_menu ul li").eq(1).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});
@@ -144,12 +145,12 @@
             //输出文章内容时，超出80个字时显示...
             $(".li_contend").each(function () {
                 var str = $(this).html();
-                var subStr = str.substring(0, 80);
-                $(this).html(subStr + (str.length > 80 ? '...' : ''));
+                var subStr = str.substring(0, 64);
+                $(this).html(subStr + (str.length > 64 ? '...' : ''));
             });
         }
     });
-</script>
+</script type="text/javascript">
 </body>
 <?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

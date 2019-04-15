@@ -83,7 +83,9 @@
               {notempty name="forum"}
                 {volist name="forum" id="item"}
               <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
+                <td>
+                  <input type="checkbox" class="input-control" name="checkbox[]" value="{$item.id}" />
+                </td>
                 <td class="article-title">
                   <a href="/admin/index/toForum">{$item.title}</a>
                 </td>
@@ -101,9 +103,10 @@
               <div class="btn-group" role="group">
                 <a class="btn btn-default" onClick="select()">全选</a>
                 <a class="btn btn-default" onClick="reverse()">反选</a>
-                <a class="btn btn-default" onClick="noselect()">不选</a> </div>
+                <a class="btn btn-default" onClick="noselect()">不选</a>
+              </div>
               <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-default">删除</button>
+                <a id="delete" class="btn btn-default">删除</a>
               </div>
             </div>
             <!--<ul class="pagination pagenav">-->
@@ -179,6 +182,25 @@ $(function(){
         // console.log(name);
         review(name,'/admin/index/removeForum');
     });
+    $("#delete").click(function (e) {
+        var obj = document.getElementsByName("checkbox[]");
+        var check_val = [];
+        for (var k in obj) {
+            if (obj[k].checked)
+                check_val.push(obj[k].value);
+        }
+        $.ajax({
+            url: '/admin/index/removeSomeForum',
+            type: 'post',
+            data: {
+                list: check_val
+            },
+            success: function (data) {
+                alert(data);
+                window.location.reload();
+            }
+        })
+    })
 });
 </script>
 </body>
