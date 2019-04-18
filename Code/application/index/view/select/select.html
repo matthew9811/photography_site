@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <?php include("__ROOT__/common/html/bar.html"); ?>
+    <link href="/common/css/select.css" rel="stylesheet" />
+    <link href="/common/css/blog.css" rel="stylesheet" />
+</head>
+<body class="select_bg">
+
+<div class="container">
+
+    <!-- left -->
+    <div class="select_left">
+        <div class="select_article">
+            {notempty name="blog"}
+            {volist name="blog" id="item"}
+            <div class="select_line"></div>
+            <div class="select_article_one container">
+                <a href="{:url('/index/index/toBlog?id='.$item['id'])}" class="select_article_des" style="color: #0f0f0f;text-decoration:none">
+                    <div class="select_article_title container">
+                        {$item.title}
+                    </div>
+                    <div class="select_describe">
+                        {$item.content}
+                    </div>
+                </a>
+                <div class="select_icon">
+                    <!--<div class="select_ico">-->
+                    <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
+                    <!--</div>-->
+                    <div class="select_ico">
+                        <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
+                    </div>
+                    <div class="select_ico">
+                        <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
+                    </div>
+                </div>
+            </div>
+            {/volist}
+            {/notempty}
+        </div>
+    </div>
+    <!-- left -->
+
+    <!-- right -->
+    {notempty name="user"}
+    {volist name="user" id="item"}
+    <div class="select_right">
+        <div class="select_list container">
+            <span class="glyphicon glyphicon-flag">&nbsp</span>
+            USER
+        </div>
+        <div class="select_list_line"></div>
+        <a href="{:url('/index/Personal/toUser?id='.$item['id'])}" style="color: #0f0f0f;text-decoration: none">
+            <div class="select_title container">
+                <!--{$item.nick_name}-->
+                <div class="blog_who">
+                    <img src="{$item.img}" class="img-circle blog_people_head">
+                </div>
+                <div class="blog_people_content container">
+                    {$item.nick_name}
+                </div>
+            </div>
+        </a>
+    </div>
+    {/volist}
+    {/notempty}
+    {empty name="user"}
+    <div class="select_right">
+        <div class="select_list container">
+            <span class="glyphicon glyphicon-user">&nbsp</span>
+            USER
+        </div>
+        <div class="select_list_line"></div>
+        <a href="" style="color: #0f0f0f;text-decoration: none">
+            <div class="select_title container">
+                无对应用户
+            </div>
+        </a>
+    </div>
+    {/empty}
+    <!-- //right -->
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        //输出文章内容时，超出62个字时显示...
+        $(".select_describe").each(function() {
+            var str = $(this).html();
+            var subStr = str.substring(0, 62);
+            $(this).html(subStr + (str.length > 62 ? '...' : ''));
+        });
+
+        $("#good").click(function () {
+            $this.css("color","#FFCC33");
+        })
+    })
+</script>
+<?php include("__ROOT__/common/html/footer.html"); ?>
+</html>

@@ -30,10 +30,10 @@
                 </a>
                 <div class="course_icon">
                     <!--<div class="course_ico">-->
-                        <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
+                        <!--<span class="glyphicon glyphicon-thumbs-up">{$item.like}</span>-->
                     <!--</div>-->
-                    <div class="course_ico">
-                        <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
+                    <div class="course_ico" onclick="likeBlog('{$item.id}')">
+                        <span class="glyphicon glyphicon-heart-empty" id="{$item.id}">{$item.like}</span>
                     </div>
                     <div class="course_ico">
                         <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
@@ -75,11 +75,7 @@
             var subStr = str.substring(0, 62);
             $(this).html(subStr + (str.length > 62 ? '...' : ''));
         });
-
-        $("#good").click(function () {
-            $this.css("color","#FFCC33");
-        })
-    })
+    });
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>
 </html>

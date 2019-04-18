@@ -2,7 +2,7 @@
     background-color: #F4F7F9;
 }
 .bg-img{
-    background: url(../../root/images/bg.jpg)no-repeat 0px 0px;
+    /*background: url(../../root/images/bg.jpg)no-repeat 0px 0px;*/
     background-size: cover;
     position: relative;
 }

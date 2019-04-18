@@ -26,4 +26,20 @@ class Comment extends Base
             'comment_time' => new \DateTime()
         ]);
     }
+
+    public function commentForum(Request $request)
+    {
+        $req = $request->post();
+        $forumId = $req['forumId'];
+        $comment = $req['comment'];
+        $id = Session::get("id");
+        Db::table('comment')->insert([
+            'user_id' => $id,
+            'type' => '2',
+            'type_id' => $forumId,
+            'content' => $comment,
+            'delete_flag' => '0',
+            'comment_time' => new \DateTime()
+        ]);
+    }
 }

@@ -71,8 +71,8 @@ class course extends Base
         $content = $post['content'];
         $title = $post['title'];
         $label = $post['label'];
-        $path = Constant::BLOG_URL . Session::get("nickName");
-        if (!is_dir(Constant::BLOG_URL . Session::get("nickName"))) {
+        $path = Constant::BLOG_URL . Session::get("id");
+        if (!is_dir(Constant::BLOG_URL . Session::get("id"))) {
             mkdir(iconv("UTF-8", "UTF-8", $path), 0777, true);
         }
         $blog = fopen($path . '/' . iconv("UTF-8", "gbk", $title) . '.html', "w+");
@@ -95,7 +95,7 @@ class course extends Base
 //        $this->redirect("ok",array('id' => $blog['id']));
 //        $this->assign("blog", $blog);
 //        return view('blog/blog');
-        return json($blog);
+        return json('/index/index/toBlog?id=' . $blog['id']);
     }
 
 }

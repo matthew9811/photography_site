@@ -1,36 +1,27 @@
-.course_bg{
+.select_bg{
     background-color: #F4F7F9;
 }
-.course_left{
+.select_left{
     width: 800px;
-    min-height: 700px;
+    min-height: 100px;
     /*background-color: #FFCC33;*/
     float: left;
 }
-.course_right{
+.select_right{
     width: 320px;
-    height: 360px;
+    min-height: 100px;
     background-color: white;
     float: right;
 }
-.course_slide{
-    width: 800px;
-    height: 241px;
-    /*background-color: white;*/
-}
-.course_slide img{
-    width: 800px;
-    height: 241px;
-}
-.course_nav{
+.select_nav{
     /*background-color: white;*/
     width: 100%;
     height: 35px
 }
-.course_tab {
+.select_tab {
     clear: both;
 }
-.course_tab li {
+.select_tab li {
     width: 150px;
     height: 100%;
     font-size: 20px;
@@ -42,30 +33,30 @@
     list-style:none;
     border-bottom:none;
 }
-.course_tab li.selected {
+.select_tab li.selected {
     color:#FFCC33;
 }
-.course_article{
+.select_article{
     width: 100%;
     min-height: 100px;
     /*background-color: #880000;*/
 }
-.course_article_one{
+.select_article_one{
     width: 100%;
     height: 110px;
     background-color: white;
 }
-.course_line{
+.select_line{
     width: 100%;
     height: 6px;
     background-color: #F4F7F9;
 }
-.course_article_des {
+.select_article_des {
     width: 100%;
     float: left;
     height: 80px;
 }
-.course_article_title{
+.select_article_title{
     /*background-color: #880000;*/
     width: 100%;
     height: 30px;
@@ -76,7 +67,7 @@
     text-indent:1em;
     color: #0f0f0f;
 }
-.course_describe{
+.select_describe{
     width: 100%;
     height: 50px;
     font-size: 16px;
@@ -84,20 +75,19 @@
     color: #555555;
     /*background-color: #F4F7F9;*/
 }
-.course_icon{
+.select_icon{
     float: right;
     width: 30%;
     height: 20px;
     font-size: 18px;
     /*background-color: #880000;*/
 }
-.course_ico{
+.select_ico{
     width: 70px;
     /*background-color: white;*/
     float: left;
-    color: #9d9d9d;
 }
-.course_list{
+.select_list{
     height: 52px;
     width: 100%;
     /*background-color: #880000;*/
@@ -109,11 +99,11 @@
     justify-content: center;
     /*font-weight: bold;*/
 }
-.course_list span{
-    font-size: 20px;
+.select_list span{
+    font-size: 25px;
     color: #FFCC33;
 }
-.course_title{
+.select_title{
     width: 100%;
     height: 60px;
     /*background-color: #F4F7F9;*/
@@ -122,7 +112,7 @@
     align-items: center;
     justify-content: center;
 }
-.course_list_line{
+.select_list_line{
     width: 100%;
     height: 3px;
     background-color: #FFCC33;

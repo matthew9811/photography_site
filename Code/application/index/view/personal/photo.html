@@ -8,7 +8,9 @@
 </head>
 <body class="bg">
 <!-- background_images -->
-<div id="home" class="bg-img">
+<div id="home" style="background: url('__ROOT__{$user.templete_img}')no-repeat 0px 0px;background-size: cover;
+    position: relative;
+">
     <div class="box"></div>
     <div class="come_up">
         <div class="container">
@@ -25,7 +27,7 @@
                 </div>
                 <div class="div_signature">
                     <p>{$user->signature}
-                        <a href="/index/Personal/toAlter" style="color: white">
+                        <a href="/index/Personal/toAlter" style="color: white" id="userIfSign">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </p>
@@ -49,8 +51,7 @@
 <br>
 <div class="container">
     <div id="photos">
-        <if condition="$user.id eq {$Think.session.id}">
-        <div class="photo_div">
+        <div id="userIf" class="photo_div">
             <div class="icon_div">
                 <span class="glyphicon glyphicon-plus add_icon"></span>
             </div>
@@ -58,7 +59,6 @@
                 <input type="file" name="name" id="name" class="icon_div" style="position:absolute;opacity:0;" accept="image/gif,image/jpeg,image/x-png"/>
             </form>
         </div>
-        </if>
         {notempty name='photo'}
         {volist name='photo' id='item' empty='empty'}
         <div class='photo_div'>
@@ -71,6 +71,15 @@
 </body>
 <script type="text/javascript">
     $(function () {
+        var currentId = {$Request.session.id};
+        var user = {:json_encode($user)};
+        console.log(user.id);
+        if (user.id != currentId) {
+            $("#userIf").css('display','none');
+            $("#userIfSign").css('display','none');
+        }
+
+
         //页面卡片
         $("div.tab_menu ul li").eq(0).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(1).css({"color":"#000"});
@@ -81,32 +90,38 @@
         for(var i = 0; i < obj_lis.length; i++) {
             obj_lis[i].onclick = function () {
                 if (this.innerHTML == "Photo") {
-                    window.location.href = "/index/personal/toPersonal";
+                    if (user.id != currentId) {
+                        window.location.href = "/index/personal/toUser?id=" + user.id;
+                    } else {
+                        window.location.href = "/index/personal/toPersonal";
+                    }
                 } else if (this.innerHTML == "Blog") {
-                    window.location.href = "/index/personal/toArticle";
+                    if (user.id != currentId) {
+                        window.location.href = "/index/personal/toUserBlog?id=" + user.id;
+                    } else {
+                        window.location.href = "/index/personal/toArticle";
+                    }
                 }
             };
         }
 
             //获取上传的文件并预览
-            $("#name").change(function () {
-                var objUrl = getObjectURL(this.files[0]);//获取文件信息
-                var formData = new FormData();
-                formData.append('pic', $(this).get(0).files[0]);
-                console.log(formData);
-                var option = {
-                    'data' : formData,
-                    'url' : '/index/Personal/savePhoto'
-                };
-                updataPhoto(option);
-                if (objUrl) {
-                    $("#photos").append("<div class='photo_div'>" +
-                        "            <img src='" + objUrl + "' class='img_div'>" +
-                        "        </div>");
-                }
-            });
-
-
+        $("#name").change(function () {
+            var objUrl = getObjectURL(this.files[0]);//获取文件信息
+            var formData = new FormData();
+            formData.append('pic', $(this).get(0).files[0]);
+            console.log(formData);
+            var option = {
+                'data' : formData,
+                'url' : '/index/Personal/savePhoto'
+            };
+            updataPhoto(option);
+            if (objUrl) {
+                $("#photos").append("<div class='photo_div'>" +
+                    "            <img src='" + objUrl + "' class='img_div'>" +
+                    "        </div>");
+            }
+        });
     })
 </script>
 <?php include("__ROOT__/common/html/footer.html"); ?>

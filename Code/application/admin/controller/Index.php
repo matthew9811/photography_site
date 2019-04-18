@@ -42,7 +42,6 @@ class Index extends Base
     {
         $list = DB::table("blog")->where("status","0")
             ->where('delete_flag', '0')->paginate(10);
-//        halt($blogList);
         for ($i = 0; $i < count($list);$i = $i + 1) {
             $blog = $list[$i];
             if ($blog['type'] == 1) {
@@ -98,21 +97,6 @@ class Index extends Base
             ->select();
         $this->assign('user',$user);
         return view("index/loginlog");
-    }
-
-    public function check()
-    {
-        return view("index/check_blog");
-    }
-
-    public function toBlog()
-    {
-        return view("index/check_blog");
-    }
-
-    public function toForum()
-    {
-        return view("index/check_forum");
     }
 
 

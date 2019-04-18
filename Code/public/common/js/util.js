@@ -43,6 +43,8 @@ function ajaxOfPost(data, rsqUrl) {
         data: data,
         success: function (datas) {
             alert('success');
+            console.log(datas);
+            window.location.href = datas;
         },
         error: function () {
             console.log('error');
@@ -132,4 +134,21 @@ function review(name,url) {
             window.location.reload();
         }
     });
+}
+
+function likeBlog(id) {
+    $.ajax({
+        url: '/index/Blog/toLike',
+        type: 'post',
+        data: {
+            id: id,
+        },
+        success: function (data) {
+            $("#" + data[0]).html(data[1]);
+            $("#" + data[0]).css('color',"#FFCC33")
+        },
+        error: function () {
+            console.log('error');
+        }
+    })
 }

@@ -25,9 +25,11 @@
         <div class="blog_title">
             {$blog.title}
         </div>
+        {if $blog.type eq 1}
         <div class="blog_label">
-            <div>{$blog.label_id}</div>
+            <div>标签：{$blog.label_id}</div>
         </div>
+        {/if}
         <div class="blog_content">
             {$blog.content}
         </div>

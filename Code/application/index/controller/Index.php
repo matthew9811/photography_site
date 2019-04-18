@@ -9,6 +9,7 @@ use think\Request;
 use think\Session;
 use DateTime;
 use app\common\util\AES;
+use think\View;
 
 class Index extends Controller
 {
@@ -280,6 +281,29 @@ class Index extends Controller
     {
         session(null);
         return view("index/index");
+    }
+
+    //全文检索
+    public function search(Request $request){
+        $post = $request->post();
+        $search = $post['search'];
+        $listUser = Db::table('user')
+            ->whereLike('nick_name', '%'.$search.'%')
+            ->where('delete_flag','0')->select();
+        $listBlog = Db::table('blog')->whereLike('title', '%'.$search.'%')
+            ->where('delete_flag','0')->select();
+        for ($i = 0; $i < count($listBlog); $i = $i + 1) {
+            $blog = $listBlog[$i];
+            $content = fopen(iconv("UTF-8", "gbk", $blog['content']),"r");
+            if ($content) {
+                $content = file_get_contents(iconv("UTF-8", "gbk", $blog['content']));
+                $blog['content'] = $content;
+            }
+            $listBlog[$i] = $blog;
+        }
+        $this->assign("blog", $listBlog);
+        $this->assign("user", $listUser);
+        return view('select/select');
     }
 
 

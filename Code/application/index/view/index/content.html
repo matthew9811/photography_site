@@ -151,18 +151,18 @@
                     <div class="index_new_describe">
                         {$item.content}
                     </div>
+                </a>
                     <div class="index_icon">
                         <!--<div class="index_ico">-->
                         <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
                         <!--</div>-->
-                        <div class="index_ico">
-                            <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
+                        <div class="index_ico" onclick="likeBlog('{$item.id}')">
+                            <span class="glyphicon glyphicon-heart-empty" id="{$item.id}">{$item.like}</span>
                         </div>
                         <div class="index_ico">
                             <span class="glyphicon glyphicon-eye-open">{$item.count}</span>
                         </div>
                     </div>
-                </a>
             </div>
             <div class="index_line"></div>
             {/volist}
@@ -187,7 +187,6 @@
 
 <script type="text/javascript">
     $(function () {  //引入jq之后一定要有这个
-
         //gallery的滑动效果
         $("#flexiselDemo1").flexisel({
             visibleItems: 4,
@@ -247,8 +246,6 @@
             var subStr = str.substring(0, 100);
             $(this).html(subStr + (str.length > 100 ? '...' : ''));
         });
-
-
 
     });
 </script>

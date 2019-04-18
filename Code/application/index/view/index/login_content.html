@@ -151,8 +151,8 @@
                         <!--<div class="index_ico">-->
                         <!--<span class="glyphicon glyphicon-thumbs-up">123</span>-->
                         <!--</div>-->
-                        <div class="index_ico">
-                            <span class="glyphicon glyphicon-heart-empty">{$item.like}</span>
+                        <div class="index_ico"  onclick="likeBlog('{$item.id}')">
+                            <span class="glyphicon glyphicon-heart-empty" id="{$item.id}">{$item.like}</span>
                         </div>
                         <div class="index_ico">
                             <span class="glyphicon glyphicon-eye-open">{$item.count}</span>

@@ -36,9 +36,35 @@
     padding-top:10px;
     width: 200px;
 }
+.bar_button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;  //自定义边框
+    outline: none;
+}
+.bar_message {
+    width:70px;
+    height:50px;
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+.bar_message li{
+    width:70px;
+    margin:0 10px;
+    float: left;
+}
+.bar_message li a{
+    width:70px;
+    height:50px;
+    padding:0 20px;
+    font-size: 12px;
+    line-height:50px;
+    display: inline-block;
+}
 .bar_out{
     width: 120px;
-    /*height: 40px;*/
+    height: 40px;
     font-size: 15px;
     float: right;
     /*background-color: #880000;*/
@@ -72,52 +98,59 @@
 #navs{
     width: 100px;
     height: 40px;
-    /*background: #ccc;*/
     margin: 0 auto;
 }
-/*ul{background: #aaa}*/
 .messages li{
     float:left;
-    display:block;
+    display:flex;
     height: 40px;
-    line-height: 34px;
-    font-size: 17px;
-    padding: 0 10px;
+    line-height: 10px;
+    font-size: 15px;
+    padding: 0 7px;
     position: relative;
-    /*color: #0f0f0f;*/
+    color: #9d9d9d;
+    align-items: center;
+    justify-content: center;
+
+    /*background-color: red;*/
 }
 .messages li a{
     color: #9d9d9d;
     text-decoration: none;
     cursor:pointer
 }
-.messages li:hover{
-    /*background: #cea;*/
+.messages li a{
+    color: #9d9d9d;
+    text-decoration: none;
+    cursor:pointer
 }
-.messages li ul li{
-    font-size: 12px;
-    height: 16px;
-    margin: 0px;
-    border: 0;
-    float: none;
-}
+/*.messages li:hover{*/
+    /*!*background: #cea;*!*/
+/*}*/
+/*.messages li ul li{*/
+    /*font-size: 12px;*/
+    /*height: 16px;*/
+    /*margin: 0px;*/
+    /*border: 0;*/
+    /*float: none;*/
+/*}*/
 /*关键一：将二级菜单设置为display：none;*/
-.messages li ul{
-    position: absolute;
-    top: 18px;
-    left: 0;
-    display: none;
-}
-.messages li ul li:hover{
-    /*background: red;*/
-}
-/*关键二：在划过二级菜单从属的一级菜单时，设置为display:block;*/
-.messages li:hover ul{
-    display: block;
-}
-#seeUserInfo .modal-dialog {
-    max-width: 450px;
-}
+/*.messages li ul{*/
+    /*position: absolute;*/
+    /*top: 18px;*/
+    /*left: 0;*/
+    /*display: none;*/
+/*}*/
+/*.messages li ul li:hover{*/
+    /*!*background: red;*!*/
+/*}*/
+/*!*关键二：在划过二级菜单从属的一级菜单时，设置为display:block;*!*/
+/*.messages li:hover ul{*/
+    /*display: block;*/
+/*}*/
+/*#seeUserInfo .modal-dialog {*/
+    /*max-width: 450px;*/
+/*}*/
 /*页面顶部*/
 
 

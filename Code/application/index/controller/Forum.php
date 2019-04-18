@@ -45,15 +45,27 @@ class Forum extends Base
     public function toInvitation()
     {
         $id = input()['id'];
-        $forum = Db::table('forum')->where('id',$id)->select()[0];
+        $forum = Db::table('forum')->where('id',$id)
+            ->where('delete_flag','0')->select()[0];
         $user = Db::table('user')->where('id',$forum['user_id'])->select()[0];
         $content = fopen(iconv("UTF-8", "gbk", $forum['content']),"r");
         if ($content) {
             $content = file_get_contents(iconv("UTF-8", "gbk", $forum['content']));
             $forum['content'] = $content;
         }
+        $comment = Db::table('comment')->where('type','2')
+            ->where('type_id',$id)->select();
+        for ($i = 0;$i < count($comment);$i = $i + 1) {
+            $userId = $comment[$i];
+            $commentor = Db::table('user')->where('id',$userId['user_id'])
+                ->select()[0];
+            $userId['img'] = $commentor['img'];
+            $userId['nick_name'] = $commentor['nick_name'];
+            $comment[$i] = $userId;
+        }
         $this->assign('user',$user);
         $this->assign('forum',$forum);
+        $this->assign('comment',$comment);
         return view('forum/invitation');
     }
 
@@ -87,11 +99,11 @@ class Forum extends Base
             'publish_time' => new DateTime(),
 
         ]);
-        $blog = Db::table('forum')->where('user_id',Session::get('id'))
+        $forum = Db::table('forum')->where('user_id',Session::get('id'))
             ->where('title',$title)->select()[0];
 //        $this->redirect("ok",array('id' => $blog['id']));
 //        $this->assign("blog", $blog);
 //        return view('blog/blog');
-        return json($blog);
+        return json('/index/Forum/invitation?id=' . $forum['id']);
     }
 }

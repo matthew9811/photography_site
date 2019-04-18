@@ -2,13 +2,13 @@
 
 namespace app\index\controller;
 
+use app\common\model\User;
 use app\common\util\Constant;
 use app\index\controller\common\Base;
 use think\Db;
 use think\Request;
 use think\Session;
 use app\common\util\AES;
-use app\common\model\User;
 
 class personal extends Base
 {
@@ -56,6 +56,46 @@ class personal extends Base
         return View('personal/photo');
     }
 
+    //点击用户头像跳转用户主页的博客页面
+    public function toUserBlog()
+    {
+        $id = Session::get("id");
+        $userId = input()['id'];
+        if ($userId == $id) {
+            $user = $this->getUser($id);
+            $user = $user[0];
+            $blogs = DB::table("blog")->where('delete_flag','0')
+                ->where('type','0')->where('status','1')
+                ->where('user_id',$id)->select();
+            $course = DB::table("blog")->where('delete_flag','0')
+                ->where('type','1')
+                ->where('user_id',$id)->select();
+        }
+        else {
+            $user = $this->getUser($userId);
+            $user = $user[0];
+            $blogs = DB::table("blog")->where('delete_flag','0')
+                ->where('type','1')->where('status','1')
+                ->where('user_id', $userId)->select();
+            $course = DB::table("blog")->where('delete_flag','0')
+                ->where('type','1')->where('status','1')
+                ->where('user_id',$userId)->select();
+        }
+        for ($i = 0; $i < count($blogs); $i = $i + 1) {
+            $blog = $blogs[$i];
+            $content = fopen(iconv("UTF-8", "gbk", $blog['content']),"r");
+            if ($content) {
+                $content = file_get_contents(iconv("UTF-8", "gbk", $blog['content']));
+                $blog['content'] = $content;
+            }
+            $blogs[$i] = $blog;
+        }
+        $this->assign("user", $user);
+        $this->assign("course",$course);
+        $this->assign("blog", $blogs);
+        return View('personal/article');
+    }
+
     public function toArticle()
     {
         $id = Session::get("id");
@@ -63,9 +103,11 @@ class personal extends Base
         $user = $user[0];
         $photo = DB::table("photo")->where('user_id',$id)->select();
         $course = Db::table('blog')->where('user_id',$id)
-            ->where('type','1')->where('delete_flag','0')->select();
+            ->where('status','1')->where('type','1')
+            ->where('delete_flag','0')->select();
         $blogs = Db::table('blog')->where('user_id',$id)
-            ->where('type','0')->where('delete_flag','0')->select();
+            ->where('status','1')->where('type','0')
+            ->where('delete_flag','0')->select();
         for ($i = 0; $i < count($blogs); $i = $i + 1) {
             $blog = $blogs[$i];
             $content = fopen(iconv("UTF-8", "gbk", $blog['content']),"r");
@@ -85,9 +127,13 @@ class personal extends Base
     public function toPost()
     {
         $new = Db::table('blog')->where('delete_flag','0')
-            ->order('create_time desc')->limit(3)->select();
+            ->where('status','1')
+            ->order('create_time desc')
+            ->limit(3)->select();
         $hot = Db::table('blog')->where('delete_flag','0')
-            ->order('like desc')->limit(3)->select();
+            ->order('like desc')
+            ->where('status','1')
+            ->limit(3)->select();
         $this->assign('new',$new);
         $this->assign('hot',$hot);
         return view('compile/post_blog');
@@ -104,11 +150,6 @@ class personal extends Base
         $this->assign('new',$new);
         $this->assign('hot',$hot);
         return view("compile/post_course");
-    }
-
-    public function toBlog()
-    {
-        return view('blog/blog');
     }
 
     public function toAlter()
@@ -141,7 +182,7 @@ class personal extends Base
             mkdir(iconv("UTF-8", "UTF-8", $path), 0777, true);
         }
         $time = new \DateTime();
-        $time = $time->format("Y-m-d");
+        $time = $time->format("Y-m-d-h-m-s");
         $suffix = explode(".", $file->getInfo()["name"])[1];
         $file->setSaveName( $time )->move($path, $time);
         $url = Constant::PREFIX  . $path . DS . $file->getSaveName() .   "."  . $suffix;
@@ -160,12 +201,12 @@ class personal extends Base
     public function saveBg()
     {
         $file = request()->file('photo');
-        $name = session("nickName");
-        $url = "root\images\background";
+        $name = session("id");
+        $url = "root/images/background/";
         $suffix = explode(".", $file->getInfo()["name"])[1];
         $file->setSaveName( $name )->move($url, $name);
         $result = Db::table("user")->where("id", session("id"))
-            ->update(['templete_img' => Constant::PREFIX  . $url . DS . $file->getSaveName() .   "."  . $suffix]);
+            ->update(['templete_img' => Constant::PREFIX  . $url . $file->getSaveName() .   "."  . $suffix]);
         if ($result > Constant::INSERT_MARK) {
             return $this->success("success");
         }
@@ -178,7 +219,7 @@ class personal extends Base
     public function saveHead()
     {
         $url = "root\images\common";
-        $nickName = session("nickName");
+        $nickName = session("id");
         $file = request()->file('head');
         $suffix = explode(".", $file->getInfo()['name'])[1];
         $file->setSaveName($nickName)->move($url, $nickName);

@@ -54,14 +54,13 @@ class Blog extends Controller
 
     }
 
-
     public function saveBlog(Request $request)
     {
         $post = $request->post();
         $content = $post['content'];
         $title = $post['title'];
-        $path = Constant::BLOG_URL . Session::get("nickName");
-        if (!is_dir(Constant::BLOG_URL . Session::get("nickName"))) {
+        $path = Constant::BLOG_URL . Session::get("id");
+        if (!is_dir(Constant::BLOG_URL . Session::get("id"))) {
             mkdir(iconv("UTF-8", "UTF-8", $path), 0777, true);
         }
         $blog = fopen($path . '/' . iconv("UTF-8", "gbk", $title) . '.html', "w+");
@@ -83,6 +82,20 @@ class Blog extends Controller
 //        $this->redirect("ok",array('id' => $blog['id']));
 //        $this->assign("blog", $blog);
 //        return view('blog/blog');
-        return json($blog);
+        return json('/index/index/toBlog?id=' . $blog['id']);
+    }
+
+    public function toLike(Request $request)
+    {
+        $req = $request->post();
+        $id = $req['id'];
+        Db::table('blog')->where('id',$id)->setInc('like');
+        $like = Db::table('blog')->where('id',$id)->select()[0];
+        return json(
+            [
+                $id,
+                $like['like']
+            ]
+        );
     }
 }

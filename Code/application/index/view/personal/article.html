@@ -7,7 +7,9 @@
 </head>
 <body class="bg">
 <!-- background_images -->
-<div id="home" class="bg-img">
+<div id="home" style="background: url('__ROOT__{$user.templete_img}')no-repeat 0px 0px;background-size: cover;
+    position: relative;
+">
     <div class="box"></div>
     <div class="come_up">
         <div class="container">
@@ -24,7 +26,7 @@
                 </div>
                 <div class="div_signature">
                     <p>{$user->signature}
-                        <a href="/index/Personal/toAlter" style="color: white">
+                        <a href="/index/Personal/toAlter" style="color: white" id="userIfSign">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </p>
@@ -50,7 +52,7 @@
         <div class="about4_main">
             <div class="line"></div>
             <ul id="article" class="about4_ul">
-                <li>
+                <li id="userIf">
                     <div class="li_div">
                         <div class="li_date">现在</div>
                         <div class="article_editor li_add container">
@@ -102,7 +104,7 @@
                 <div class="container">
                     <div class="course">
                         My Course &nbsp
-                        <a href="/index/Personal/postCourse">
+                        <a href="/index/Personal/postCourse" id="userIfCourse">
                             <span class="glyphicon glyphicon-edit" style="font-size: 18px;color: #FFCC33"></span>
                         </a>
                     </div>
@@ -122,6 +124,15 @@
 </div>
 <script type="text/javascript">
     $(function() {
+        var currentId = {$Request.session.id};
+        var user = {:json_encode($user)};
+        console.log(user.id);
+        if (user.id != currentId) {
+            $("#userIf").css('display','none');
+            $("#userIfCourse").css('display','none');
+            $("#userIfSign").css('display','none');
+        }
+
         $("div.tab_menu ul li").eq(0).css({"color":"#000"});
         $("div.tab_menu ul li").eq(1).css({"color":"#FFCC33"});
         $("div.tab_menu ul li").eq(2).css({"color":"#000"});
@@ -131,9 +142,17 @@
         for(var i = 0; i < obj_lis.length; i++) {
             obj_lis[i].onclick = function () {
                 if (this.innerHTML == "Photo") {
-                    window.location.href = "/index/personal/toPersonal";
+                    if (user.id != currentId) {
+                        window.location.href = "/index/personal/toUser?id=" + user.id;
+                    } else {
+                        window.location.href = "/index/personal/toPersonal";
+                    }
                 } else if (this.innerHTML == "Blog") {
-                    window.location.href = "/index/personal/toArticle";
+                    if (user.id != currentId) {
+                        window.location.href = "/index/personal/toUserBlog?id=" + user.id;
+                    } else {
+                        window.location.href = "/index/personal/toArticle";
+                    }
                 }
             };
             //获取ul中li的个数，计算时间轴的长度
